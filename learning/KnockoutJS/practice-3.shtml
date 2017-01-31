@@ -1,0 +1,165 @@
+<html>
+
+<head>
+    <title>Example: Custom Binding</title>
+    <link href="bootstrap.css" type="text/css" rel='stylesheet' />
+    <link href="jquery-ui.css" type="text/css" rel='stylesheet' />
+</head>
+
+<body>
+    <hr />
+    <div id="div-2" style="width: 25%; margin: 0 auto;">
+
+        <form>
+            <div class="form-group">
+                <label for="txtAccountId">Account Id</label>
+                <input type="text" class="form-control" id="txtAccountId" placeholder="Account Id" data-bind="value: accountid">
+            </div>
+            <div class="form-group">
+                <label for="txtAccountName">Account Name</label>
+                <input type="text" class="form-control" id="txtAccountName" placeholder="Account Name" data-bind="value: accountname">
+            </div>
+            <div class="form-group">
+                <label for="txtAccountBalance">Account Balance</label>
+                <input type="text" class="form-control" id="txtAccountBalance" placeholder="Account Balance" data-bind="value: accountbalance">
+            </div>
+            <div class="form-group">
+                <label for="lstAccounts">Accounts</label>
+                <select class="form-control" id="lstAccounts" data-bind="options: accounts, optionsValue: 'id', optionsText: 'name'">
+                </select>
+            </div>            
+            <button type="button" class="btn btn-default" id="btnAddAccount">Submit</button>
+        </form>
+        
+        <!-- ko if : accounts().length -->
+        <table class="table">
+            <caption>Optional table caption.</caption>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Account Id</th>
+                    <th>Account Name</th>
+                    <th>Account Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row" data-bind="text: accountIndex"></th>
+                    <td data-bind="text: accounts()[accountIndex()].id"></td>
+                    <td data-bind="text: accounts()[accountIndex()].name"></td>
+                    <td data-bind="text: accounts()[accountIndex()].balance"></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="4">Total: <!-- ko text : totalBalance --><!-- /ko --></th>
+                </tr>
+            </tfoot>
+        </table>
+        
+        <!-- /ko -->
+        
+        <div data-bind="text: ko.toJSON($root)"></div>
+    </div>
+
+    <hr />
+    <!--
+    <div id="div-1">
+        <ul data-bind="foreach: people">
+            <li>
+                <input type="checkbox" data-bind="checkedValue: id, attr: {id: 'checkBox' + id}, click: $parent.addPerson, checked: $parent.checkedPeople">
+                <label data-bind="text: name, attr:{for: 'checkBox'+id}"></label>
+            </li>
+        </ul>  
+        <div data-bind="text: ko.toJSON($root)"></div>
+    </div>
+    -->
+
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script src="knockout-3.4.0.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+
+            /* ***************************************************************************************************** */
+            
+            var Account = function (id, name, balance) {
+                this.id         = id;
+                this.name       = name;
+                this.balance    = balance;
+            }
+            
+            var AccountViewModel = function () {
+                this.accountid      = ko.observable();
+                this.accountname    = ko.observable();
+                this.accountbalance = ko.observable();
+                this.accounts       = ko.observableArray();
+                this.accountIndex   = ko.observable();
+                this.totalBalance   = ko.computed(function () {
+                    var total = 0;
+                    for (var i=0; i<this.accounts().length; i++) {
+                        total = total + parseInt(this.accounts()[i].balance);
+                    }
+                    return total;
+                }, this);
+            };
+
+            var accVM = new AccountViewModel();
+                
+            ko.applyBindings(accVM, $("#div-2")[0]);
+
+            
+            $('#btnAddAccount').on('click', function () {
+                var account = new Account(accVM.accountid(), accVM.accountname(), accVM.accountbalance());
+                accVM.accounts.push(account);
+                
+                accVM.accountid("");
+                accVM.accountname("");
+                accVM.accountbalance("");
+            });
+            
+
+            $('#lstAccounts').on('change', function () {
+                accVM.accountIndex( this.selectedIndex );
+            });
+            
+            /* ***************************************************************************************************** */
+
+            //            function Person(id,name,age) {
+            //                this.id = id;
+            //                this.name = name;
+            //                this.age = age;
+            //            }
+            //
+            //            var listOfPeople = [
+            //                new Person(1, 'Fred', 25),
+            //                new Person(2, 'Joe', 60),
+            //                new Person(3, 'Sally', 43)
+            //            ];
+            //            
+            //            var viewModel_1 = {
+            //                people: ko.observableArray(listOfPeople),
+            //                selectedPeople: ko.observableArray(),
+            //                checkedPeople: ko.observableArray(),
+            //                addPerson: function(person) {
+            //
+            //                    console.log(person);
+            //                    return true;
+            //                }
+            //            };
+            //            
+            //            ko.applyBindings(viewModel_1, $("#div-1")[0]);
+
+            /* ***************************************************************************************************** */
+
+
+            $('#jqueryButton').on('click', function(e) {
+                console.log('jQuery', e);
+            });
+        });
+    </script>
+</body>
+
+</html>

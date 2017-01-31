@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Material Design Inspired Navigation Demo</title>
+    <style class="cp-pen-styles">
+        * { padding: 0; margin: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; color: #666666; line-height: 1.5em; position: relative;}
+        
+        nav { background: #14B9FF; height: 100%; left: 0; position: fixed; top: 0; width: 100%; }
+        nav ul {margin-top: 50px; width: 250px;}        
+        nav ul:hover li { color: rgba(255, 255, 255, 0.5); }
+        nav ul li {color: white; display: block; letter-spacing: 2px; padding: 5px 40px; text-align: right; transition: all 0.25s linear;}
+        nav ul li:hover {color: white; cursor: pointer;}
+        
+        .wrapper {background: #FFFFFF; height: 100%; padding: 100px 40px; position: relative; width: 100%; transition: all 0.5s linear;}
+        .wrapper section { max-width: 730px; margin: 0 auto; } 
+        .wrapper section h1 { font-weight: 300; font-size: 30px; margin-bottom: 10px; } 
+        .wrapper section h2 { font-weight: 300; font-size: 20px; margin-bottom: 40px; } 
+        .wrapper section p { margin-bottom: 40px; }
+        
+        .openNav {background: #14B9FF; height: 50px; left: 20px; position: fixed; top: 20px; width: 50px; z-index: 9; transition: all 0.5s linear;}
+        .openNav:hover { cursor: pointer; }
+        .openNav .icon {background: #FFFFFF; height: 2px; position: absolute; left: 10px; top: 24px; width: 30px; transition: all 0.2s linear;}
+        .openNav .icon:before, .openNav .icon:after { transition-duration: 0.5s; background-color: white; position: absolute; content: ""; width: 30px; height: 2px; left: 0px; }        
+        .openNav .icon:before {top: -7px;}
+        .openNav .icon:after {top: 7px;}
+        
+        /* menu open state */
+        .navOpen { overflow: hidden; }
+        
+        .wrapper.open { box-shadow: 0 0 50px rgba(0, 0, 0, 0.2); transform: translateX(250px) translateY(50px); }
+        
+        .openNav.open { transform: translateX(250px) translateY(50px);}        
+        .openNav.open .icon { background-color: transparent;}
+        .openNav.open .icon:before { top: 0; transform: rotate(-45deg); } 
+        .openNav.open .icon:after { top: 0; transform: rotate(45deg); }        
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Products</li>
+            <li>Shopping Cart</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+    
+    <div class="openNav">
+        <div class="icon"></div>
+    </div>
+
+    <div class="wrapper">
+        <section>
+            <h1>Material Design Inspired Navigation Demo</h1>
+            <h2>By Lewi Hussey</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet elementum ligula. Suspendisse potenti. Donec ultrices luctus luctus. Curabitur faucibus, mi posuere imperdiet mattis, nisi ipsum ornare magna, in porttitor urna erat eget mi. Etiam eu diam ac ex porta tempus a bibendum libero. Quisque egestas velit turpis. Curabitur tempus consectetur vulputate. Sed vitae cursus dolor, et hendrerit lectus. Morbi ut luctus odio.</p>
+            <p>Integer eu felis turpis. Proin vitae dui metus. Nulla luctus augue id velit pellentesque suscipit. Sed a pretium orci. Vestibulum id magna ex. Nam eget sapien laoreet, sollicitudin ligula eu, rutrum lectus. Proin rhoncus nulla et diam varius, nec convallis nisi placerat. Pellentesque fermentum est odio, at tempor eros laoreet vitae.</p>
+            <p>Quisque malesuada elementum lectus eu malesuada. Aenean fermentum est vel diam dictum volutpat. Phasellus vitae dui risus. Pellentesque pharetra velit ut nisl ullamcorper, id rutrum lectus tincidunt. Nulla egestas laoreet lacinia. Donec hendrerit enim ex, quis rutrum ex commodo a. Fusce a dui lectus. Etiam eros turpis, elementum at augue a, placerat accumsan ligula. Vivamus congue felis ac sem lobortis, sed fringilla dolor blandit.</p>
+            <p>Etiam posuere viverra metus, at luctus lectus congue a. Praesent rhoncus risus vitae turpis tristique rutrum. Curabitur a urna vel tortor finibus sodales vel at ex. Aenean iaculis massa non ex convallis, ac rhoncus leo aliquam. Quisque ut eleifend enim. Nulla laoreet varius dolor nec dictum. Donec et tempus orci, sed ultrices metus. Cras blandit imperdiet eleifend. Donec a faucibus turpis. Mauris tempor, mauris eu faucibus commodo, urna risus feugiat nulla, fermentum varius nisi est eu nibh. Duis euismod porttitor lacinia. Suspendisse mollis sagittis neque, consectetur convallis nisi tristique quis. Donec ornare nulla id nibh sollicitudin, et imperdiet enim elementum.</p>
+            <p>In condimentum ultrices nisi eu cursus. Nullam orci nulla, volutpat non condimentum in, tristique id turpis. Mauris rhoncus congue massa sed ornare. Quisque finibus non sapien ultricies interdum. Nulla facilisi. Praesent arcu mi, interdum nec pulvinar vel, feugiat ut leo. Nulla vulputate, felis sed blandit fringilla, justo nulla laoreet arcu, sollicitudin scelerisque libero neque nec nunc. Quisque pharetra risus risus, rutrum maximus felis egestas vitae.</p>
+        </section>
+    </div>
+    
+    <script src="../assets/jquery-2.1.1.js"></script>
+    <script>
+        $(".openNav").click(function() {
+            $("body").toggleClass("navOpen");
+            $("nav").toggleClass("open");
+            $(".wrapper").toggleClass("open");
+            $(this).toggleClass("open");
+        });
+    </script>
+    <script type="text/javascript">
+       
+    </script>
+</body>
+
+</html>

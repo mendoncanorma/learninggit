@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>Example: With Binding </title>
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+	</head>
+	<body>
+		<h1 data-bind="text: city"></h1>
+		<p data-bind="with: coords">
+			Latitude: <span data-bind="text: lat"></span>
+			Longitude: <span data-bind="text: lon"></span>
+		</p>
+		
+	<script>
+		var viewModel = {
+			city: "Boston",
+			coords: {
+				lat: 42.3601,
+				lon: 71.0589
+			}
+		}
+
+		ko.applyBindings(viewModel);
+	</script>
+	</body>
+</html>

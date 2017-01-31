@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Binding - Click</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js"></script>
+
+    <style type="text/css">
+        #main {
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+            color: black;
+            font: bold xx-large arial;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            var viewModel = {
+				counter: ko.observable(0),
+				incrementCounter: function() {
+					var previousCounter = this.counter();
+					this.counter(previousCounter + 1);
+				}
+			};
+			
+			ko.applyBindings(viewModel);
+        });
+    </script>
+</head>
+<body>
+    <div id="main" data-bind="visible: counter() < 10">
+        <span data-bind="text: counter"></span>
+    </div>
+    <div>
+        <button data-bind="click: incrementCounter">Increment</button>
+    </div>
+</body>
+</html>

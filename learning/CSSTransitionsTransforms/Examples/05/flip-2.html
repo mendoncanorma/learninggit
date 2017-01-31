@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Example 3 - 3D Transformations</title>
+    <link href="style.css" rel="stylesheet">
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+    <style>
+        .flip3D {
+            width: 240px;
+            height: 200px;
+            margin: 10px;
+            float: left;
+            position: relative;
+
+            transform-style: preserve-3d;
+            transition: transform .5s linear 0s;
+        }
+        
+        .flip3D > .front {
+            transform: rotateY( 0deg);
+            background: #FC0;
+            width: 240px;
+            height: 200px;
+            border-radius: 7px;
+            backface-visibility: visible;
+            
+                        
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .flip3D > .back {
+            transform: rotateY( 180deg);
+            background: #80BFFF;
+            width: 240px;
+            height: 200px;
+            border-radius: 7px;
+            backface-visibility: visible;
+                        
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .flip3D:hover {
+            transform: rotateY( -180deg);
+        }
+        
+/*
+        .flip3D:hover > .front {
+            transform: rotateY( -180deg);
+        }
+        
+        .flip3D:hover > .back {
+            transform: rotateY( 0deg);
+        }        
+*/
+    </style>
+</head>
+
+<body>
+
+    <div class="flip3D">
+        <div class="back">Box 1 - Back</div>
+        <div class="front">Box 1 - Front</div>
+    </div>
+    <div class="flip3D">
+        <div class="back">Box 2 - Back</div>
+        <div class="front">Box 2 - Front</div>
+    </div>
+    <div class="flip3D">
+        <div class="back">Box 3 - Back</div>
+        <div class="front">Box 3 - Front</div>
+    </div>
+
+</body>
+
+</html>

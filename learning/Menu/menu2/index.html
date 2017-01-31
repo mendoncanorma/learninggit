@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+
+<head>
+    <link href="../assets/bootstrap.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        * { box-sizing: border-box; }
+        html, body { min-height: 100%; }
+        a { text-decoration: none; }
+        
+        .main-header{background: linear-gradient(#3f94bf, #246485); padding: 5px; text-align: center; color: white; text-shadow: #222 0px -1px 1px; position: fixed; width: 100%; left: 0; transition: all 0.3s ease;}
+        .main-header a { position: absolute; left: 20px; top: 20px; color: white; width: 40px; height: 40px;}
+        .main-header a img {max-width: 100%;}
+        
+        .page-wrap { float: right; width: 100%; transition: width 0.3s ease; }        
+        
+        .main-nav {position: fixed; top: 0; width: 0; height: 100%; background: #3B3B3B; overflow-y: auto; transition: width 0.3s ease;}
+        .main-nav a {display: block; background: linear-gradient(#3e3e3e, #383838); border-top: 1px solid #484848; border-bottom: 1px solid #2E2E2E; color: white; padding: 15px; }        
+        .main-nav a:hover, .main-nav a:focus { background: linear-gradient(#484848, #383838); }
+        .main-nav:after { content: ""; position: absolute; top: 0; right: 0; height: 100%; width: 34px; background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)); }
+        
+        #main-nav:target { width: 20%; }
+        #main-nav:target + .page-wrap { width: 80%; }
+        #main-nav:target + .page-wrap .main-header { width: 80%; left: 20%; }        
+        
+        #main-nav:target + .page-wrap .open-menu { display: none; } 
+        #main-nav:target + .page-wrap .close-menu { display: block; }        
+        
+        .content { padding: 100px 20px 20px 20px; } 
+        .close-menu { display: none; }        
+    </style>
+</head>
+
+<body>
+
+    <div class="">
+
+        <nav class="main-nav" id="main-nav">
+            <a href="#">This</a>
+            <a href="#">Little</a>
+            <a href="#">Piggy</a>
+            <a href="#">Went</a>
+            <a href="#">To</a>
+            <a href="#">Market</a>
+        </nav>
+
+        <div class="page-wrap">
+
+            <header class="main-header">
+                <a href="#main-nav" class="open-menu"><img src="http://thecodeblock.com/wp-content/uploads/btn-hamburger.png" /></a>
+                <a href="#" class="close-menu"><img src="http://thecodeblock.com/wp-content/uploads/btn-close.png" /></a>
+                <h1>cssPanelMenu</h1>
+            </header>
+
+            <div class="content">
+
+                <h2>responsive full screen navigation menu that slides from top using a toggle button</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>loremLorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>loremLorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>loremLorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>loremLorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>loremLorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>loremLorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>loremLorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>loremLorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="../assets/jquery-1.11.3.min.js"></script>
+    <script>
+    </script>
+</body>
+
+</html>

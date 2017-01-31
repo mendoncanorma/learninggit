@@ -1,0 +1,688 @@
+<html>
+
+<head>
+    <title>Example: Custom Binding</title>
+    <link href="bootstrap.css" type="text/css" rel='stylesheet' />
+    <link href="jquery-ui.css" type="text/css" rel='stylesheet' />
+</head>
+
+<body>
+    <div id="div-26">
+        <input data-bind="datepicker: myDate, datePickerOptions: { minDate: new Date() }" />
+    </div>
+    <hr />
+    <div id="div-25">
+        <p>
+            Destination Country: 
+            <select data-bind="options: availableCountries, selectedOptions: chosenCountries" multiple>
+            </select>
+        </p>
+        <input type="button" data-bind="click: addCountry" value="Add Country" />
+    </div>
+    <hr />
+    <div id="div-24">
+        <p>
+            Destination Country: 
+            <select data-bind="options: availableCountries">
+            </select>
+        </p>
+        <p>
+            Destination Country: 
+            <select data-bind="options: countries, optionsText: 'name', optionsValue: 'id'">
+            </select>
+        </p>        
+        <input type="button" data-bind="click: addCountry" value="Add Country" />
+    </div>
+    <hr />
+    <div id="div-23">
+        <ul data-bind="foreach: months">
+            <li>The current item is: <span data-bind="text: $data"></span> 
+                <span data-bind="text: $index"></span> and tweets are 
+                <span data-bind="text: $parent.tweets[$index()]"></span>
+            </li>
+        </ul>
+    </div>
+    <hr />
+    <div id="div-22">
+        <h1>
+            Welcome 
+            <span data-bind="text: firstName"></span> 
+            <span data-bind="text: lastName"></span>
+        </h1>
+        <h2>Full Name: <span data-bind="text: fullName"></span></h2>
+        
+        <label>First Name:</label>
+        <input type="text" data-bind="value: firstName" />
+        <br />
+        <label>Last Name:</label>
+        <input type="text" data-bind="value: lastName" />
+        <br />
+        <label>Full Name:</label>
+        <input type="text" data-bind="value: fullName" />                
+    </div>
+    <hr />
+    <div id="div-21">
+        <div data-bind="component: 'newsletter-widget-1'"></div>
+    </div>
+    <hr />    
+    <div id="div-20">
+        <newsletter-widget></newsletter-widget>
+    </div>
+    <hr />
+    <div id="div-19">
+        <ul data-bind="template: {name: 'categoryTemplate', foreach: categories, as: 'category'}"></ul>
+        
+        <script type="text/html" id="categoryTemplate">
+            <li>
+                <strong data-bind="text: name"></strong>
+                <ul data-bind="template: {name: 'subcategoryTemplate', foreach: subcategories, as: 'subcategory'}"></ul>
+            </li>
+        </script>
+        
+        <script type="text/html" id="subcategoryTemplate">
+            <li>
+                <a data-bind="attr: {href: subcategory}">
+                    <span data-bind="text: subcategory"></span>
+                </a>
+            </li>
+        </script>        
+    </div>
+    <hr />
+    <div id="div-18">
+        <h1 data-bind="changeColor: color">Change Color Example</h1>
+        <select data-bind="value: color">
+            <option value="black">choose color</option>
+            <option value="red">red</option>
+            <option value="blue">blue</option>
+            <option value="green">green</option>
+        </select>
+        
+        <h1 data-bind="textFadeIn: msg">Text FadeIn Example</h1>
+        <input type="text" data-bind="value: msg" />
+    </div>
+    <hr />
+    <div id="div-17">
+        <input type="checkbox" data-bind="checked: isCompany" /> Register Under a company
+        <br />
+        <label>Your Name:</label>
+        <input type="text" data-bind="value: name, disable: isCompany" />
+        <br />
+        <label>Your Company:</label>
+        <input type="text" data-bind="value: company, disable: !isCompany()" />
+    </div>
+    <hr />
+    <div id="div-16">
+        <span data-bind="text: submitMessage"></span>
+        <form data-bind="submit: fireSubmit" action="practice.html" method="post">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <hr />
+    <div id="div-15">
+        <input type="checkbox" data-bind="checked: checkIt" />
+        <br />
+        <button data-bind="click: toggleCheckbox">Toggle Checkbox</button>
+    </div>
+    <hr />
+    <div id="div-14">
+        <form>
+            <label>Username: </label>
+            <input type="text" name="txtUserName" data-bind="value: username, valueUpdate: 'afterkeydown'" />
+            
+            <label>Password: </label>
+            <input type="password" name="txtPassword" data-bind="value: password, valueUpdate: 'afterkeydown'" />
+        </form>        
+        Username: <span data-bind="text: username"></span><br />
+        Password: <span data-bind="text: password"></span>
+    </div>
+    <hr />
+    <div id="div-13">
+        <a href="#" data-bind="event: {mouseover: addHover, mouseout: removeHover}">Hover On Me</a>
+        <div data-bind="visible: isHover">I am shown on hover</div>
+    </div>
+    <hr />
+    <div id="div-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: users">
+                <tr>
+                    <td data-bind="text: id"></td>
+                    <td data-bind="text: name"></td>
+                    <td><a href="#" class="btn btn-danger" data-bind="click: $parent.removeUser">Remove</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr />
+    <div id="div-11">
+        <h1 data-bind="text: city"></h1>
+        <p data-bind="with: coords">
+            Latitute: <span data-bind="text: lat"></span>, Longitute: <span data-bind="text: lon"></span>
+        </p>
+    </div>
+    <hr />
+    <div id="div-10">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: users">
+                <tr data-bind="ifnot: id">
+                    <td data-bind="text: id"></td>
+                    <td data-bind="text: name"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr />
+    <div id="div-9">
+        <a data-bind="attr: {href: shref, title: stitle}, text: stext"></a>
+    </div>
+    <hr />
+    <div id="div-8">
+        <p>Total: <strong data-bind="style: {color: total() < 0 ? 'red':'green'}, text: total"></strong></p>
+    </div>
+    <hr />
+    <div id="div-7">
+        <p>Total: <strong data-bind="css: {'text-danger': total() < 0}, text: total"></strong></p>
+    </div>
+    <hr />
+    <div id="div-6">
+        <div data-bind="html: message"></div>
+    </div>
+    <hr />
+    <div id="div-5">
+        <p data-bind="visible: message">Here is a message</p>
+        <button class="btn btn-primary" data-bind="click: hideMessage, visible: message()">Hide Message</button>
+        <button class="btn btn-primary" data-bind="click: showMessage, visible: !message()">Show Message</button>
+    </div>
+    <hr />
+    <div id="div-4">
+        <p>
+            Hello, my name is
+            <strong><span data-bind="text: name"></span></strong> and I am a <strong><span data-bind="text: job"></span></strong>
+        </p>
+    </div>
+    <hr />
+    <div id="div-3">
+        <h1>Users</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Name</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: users">
+                <tr>
+                    <td data-bind="text: $index"></td>
+                    <td data-bind="text: $data.name"></td>
+                    <td><a href="#" class="btn btn-danger" data-bind="click: $parent.removeUser">Remove</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form>
+            <input type="text" id="newUser" />
+            <button type="button" class="btn btn-primary" data-bind="click: addUser">Add User</button>
+        </form>
+    </div>
+    <hr />
+    <div id="div-2">
+        <ul data-bind="foreach: user_array_1">
+            <li data-bind="text: $data"></li>
+        </ul>
+    </div>
+    <hr />
+    <div id="div-1">
+        <h1>Welcome <span data-bind="text: firstName"></span> <span data-bind="text: lastName"></span></h1>
+        <label>First Name:</label>
+        <input type="text" data-bind="value: firstName, valueUpdate: 'afterkeydown'" />
+        <br />
+        <label>Last Name:</label>
+        <input type="text" data-bind="value: lastName, valueUpdate: 'afterkeydown'" />
+        <br />
+        <button>Change</button>
+    </div>
+
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script src="knockout-min.js"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            /* ***************************************************************************************************** */
+            
+            ko.bindingHandlers.datepicker = {
+                init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+                    
+                    // initialize datepicker with some optional options
+                    var options = allBindings().datePickerOptions || {};
+                    $(element).datepicker(options);
+                    
+                    ko.utils.registerEventHandler(element, "change", function () {
+                        var observable = valueAccessor();
+                        observable( $(element).datepicker("getDate") );
+                    });
+                    
+//                    ko.utils.domNodeDisposal.addDisposecallback(element, function () {
+//                        $(element).datepicker("destroy");
+//                    });
+                },
+                
+                update: function (element, valueAccessor, allBindings, viewModel, bindingContext) {                    
+
+                    var value   = ko.utils.unwrapObservable(valueAccessor()),
+                        current = $(element).datepicker("getDate");
+                    
+                    if (value - current !== 0) {
+                        $(element).datepicker("setDate", value);
+                    }
+                }
+            };
+            
+            var myViewModel_26 = {
+                myDate: ko.observable(new Date("27/12/2013")),
+                setToCurrentDate: function () {
+                    this.myDate( new Date() );
+                }
+            };
+            
+            ko.applyBindings(myViewModel_26, $('#div-26')[0]);
+            
+            /* ***************************************************************************************************** */
+            
+            var myViewModel_25 = function () {
+                this.availableCountries = ko.observableArray(['USA', 'Australia', 'SriLanka']),
+                this.chosenCountries = ko.observableArray(['Australia']),
+                this.addCountry = function() {
+                    this.chosenCountries.push("USA");
+                }
+            };
+            
+            ko.applyBindings(myViewModel_25, $('#div-25')[0]);
+            
+            /* ***************************************************************************************************** */
+            
+            var myViewModel_24 = {
+                availableCountries: ko.observableArray(['USA', 'Australia', 'SriLanka']),
+                addCountry: function () {
+                    this.availableCountries.push("Bangladesh");
+                },
+                countries: ko.observableArray([
+                    {name: "USA", id: 1},
+                    {name: "Australia", id: 2},
+                    {name: "SriLanka", id: 3}
+                ])
+            };
+            
+            ko.applyBindings(myViewModel_24, $('#div-24')[0]);
+            
+            /* ***************************************************************************************************** */
+            
+            var myViewModel_23 = {
+                months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November',  'December'],
+                tweets: [1,2,3,4,5,6,7,8,9,10,11,12]
+            };
+            
+            ko.applyBindings(myViewModel_23, $('#div-23')[0]);
+            
+            /* ***************************************************************************************************** */
+            
+            var myViewModel_22 = function () {
+                var self = this;
+                
+                self.firstName = ko.observable("Matt");
+                self.lastName = ko.observable("Daemon");
+                
+                self.fullName = ko.computed({
+                    read: function () {
+                        return self.firstName() + " " + self.lastName();
+                    },
+                    write: function () {
+                        var arrName = val.split(' ');
+                        self.firstName( arrName[0] );
+                        self.lastName( arrName[1] );
+                    }
+                });
+                
+            };
+            
+            ko.applyBindings(myViewModel_22, $('#div-22')[0]);
+            
+            console.log( ko.isObservable ( firstName ) );
+            console.log( ko.isObservable ( fullName ) );
+            
+            console.log( ko.isComputed ( firstName ) );
+            console.log( ko.isComputed ( fullName ) );            
+            
+            console.log( ko.isWriteableObservable ( firstName ) );
+            console.log( ko.isWriteableObservable ( fullName ) ); 
+            
+            /* ***************************************************************************************************** */
+            
+            ko.components.register('newsletter-widget-1', {
+                viewModel: function (params) {
+                    this.email = ko.observable();
+                    this.showMessage = ko.observable(false);
+                    
+                    this.submitForm = function () {
+                        this.showMessage(true);
+                    };
+                }, 
+                template:  '<h3>Subscribe to our newsletter</h3>\
+                            <form data-bind="submit: submitForm">\
+                                <input data-bind="value: email">\
+                                <button type="submit">Submit</button>\
+                            </form>\
+                            <p data-bind="visible: showMessage">Thanks for Subscribing: <br /><strong><span data-bind="text: email"></span></strong></p>'
+            });
+            
+            var myViewModel_21 = {};
+            ko.applyBindings(myViewModel_21, $('#div-21')[0]);
+            
+            /* ***************************************************************************************************** */
+            
+            ko.components.register('newsletter-widget', {
+                viewModel: function () {
+                    this.email = ko.observable();
+                    this.showMessage = ko.observable(false);
+                    
+                    this.submitForm = function () {
+                        this.showMessage(true);
+                    };
+                }, 
+                template:  '<h3>Subscribe to our newsletter</h3>\
+                            <form data-bind="submit: submitForm">\
+                                <input data-bind="value: email">\
+                                <button type="submit">Submit</button>\
+                            </form>\
+                            <p data-bind="visible: showMessage">Thanks for Subscribing: <br /><strong><span data-bind="text: email"></span></strong></p>'
+            });
+            
+            var myViewModel_20 = {};
+            ko.applyBindings(myViewModel_20, $('#div-20')[0]);
+            
+            /* ***************************************************************************************************** */
+            
+            var myViewModel_19 = {
+                categories: ko.observableArray([
+                    {name: 'Technology', subcategories: ['Programming', 'Hardware', 'Web Development']},
+                    {name: 'Business', subcategories: ['Finance', 'Marketing', 'Stocks']},
+                    {name: 'Food', subcategories: ['Restaurant', 'Catering', 'Market']},
+                    {name: 'Construction', subcategories: ['Demolotion', 'Carpentry', 'Electrical']}
+                ])
+            };
+            
+            ko.applyBindings(myViewModel_19, $('#div-19')[0]);
+            
+            /* ***************************************************************************************************** */
+            
+            ko.bindingHandlers.changeColor = {
+                update: function (element, valueAccessor) {
+                    var element         = $(element);
+                    var value           = valueAccessor();
+                    var valueUnwrapped  = ko.unwrap(value);
+                    element.css('color', valueUnwrapped);
+                }
+            };
+            
+            ko.bindingHandlers.textFadeIn = {
+                update: function (element, valueAccessor) {
+                    $(element).hide();
+                    ko.bindingHandlers.text.update(element, valueAccessor);
+                    $(element).fadeIn();
+                }
+            };
+            
+            var myViewModel_18 = {
+                color: ko.observable(),
+                msg: ko.observable('Text FadeIn Example')
+            };
+            
+            ko.applyBindings(myViewModel_18, $('#div-18')[0]);
+            
+            /* ***************************************************************************************************** */
+            
+            var myViewModel_17 = {
+                isCompany: ko.observable(true),
+                name: ko.observable(''),
+                company: ko.observable('')
+            };
+            
+            ko.applyBindings(myViewModel_17, $('#div-17')[0]);
+            
+            /* ***************************************************************************************************** */
+            
+            var myViewModel_16 = function () {
+                this.submitMessage = ko.observable("");
+                
+                this.fireSubmit = function () {
+                    this.submitMessage('Form Submitted');
+                };
+            };
+            
+            ko.applyBindings(myViewModel_16, $('#div-16')[0]);
+            
+            /* ***************************************************************************************************** */
+            
+            var myViewModel_15 = function () {
+                this.checkIt = ko.observable(true);
+                
+                this.toggleCheckbox = function () {
+                    var status = this.checkIt();
+                    if (status) {
+                        this.checkIt(false);
+                    } else {
+                        this.checkIt(true);
+                    }
+                };
+            };
+            
+            ko.applyBindings(myViewModel_15, $('#div-15')[0]);
+            
+            /* ***************************************************************************************************** */
+            
+            var myViewModel_14 = {
+                username : ko.observable(""),
+                password: ko.observable("")
+            };
+            
+            ko.applyBindings(myViewModel_14, $('#div-14')[0]);
+            
+            /* ***************************************************************************************************** */
+
+            var myViewModel_13 = function () {
+                var self = this;
+                
+                self.isHover = ko.observable(false);
+                
+                self.addHover = function () {
+                    self.isHover(true);  
+                };
+                
+                self.removeHover = function () {
+                    self.isHover(false);  
+                };                
+            }
+
+            ko.applyBindings(new myViewModel_13(), $('#div-13')[0]);
+            
+            /* ***************************************************************************************************** */
+
+            var myViewModel_12 = {
+                users: ko.observableArray([{
+                    id: "e100",
+                    name: "Norma Mendonca"
+                }, {
+                    id: "e101",
+                    name: "Conrad Dsouza"
+                }, {
+                    id: "e102",
+                    name: "Cheryl Dsouza"
+                }]),
+                
+                removeUser: function (user) {
+                    myViewModel_12.users.remove(user);
+                }
+            };
+
+            ko.applyBindings(myViewModel_12, $('#div-12')[0]);
+
+            /* ***************************************************************************************************** */
+
+            var myViewModel_11 = {
+                city: "Bangalore",
+                coords: {
+                    lat: 42.3601,
+                    lon: 71.0589
+                }
+            };
+
+            ko.applyBindings(myViewModel_11, $('#div-11')[0]);
+
+            /* ***************************************************************************************************** */
+
+            var myViewModel_10 = {
+                users: ko.observableArray([{
+                    id: "e100",
+                    name: "Norma Mendonca"
+                }, {
+                    id: null,
+                    name: "Conrad Dsouza"
+                }, {
+                    id: "e102",
+                    name: "Cheryl Dsouza"
+                }])
+            };
+
+            ko.applyBindings(myViewModel_10, $('#div-10')[0]);
+
+            /* ***************************************************************************************************** */
+
+            var myViewModel_9 = {
+                shref: 'http://localhost',
+                stitle: 'Click on Me',
+                stext: 'Hello there'
+            };
+
+            ko.applyBindings(myViewModel_9, $('#div-9')[0]);
+
+            /* ***************************************************************************************************** */
+
+            var myViewModel_8 = {
+                total: ko.observable(10)
+            };
+
+            ko.applyBindings(myViewModel_8, $('#div-8')[0]);
+
+            /* ***************************************************************************************************** */
+
+            var myViewModel_7 = {
+                total: ko.observable(-10)
+            };
+
+            ko.applyBindings(myViewModel_7, $('#div-7')[0]);
+
+            /* ***************************************************************************************************** */
+
+            var myViewModel_6 = {
+                message: ko.observable("<h1>This is an html heading</h1><p>This is a <strong>paragraph</strong></p>")
+            };
+
+            ko.applyBindings(myViewModel_6, $('#div-6')[0]);
+
+            /* ***************************************************************************************************** */
+
+            var myViewModel_5 = {
+                message: ko.observable(true),
+                hideMessage: function() {
+                    this.message(false);
+                },
+                showMessage: function() {
+                    this.message(true);
+                }
+            };
+
+            ko.applyBindings(myViewModel_5, $('#div-5')[0]);
+
+            /* ***************************************************************************************************** */
+
+            var myViewModel_4 = {
+                name: ko.observable('Brad'),
+                job: ko.observable('Web developer'),
+            };
+
+            ko.applyBindings(myViewModel_4, $('#div-4')[0]);
+
+            /* ***************************************************************************************************** */
+
+            function myViewModel_3() {
+                var self = this;
+
+                self.users = ko.observableArray([{
+                    name: 'Norma'
+                }, {
+                    name: 'Conrad'
+                }, {
+                    name: 'Cheryl'
+                }]);
+
+                self.addUser = function() {
+                    console.log(this);
+                    self.users.push({
+                        name: $('#newUser').val()
+                    });
+                };
+
+                self.removeUser = function() {
+                    console.log(this);
+                    self.users.remove(this);
+                };
+            }
+
+            ko.applyBindings(new myViewModel_3(), $('#div-3')[0]);
+
+            /* ***************************************************************************************************** */
+
+            var myViewModel_2 = {
+                user_array_1: ko.observableArray(['Norma', 'Conrad', 'Cheryl'])
+            };
+
+            ko.applyBindings(myViewModel_2, $('#div-2')[0]);
+
+            myViewModel_2.user_array_1.push('Testing');
+
+            /* ***************************************************************************************************** */
+
+            var myViewModel_1 = {
+                firstName: ko.observable("Norma"),
+                lastName: ko.observable("Mendonca"),
+            }
+
+            ko.applyBindings(myViewModel_1, $('#div-1')[0]);
+
+            $('#div-1 button').click(function() {
+                myViewModel_1.firstName("Cheryl");
+                myViewModel_1.lastName("Dsouza");
+            });
+
+            /* ***************************************************************************************************** */
+
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js"></script>
+
+    <style type="text/css">
+        #definition {
+            width: 300px;
+            height: 180px;
+            background-color: gray;
+            color: black;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            var viewModel = {
+				definitionEnabled: ko.observable(false),
+				showDefinition: function() {
+					this.definitionEnabled(true);
+				},
+				hideDefinition: function() {
+					this.definitionEnabled(false);
+				}
+			};
+			
+			ko.applyBindings(viewModel);
+        });
+    </script>
+</head>
+<body>
+    <div data-bind="event: {mouseover: showDefinition, mouseout: hideDefinition}">
+        What is Knockout?
+    </div>
+    <div id="definition" data-bind="visible: definitionEnabled">
+        Knockout is a JavaScript library that helps you to create rich, responsive display and editor user interfaces with a clean underlying data model. Any time you have sections of UI that update dynamically (e.g., changing depending on the user’s actions or when an external data source changes), KO can help you implement it more simply and maintainably.
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Example 3 - 3D Transformations</title>
+    <link href="style.css" rel="stylesheet">
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+    <style>
+        
+        div#wrapper {
+            perspective: 1000px;
+            perspective-origin: 50% 50%;
+        }
+        
+        div.card {
+            margin: 100px auto;
+            
+            position: relative;
+            width: 216px;
+            height: 331px;
+            
+            transform-style: preserve-3d;
+            transition: transform 1s linear;
+        }
+        
+        div.card.flip {
+            transform: rotateY(180deg);
+            background: yellow;
+        }
+        
+        div.card .side {
+            width: 216px;
+            height: 331px;
+            position: absolute;
+        }
+        
+        div.front {
+/*            transform: translateZ(1px);*/
+        }
+        
+        div.back {
+            transform: rotateY(-180deg);
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+    
+        <div class="card">
+            
+            <div class="side back"><img src="back.jpg" /></div>
+            <div class="side front"><img src="front.jpg" /></div>            
+            
+            
+        </div>
+        
+    </div>
+    
+    <button id="btnFlip">Flip</button>
+    
+    <script>
+    
+        $('.card').on('mouseenter', function () {
+            $(this).toggleClass('flip');
+        });
+        
+    </script>
+    
+</body>
+
+</html>

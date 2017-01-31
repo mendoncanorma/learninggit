@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!-- /ht Paul Irish - http://front.ie/j5OMXi -->
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>CSS3 Dropdown Menu</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="../assets/bootstrap.css" type="text/css" rel="stylesheet" />
+
+
+    <style type="text/css">
+        /* Minor style rules for presentational purposes */
+        body{
+            font: 75% Arial, Helvetica, sans-serif;
+            background-color: #444;
+            width: 1024px;
+            margin: 1em auto 0px;
+        }
+
+        a:link{
+            text-decoration: none;
+        }
+
+
+        /* Actual navmenu CSS */
+        #nav{
+            background: #111 repeat-x top left;
+            height: 37px;
+        }
+
+        #nav, #nav li{
+            display: block;
+            list-style: none;
+            position: relative;
+            z-index: 82;
+        }
+        
+        #nav > li{
+            float: left;
+            z-index: 82;
+        }
+        
+        #nav > li:hover{
+            background: #222 repeat-x top left;
+        }
+
+        #nav a{
+            display: block;
+            line-height: 37px;
+            padding: 0 0.5em;
+            z-index: 82;
+            position: relative;
+            color: #ccc;
+        }
+        
+        #nav a:hover{
+            color: #fff;
+        }
+
+        /* Subnav Menu */
+        #nav .submenu{
+            display: none;
+            position: absolute;
+            z-index: 80;
+            background: repeat-x left top #353535;
+            border: 1px solid #000;
+
+            left: 0px;
+            top: 37px;
+            min-width: 100%;
+
+            -o-box-shadow:		2px 2px 3px #000;
+            -icab-box-shadow:	2px 2px 3px #000;
+            -khtml-box-shadow:	2px 2px 3px #000;
+            -moz-box-shadow:	2px 2px 3px #000;
+            -webkit-box-shadow:	2px 2px 3px #000;
+            box-shadow:			2px 2px 3px #000;
+        }
+        
+        #nav .submenu li{
+            display: block;
+            line-height: 27px !important;
+        }
+        
+        #nav .submenu li:hover{
+            background: #444 repeat-x top left;
+        }
+
+        #nav .submenu a{
+            display: block;
+            line-height: 27px !important;
+            white-space: nowrap;
+        }
+
+        #nav > li:hover .submenu{
+            display: block;
+        }
+        
+        /* Hide next level of subnavigation */
+        #nav > li:hover > .submenu .submenu{
+            display: none;
+        }
+
+
+        #nav .padding{
+            display: block;
+            position: absolute;
+            z-index: 78;
+
+            width: 100%;
+            height: 100%;
+
+            top: 0px;
+            left: 0px;
+            background: none !important;
+        }
+        /* Padding amount for first-level dropdown */
+        #nav > li > .submenu > .padding{
+            width: 160%;
+            left: -30%;
+            height: 140%;
+        }
+
+        #nav .buffer{
+            display: block;
+            position: absolute;
+            bottom: 0px;
+            right: 100%;
+
+            width: 100%;
+            height: 100%;
+            background: none !important;
+        }
+
+        #nav .shadow{
+            display: none !important;
+        }
+
+        /*	Third-level Subnavigation */
+        #nav .submenu .submenu{
+            position: absolute;
+            left: 100%;
+            top: -1px;
+        }
+        
+        #nav .submenu .submenu .padding{
+            width: 150%;
+            top: -35%;
+            height: 170%;
+        }
+        
+        /*	Show subnavigation */
+        #nav > li:hover .submenu li:hover > .submenu{
+            display: block;
+            z-index: 70 !important;
+        }
+
+
+
+
+        /* CSS3 Transition Handling */
+        #nav.use-trans li > .submenu{
+            opacity: 0;
+            display: block !important;
+            left: -9999px !important;
+
+            -moz-transition:		0.2s opacity ease-in, 0s left linear 0.22s;
+            -webkit-transition:		0.2s opacity ease-in, 0s left linear 0.22s;
+            -khtml-transition:		0.2s opacity ease-in, 0s left linear 0.22s;
+            -icab-transition:		0.2s opacity ease-in, 0s left linear 0.22s;
+            -ms-transition:			0.2s opacity ease-in, 0s left linear 0.22s;
+            -o-transition:			0.2s opacity ease-in, 0s left linear 0.22s;
+            transition:				0.2s opacity ease-in, 0s left linear 0.22s;
+        }
+        
+        /* Hide next level of subnavigation */
+        #nav.use-trans > li:hover > .submenu .submenu{
+            display: block !important;
+            left: -9999px !important;
+        }
+
+
+        /* Hover */
+        #nav.use-trans > li:hover > .submenu,
+        #nav.use-trans > li > .submenu li:hover > .submenu{
+            opacity: 1 !important;
+
+            -moz-transition-delay:		0s;
+            -webkit-transition-delay:	0s;
+            -khtml-transition-delay:	0s;
+            -icab-transition-delay:		0s;
+            -ms-transition-delay:		0s;
+            -o-transition-delay:		0s;
+            transition-delay:			0s;
+        }
+        
+        #nav.use-trans > li:hover > .submenu				{	left: 0px !important;	}
+        #nav.use-trans > li > .submenu li:hover > .submenu	{	left: 100% !important;	}
+
+
+        /*	Running Border on Subnavigation
+        -	Stable implementation requires an additional span tag at the end of each anchor tag.
+        */
+        #nav ul a{
+            position: relative;
+        }
+        
+        #nav ul a span{
+            background-color: #5a5a5a;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            height: 1px;
+            width: 100%;
+        }
+
+
+
+        /*	Outlining Rules for Debugging */
+        .padding	{	outline-color: red;		}
+        .buffer		{	outline-color: blue;	}
+
+        .showbounds .padding,
+        .showbounds .buffer{
+            outline-style: solid;
+            outline-width: 1px;
+        }
+
+
+
+        /* Theming can go here */
+        #nav{
+            outline: 1px solid #111;
+            background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #404040), color-stop(100%, #282828));
+            background: -webkit-linear-gradient(#404040, #282828);
+            background: -moz-linear-gradient(#404040, #282828);
+            background: -o-linear-gradient(#404040, #282828);
+            background: linear-gradient(#404040, #282828);
+        }
+        
+        #nav > li{
+            border-left: 1px solid #333;
+            border-right: 1px solid #222;
+        }
+        
+        #nav > li:first-child{
+            border-left: 0 !important;
+        }
+
+        #nav > li:hover{
+            background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #1a1a1a), color-stop(100%, #282828));
+            background: -webkit-linear-gradient(#141414, #282828);
+            background: -moz-linear-gradient(#141414, #282828);
+            background: -o-linear-gradient(#141414, #282828);
+            background: linear-gradient(#141414, #282828);
+        }
+
+        #nav .submenu li{
+            background-image: -webkit-linear-gradient(#292929, #242424);
+        }        
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <ul id="nav" class="use-trans">
+            <li>
+                <a href="#">Voluptate Atque</a>
+
+                <div class="submenu">
+                    <ul>
+                        <li><a href="#">Quo voluptas nulla pariatur?<span></span></a></li>
+                        <li><a href="#">Dignissimos Ducimus<span></span></a></li>
+                        <li><a href="#">Qui blanditiis<span></span></a></li>
+                    </ul>
+
+                    <div class="padding"></div>
+                    <div class="shadow"></div>
+                </div>
+            </li>
+
+            <li>
+                <a href="#">Corrupti Quos Dolores</a>
+
+                <div class="submenu">
+                    <ul>
+                        <li><a href="#">Qui Dolorem<span></span></a></li>
+                        <li><a href="#">Ipsum Quia<span></span></a></li>
+                        <li><a href="#">Dolor Sit<span></span></a></li>
+                        <li><a href="#">Tempore<span></span></a></li>
+                        <li><a href="#">Qui Ratione<span></span></a></li>
+                        <li>
+                            <a href="#">Amet, nam libero! &nbsp;&nbsp;&nbsp;&raquo;<span></span></a>
+
+                            <div class="submenu">
+                                <ul>
+                                    <li><a href="#">Qui Dolorem<span></span></a></li>
+                                    <li><a href="#">Ipsum Quia<span></span></a></li>
+                                    <li><a href="#">Dolor Sit<span></span></a></li>
+                                    <li><a href="#">Qui Dolorem<span></span></a></li>
+                                    <li><a href="#">Ipsum Quia<span></span></a></li>
+                                    <li><a href="#">Dolor Sit<span></span></a></li>
+                                    <li><a href="#">Qui Dolorem<span></span></a></li>
+                                    <li><a href="#">Ipsum Quia<span></span></a></li>
+                                    <li><a href="#">Dolor Sit<span></span></a></li>
+                                    <li>
+                                        <a href="#">Amet, nam libero! Libero, libero, LIBERO!! &nbsp;&nbsp;&nbsp;&raquo;<span></span></a>
+
+                                        <div class="submenu">
+                                            <ul>
+                                                <li><a href="#">Dude, what the fuck is "Libero"?<span></span></a></li>
+                                                <li><a href="#">Ipsum Quia<span></span></a></li>
+                                                <li><a href="#">Dolor Sit<span></span></a></li>
+                                                <li><a href="#">Qui Dolorem<span></span></a></li>
+                                                <li><a href="#">Ipsum Quia<span></span></a></li>
+                                                <li><a href="#">Dolor Sit<span></span></a></li>
+                                            </ul>
+
+                                            <div class="padding"></div>
+                                            <div class="shadow"></div>
+                                            <div class="buffer"></div>
+                                        </div>
+
+                                    </li>
+                                    <li><a href="#">Tempore<span></span></a></li>
+                                    <li><a href="#">Qui Ratione<span></span></a></li>
+                                </ul>
+
+                                <div class="padding"></div>
+                                <div class="shadow"></div>
+                                <div class="buffer"></div>
+                            </div>
+
+                        </li>
+                    </ul>
+
+                    <div class="padding"></div>
+                    <div class="shadow"></div>
+                </div>
+            </li>
+
+<!--
+            <li>
+                <a href="#">Et Quas Molestias<span></span></a>
+                <div class="submenu">
+                    <ul>
+                        <li><a href="#">Voluptatem sequi nesciunt<span></span></a></li>
+                        <li><a href="#">Dicta sunt explicabo.<span></span></a></li>
+                        <li><a href="#">Sed Quia Non<span></span></a></li>
+                        <li><a href="#">Numquam Eius<span></span></a></li>
+                        <li><a href="#">Modi cum soluta<span></span></a></li>
+                        <li><a href="#">Nobis est<span></span></a></li>
+                    </ul>
+
+                    <div class="padding"></div>
+                    <div class="shadow"></div>
+                </div>
+            </li>
+
+
+            <li>
+                <a href="#">Iste natus error sit voluptatem.</a>
+                <div class="submenu">
+                    <ul>
+                        <li><a href="#">Eligendi Optio<span></span></a></li>
+                        <li><a href="#">Atque Corrupti<span></span></a></li>
+                        <li><a href="#">Quos Dolores<span></span></a></li>
+                        <li><a href="#">Quas Molestias.<span></span></a></li>
+                        <li><a href="#">Libero Tempore<span></span></a></li>
+                        <li><a href="#">Dignissimos Ducimus<span></span></a></li>
+                    </ul>
+
+                    <div class="padding"></div>
+                    <div class="shadow"></div>
+                </div>
+            </li>
+-->
+        </ul>
+
+
+        <!-- The following segment of code isn't necessary for the nav-menu: it just provides a control for revealing the hidden CSS boundaries to the user. Just for the sake of easier visualisation. -->
+        <div id="controls" style="margin: 3em 5em 0 0; float: right; position: fixed; bottom: .3em; right: .3em">
+            <form action="./" method="get" id="controls-form">
+                <fieldset style="background-color: #000; border: 1px solid #666; color: #fff;">
+                    <label for="toggle-class" style="font-weight: bold; padding: .5em 1em; display: block; cursor: pointer;">Show Boundaries (S):
+                        <input type="checkbox" id="toggle-class" name="toggle-class" value="true" style="cursor: pointer" />
+                    </label>
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="../assets/jquery-2.1.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+
+
+        });
+    </script>
+
+</body>
+
+</html>

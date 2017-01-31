@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js"></script>
+     
+    <script>
+        $(function () {
+            var viewModel = {
+				likeJS: ko.observable(false),
+				JSLibraries: ko.observableArray(["Knockout_JS", "jQuery_UI", "jQuery"])
+			}
+			
+			ko.applyBindings(viewModel);
+        });
+    </script>
+</head>
+<body>
+    <p>Do you like JavaScript? <input type="checkbox" data-bind="checked: likeJS" /></p> 
+    <div data-bind="visible: likeJS">
+        Which JavaScript library have you used in the past?
+        <div><input type="checkbox" value="Knockout_JS" data-bind="checked: JSLibraries"/> Knockout JS</div>
+        <div><input type="checkbox" value="jQuery_UI" data-bind="checked: JSLibraries"/> jQuery UI</div>
+        <div><input type="checkbox" value="jQuery" data-bind="checked: JSLibraries"/> jQuery</div>
+    </div>
+    <p>The length of the array is: <b data-bind="text: JSLibraries().length"></b> </p>
+</body>
+</html>

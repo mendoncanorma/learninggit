@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+        
+        <!-- Default Theme -->
+        <link rel="stylesheet" href="css/owl.theme.css">
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+        <script type="text/javascript" src ="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/owl.carousel.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#owl-demo").owlCarousel({
+                    navigation : true
+                });
+                $("#owl-demo2").owlCarousel({
+                    navigation : true
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="tabbable"> <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
+                <li><a href="#tab2" data-toggle="tab">Section 2</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <p>I'm in Section 1.</p>
+                    <div id="owl-demo" class="owl-carousel owl-theme">
+                        <div class="item"><h1>1</h1></div>
+                        <div class="item"><h1>2</h1></div>
+                        <div class="item"><h1>3</h1></div>
+                        <div class="item"><h1>4</h1></div>
+                        <div class="item"><h1>5</h1></div>
+                        <div class="item"><h1>6</h1></div>
+                        <div class="item"><h1>7</h1></div>
+                        <div class="item"><h1>8</h1></div>
+                        <div class="item"><h1>9</h1></div>
+                        <div class="item"><h1>10</h1></div>
+                        <div class="item"><h1>11</h1></div>
+                        <div class="item"><h1>12</h1></div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab2">
+                    <p>Howdy, I'm in Section 2.</p>
+                    <div id="owl-demo2" class="owl-carousel owl-theme">
+                        <div class="item"><h1>1</h1></div>
+                        <div class="item"><h1>2</h1></div>
+                        <div class="item"><h1>3</h1></div>
+                        <div class="item"><h1>4</h1></div>
+                        <div class="item"><h1>5</h1></div>
+                        <div class="item"><h1>6</h1></div>
+                        <div class="item"><h1>7</h1></div>
+                        <div class="item"><h1>8</h1></div>
+                        <div class="item"><h1>9</h1></div>
+                        <div class="item"><h1>10</h1></div>
+                        <div class="item"><h1>11</h1></div>
+                        <div class="item"><h1>12</h1></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
