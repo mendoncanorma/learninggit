@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Highcharts Example</title>
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<style type="text/css">
+			${demo.css}
+		</style>
+		<script type="text/javascript">
+			var options = null;
+			
+			$(function () {
+			
+				options = {
+					chart: {
+						renderTo: 'container',
+						type: 'column'
+					},
+					title: {
+						text: 'Monthly Average Rainfall'
+					},
+					subtitle: {
+						text: 'Source: WorldClimate.com'
+					},
+					xAxis: {
+						categories: [
+							'Jan',
+							'Feb',
+							'Mar',
+							'Apr',
+							'May',
+							'Jun',
+							'Jul',
+							'Aug',
+							'Sep',
+							'Oct',
+							'Nov',
+							'Dec'
+						],
+						crosshair: true,
+						labels: {
+							rotation: -45,
+							style: {
+								fontSize: '13px',
+								fontFamily: 'Verdana, sans-serif'
+							}
+						}			
+					},
+					yAxis: {
+						min: 10,
+						title: {
+							text: ''
+						},
+						labels: {
+							enabled: false
+						}
+					},
+					legend: {
+						enabled: true
+					},		
+					tooltip: {
+						enabled: true,
+						headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+						pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+							'<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+						footerFormat: '</table>',
+						shared: true,
+						useHTML: true
+					},
+					plotOptions: {
+						column: {
+							pointPadding: 0.2,
+							borderWidth: 0
+						}
+					},
+					series: [{
+						name: 'Points',
+						data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+						dataLabels: {
+							enabled: true,
+							rotation: 0,
+							color: '#FFFFFF',
+							align: 'right',
+							format: '{point.y:.1f}', // one decimal
+							y: 0, // 10 pixels down from the top
+							style: {
+								fontSize: '13px',
+								fontFamily: 'Verdana, sans-serif'
+							}
+						}
+					}]
+				};
+			
+				// $('#container').highcharts({
+				var chart = new Highcharts.Chart(options);
+			});
+			
+			$(document).ready(function () {
+
+				$("#change").click(function() {
+					if ($("#list").val() == "A") {
+						options.series[0].name = "A";
+						options.series[0].data = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 9, 8];
+						// $.get('/dough/includes/live-chart.php?mode=month'
+					} else {
+						options.series[0].name = "B";
+						options.series[0].data = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100];
+						// $.get('/dough/includes/live-chart.php?mode=newmode'
+					} 
+
+					var chart = new Highcharts.Chart(options);    
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+			<script src="../../js/highcharts.js"></script>
+			<script src="../../js/modules/exporting.js"></script>
+
+			<SELECT id="list">
+				<OPTION VALUE="A">Data Set A</OPTION>
+				<OPTION VALUE="B">Data Set B</OPTION>
+			</SELECT>
+			
+			<button id="change">Refresh Table</button>
+			
+			<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+	</body>
+</html>
