@@ -1,0 +1,225 @@
+#dispatch .slider .pagination,
+#dispatch .slider .left-button,
+#dispatch .slider .right-button {
+    display: none
+}
+#dispatch .slider .slides {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    -ms-transition: none;
+    transition: none
+}
+#dispatch .slider .slides > li {
+    display: none
+}
+#dispatch .slider .slides > li > div {
+    padding: 0
+}
+#dispatch .slider .slides > li.main-slide {
+    display: table-cell
+}
+#dispatch .slider .slides > li.main-slide .layer-normal {
+    display: none
+}
+#dispatch .slider .slides > li.main-slide #zoneA,
+#dispatch .slider .slides > li.main-slide #zoneB,
+#dispatch .slider .slides > li.main-slide #zoneC {
+    display: none
+}
+#dispatch .main-slide {
+    margin-bottom: 0;
+    padding-top: 0
+}
+#dispatch .main-slide #diagonal-splash {
+    display: none
+}
+#dispatch .main-slide .mobile,
+#dispatch .main-slide #support-container {
+    display: block;
+    width: 100%
+}
+#dispatch .main-slide #nav {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    bottom: 0
+}
+#dispatch .main-slide #nav a {
+    display: block;
+    position: relative;
+    left: 0;
+    width: 100%;
+    min-height: 180px;
+    padding-bottom: 0;
+    text-align: left;
+    background-color: white;
+    color: green;
+    border-bottom: 1px solid #000
+}
+#dispatch .main-slide #nav a .adapt-img-wrapper {
+    background-size: cover
+}
+#dispatch .main-slide #nav a img {
+    min-height: 180px;
+    width: 100%
+}
+#dispatch .main-slide #nav a:last-child {
+    border-bottom: none
+}
+#dispatch .main-slide #nav a .dispatch-link {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    min-width: 160px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8)
+}
+#dispatch .main-slide #nav a .dispatch-link strong {
+    font-size: 2.3077em;
+    font-weight: normal;
+    margin: 4px 0 10px;
+    text-shadow: none
+}
+#dispatch .main-slide #nav a .dispatch-link > h1,
+#dispatch .main-slide #nav a .dispatch-link > h2 {
+    font-size: 1.0769em;
+    display: block;
+    color: #aaa
+}
+#dispatch .main-slide #nav a .dispatch-link .link {
+    display: block;
+    margin-top: 1em;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #fff
+}
+#dispatch .main-slide #nav a .dispatch-link .link::before {
+    content: ">\00a0"
+}
+.tiles > li {
+    font-size: 12px
+}
+.tiles .picks-sign-up,
+.tiles .picks-need-help,
+.tiles .picks-free-text {
+    padding: 20px;
+    font-size: 1.1em
+}
+.tiles .picks-sign-up em,
+.tiles .picks-need-help em,
+.tiles .picks-free-text em {
+    font-size: 1.4em
+}
+.tiles .picks-sign-up input[type=text] {
+    width: 70%
+}
+.tiles .picks-sign-up input[type=submit] {
+    display: inline-block
+}
+.tiles .picks-from-community .subtitle {
+    padding: 10px
+}
+.tiles .picks-need-support {
+    padding: 20px 30px
+}
+.tiles .picks-need-support > em {
+    margin: .3em 0
+}
+.tiles .picks-welcome {
+    padding: 4%;
+    margin-bottom: 1em
+}
+.tiles .picks-welcome em {
+    font-size: 1.8em
+}
+.tiles .video div,
+.tiles .video object {
+    width: 182.5px !important;
+    height: 182.5px !important
+}
+.tiles .video img {
+    max-width: 182.5px !important;
+    max-height: 182.5px !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: auto !important
+}
+.tiles .video img.oo_playButton {
+    top: 25% !important;
+    left: 50% !important
+}
+.tiles .larger .video div,
+.tiles .larger .video object {
+    width: 365px !important
+}
+.tiles .larger .video img {
+    max-width: 365px !important;
+    max-height: 182.5px !important
+}
+.tiles .subtitle {
+    min-height: 55px
+}
+#trail {
+    padding-left: 1em;
+    font-size: .9em
+}
+#vertical_picks .tiles .subtitle {
+    font-size: 0.9em
+}
+#vertical_picks .tiles .subtitle em {
+    font-size: 1.8em
+}
+.tips-section > li {
+    padding-bottom: 130px
+}
+.tips-section > li .home-tip-image {
+    max-height: 130px
+}
+@media (min--moz-device-pixel-ratio: 0) {
+    .tips-section > li {
+        padding-bottom: 0
+    }
+    .tips-section > li a {
+        padding-bottom: 130px
+    }
+}
+#languages .level3 {
+    display: block
+}
+#languages .country-selector > ul > li > ul > li > ul {
+    display: block
+}
+.slider .slides > li > div .content-slide .tagline {
+    font-size: 1em;
+    margin: 0;
+    max-width: 730px
+}
+.slider .slides > li > div .content-slide .tagline h1 {
+    font-size: 2.5em
+}
+.partner-locator .map-heading .search-criteria > ul > li {
+    padding-right: 10px
+}
+.partner-locator .map-heading .search-criteria > ul > li [name=business_type],
+.partner-locator .map-heading .search-criteria > ul > li [name=area_focus] {
+    width: 100px
+}
+.partner-locator .map-heading .search-criteria > ul.normal-fields > li .selectize-control .selectize-input {
+    padding-right: 20px
+}
+.partner-locator .map-heading .search-criteria > ul.normal-fields > li:nth-child(2) {
+    width: 35%
+}
+.partner-locator .map-heading .search-criteria > ul.normal-fields > li:nth-child(3),
+.partner-locator .map-heading .search-criteria > ul.normal-fields > li:nth-child(4) {
+    width: 25%
+}
+.show-mobile,
+.show-desktop,
+.hide-tablet {
+    display: none !important
+}

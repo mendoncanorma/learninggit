@@ -1,0 +1,11 @@
+{
+	"outputs": [
+		{
+			"inputs": ["common.js"],
+			"output": "common.min.js",
+			"generateMap": true,
+			"mangle": true,
+			"isolate": false
+		}
+	]
+}
