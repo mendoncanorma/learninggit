@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>autoNumeric</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="autoNumeric.js"></script>
+    <script type="text/javascript">
+        jQuery(function($) {
+            $('#demoInit').autoNumeric('init');
+        });
+    </script>
+    <style>
+        input[type="tel"] {
+            text-align: right;
+        }
+        
+        .method {
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .method td {
+            height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div><input type="tel" id="demoInit" data-v-max="99999999" data-v-min="0" data-a-dec="," data-a-sep="." /></div>
+        
+</body>
+
+</html>
