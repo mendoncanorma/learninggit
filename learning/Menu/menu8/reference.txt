@@ -1,9 +1,0 @@
-http://webdesign.tutsplus.com/tutorials/big-menus-small-screens-responsive-multi-level-navigation--webdesign-8452
-
-https://www.smashingmagazine.com/2013/01/off-canvas-navigation-for-responsive-website/
-
-
-http://bradfrost.com/blog/web/responsive-nav-patterns/
-
-
-http://osvaldas.info/drop-down-navigation-responsive-and-touch-friendly
