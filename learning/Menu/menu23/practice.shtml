@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Pushy - Off-Canvas Navigation Menu</title>
+    <meta name="description" content="Pushy is an off-canvas navigation menu for your website.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="../assets/normalize.css">
+
+    <style type="text/css">
+        html, body{
+            -webkit-tap-highlight-color: rgba(0,0,0,0); /* disable webkit tap highlight */
+            overflow-x: hidden;
+        }
+        ul {
+            margin: 0; padding: 0;
+        }
+        #container {
+            position: relative;
+            padding: 80px 20px 40px;
+        }
+        .menu-btn {
+            width: 100px; background: #000; text-align: center; padding: 10px; color: #fff; margin-bottom: 30px; cursor: pointer;
+        }
+        .menu-btn:hover {
+            opacity: 0.7;   
+        }
+        .site-header {
+            position: fixed; background: #000; color: #fff; text-align: center; width: 100%; padding: 20px 0; z-index: 1; top: 0; left: 0;
+        }
+        .site-footer {
+            position: relative;
+            border-top: 1px solid #EEE;
+            color: #999;
+            padding: 10px;
+            font-size: 0.8em;
+            text-align: center;            
+        }
+        .pushy {
+            top: 0;
+            z-index: 2;
+            color: #fff;
+            width: 200px;
+            height: 100%;            
+            overflow: auto;
+            position: fixed;
+            visibility: hidden;
+            background: #191918;            
+        }
+        .pushy.pushy-left {
+            left: 0;
+            transform: translate3d(-200px, 0, 0);
+        }
+        .pushy.pushy-right {
+            right: 0;
+            transform: translate3d(200px, 0, 0);
+        }
+        .pushy a {
+            color: #b3b3b1;
+            display: block;
+            padding: 15px 30px;
+            text-decoration: none;
+            outline: 0;
+        }
+        .pushy a:hover {
+            color: #fff;
+        }
+        .pushy ul {
+            margin-top: 10px;
+        }        
+        .pushy-open-left #container {
+            transform: translate3d(200px, 0, 0);
+        }
+        .pushy-open-right #container {
+            transform: translate3d(-200px, 0, 0);
+        }
+        .pushy-open-left .pushy,
+        .pushy-open-right .pushy {
+            transform: translate3d(0, 0, 0);
+        }
+        #container, .pushy {
+            transition: transform .2s cubic-bezier(.16, .68, .43, .99);
+        }
+        .site-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            display: none;
+            background: rgba(0,0,0,0.5);
+        }
+        .pushy-open-left .site-overlay,
+        .pushy-open-right .site-overlay {
+            display: block;
+            animation: fade 0.2s;
+        }
+        @keyframes fade{
+            0%   { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @-webkit-keyframes fade{
+            0%   { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        .pushy-submenu ul {
+            padding-left: 15px;
+            transition: max-height 0.2s ease-in-out;
+        }
+        .pushy-submenu .pushy-link {
+            transition: opacity 0.2s ease-in-out 0.3s;
+        }
+        .pushy-submenu > a {
+            position: relative;
+        }
+        .pushy-submenu > a::after {
+            content: '';
+            display: block;
+            height: 11px;
+            width: 8px;
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            background: url("arrow.svg") no-repeat;
+            transform: translateY(-50%);
+            transition: transform 0.2s;
+        }
+        .pushy-submenu-closed ul {
+            max-height: 0;
+            overflow: hidden;
+        }
+        .pushy-submenu-closed .pushy-link {
+            opacity: 0;
+        }
+        .pushy-submenu-open ul {
+            max-height: 1000px;
+        }
+        .pushy-submenu-open .pushy-link{
+            opacity: 1;
+        }
+        .pushy-submenu-open > a::after {
+            transform: translateY(-50%) rotate(90deg);
+        }
+        
+        .no-csstransforms3d .pushy.pushy-left,
+        .no-csstransforms3d .pushy.pushy-right,
+        .no-csstransforms3d .pushy-open-left #container,
+        .no-csstransforms3d .pushy-open-right #container,
+        .no-csstransforms3d .pushy-open-left .pushy,
+        .no-csstransforms3d .pushy-open-right .pushy,
+        .no-csstransforms3d .pushy-submenu > a::after,
+        .no-csstransforms3d .pushy-submenu-open > a::after {
+            transform: none;
+        }
+        
+        .no-csstransforms3d #container, 
+        .no-csstransforms3d .pushy,
+        .no-csstransforms3d .pushy-submenu ul,
+        .no-csstransforms3d .pushy-submenu .pushy-link,
+        .no-csstransforms3d .pushy-submenu > a::after {
+            transition: none;
+        }
+        
+        .no-csstransforms3d .pushy-open-left .site-overlay,
+        .no-csstransforms3d .pushy-open-right .site-overlay {
+            animation: none;
+        }
+        
+        .no-csstransforms3d .pushy-submenu-closed ul {
+            max-height: none;
+        }        
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Pushy Menu -->
+    <nav class="pushy pushy-left">
+        <ul>
+            <li class="pushy-submenu">
+                <a href="#">Submenu 1</a>
+                <ul>
+                    <li class="pushy-link"><a href="#">Item 1</a></li>
+                    <li class="pushy-link"><a href="#">Item 2</a></li>
+                    <li class="pushy-link"><a href="#">Item 3</a></li>
+                </ul>
+            </li>
+            <li class="pushy-submenu">
+                <a href="#">Submenu 2</a>
+                <ul>
+                    <li class="pushy-link"><a href="#">Item 1</a></li>
+                    <li class="pushy-link"><a href="#">Item 2</a></li>
+                    <li class="pushy-link"><a href="#">Item 3</a></li>
+                </ul>
+            </li>
+            <li class="pushy-submenu">
+                <a href="#">Submenu 3</a>
+                <ul>
+                    <li class="pushy-link"><a href="#">Item 1</a></li>
+                    <li class="pushy-link"><a href="#">Item 2</a></li>
+                    <li class="pushy-link"><a href="#">Item 3</a></li>
+                </ul>
+            </li>
+            <li class="pushy-submenu">
+                <a href="#">Submenu 4</a>
+                <ul>
+                    <li class="pushy-link"><a href="#">Item 1</a></li>
+                    <li class="pushy-link"><a href="#">Item 2</a></li>
+                    <li class="pushy-link"><a href="#">Item 3</a></li>
+                </ul>
+            </li>
+            <li class="pushy-link"><a href="#">Item 1</a></li>
+            <li class="pushy-link"><a href="#">Item 2</a></li>
+            <li class="pushy-link"><a href="#">Item 3</a></li>
+            <li class="pushy-link"><a href="#">Item 4</a></li>
+        </ul>
+    </nav>
+
+    
+    <!-- Site Overlay -->
+    <div class="site-overlay">site-overlay</div>
+
+    
+    <!-- Your Content -->
+    <div id="container">
+        
+        <header class="site-header">This is a header</header>
+        
+        <!-- Menu Button -->
+        <div class="menu-btn">&#9776; Menu</div>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pharetra neque a diam cursus pulvinar. Suspendisse faucibus mi id accumsan lobortis. Pellentesque consectetur varius turpis, nec viverra justo pellentesque sit amet. Vestibulum convallis leo non purus vehicula, non faucibus libero rhoncus. Morbi aliquam tincidunt facilisis. Aenean sodales nulla ac semper consectetur. Vivamus commodo massa convallis justo posuere vestibulum. Aenean congue non mauris ac auctor. Ut suscipit et eros nec suscipit. Nulla congue, mauris nec bibendum sagittis, urna orci tincidunt massa, in vulputate velit nulla vitae nunc. Etiam urna justo, imperdiet nec orci sollicitudin, tempus feugiat erat. Vivamus id lectus nulla. Vestibulum sagittis cursus metus vel ultricies. Suspendisse viverra interdum metus eu placerat. Quisque tristique velit nisi, scelerisque consectetur tortor vehicula ut. Donec id fermentum mi, nec venenatis felis.</p>
+
+        <p>Praesent id metus imperdiet, congue leo sed, eleifend purus. Donec congue scelerisque tempus. Maecenas eget nunc pharetra, laoreet enim sed, dictum odio. Sed non mollis purus. Aliquam aliquet, risus eget dictum commodo, neque mi dapibus ipsum, tempus iaculis elit lorem pharetra mauris. Vivamus pulvinar scelerisque lectus a congue. Sed vitae odio massa. Pellentesque condimentum sit amet arcu in convallis.</p>
+
+        <p>Etiam dapibus nisl nibh, et commodo nisi euismod vehicula. In consectetur eleifend felis, eget iaculis lectus scelerisque vel. Mauris non nibh nec sem consequat dapibus sed at tellus. Nunc egestas ac diam sed pretium. Praesent ultrices malesuada nisi at ornare. Aliquam arcu eros, pellentesque vitae fringilla ac, rhoncus id urna. Curabitur sit amet tortor eu neque sollicitudin congue. Proin mattis, diam quis ullamcorper iaculis, metus lectus vulputate tellus, id imperdiet nibh ante vel risus. Nam ut mi libero. Suspendisse auctor neque at pulvinar vestibulum. Suspendisse potenti. Cras molestie eros at feugiat gravida.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pharetra neque a diam cursus pulvinar. Suspendisse faucibus mi id accumsan lobortis. Pellentesque consectetur varius turpis, nec viverra justo pellentesque sit amet. Vestibulum convallis leo non purus vehicula, non faucibus libero rhoncus. Morbi aliquam tincidunt facilisis. Aenean sodales nulla ac semper consectetur. Vivamus commodo massa convallis justo posuere vestibulum. Aenean congue non mauris ac auctor. Ut suscipit et eros nec suscipit. Nulla congue, mauris nec bibendum sagittis, urna orci tincidunt massa, in vulputate velit nulla vitae nunc. Etiam urna justo, imperdiet nec orci sollicitudin, tempus feugiat erat. Vivamus id lectus nulla. Vestibulum sagittis cursus metus vel ultricies. Suspendisse viverra interdum metus eu placerat. Quisque tristique velit nisi, scelerisque consectetur tortor vehicula ut. Donec id fermentum mi, nec venenatis felis.</p>
+
+        <p>Praesent id metus imperdiet, congue leo sed, eleifend purus. Donec congue scelerisque tempus. Maecenas eget nunc pharetra, laoreet enim sed, dictum odio. Sed non mollis purus. Aliquam aliquet, risus eget dictum commodo, neque mi dapibus ipsum, tempus iaculis elit lorem pharetra mauris. Vivamus pulvinar scelerisque lectus a congue. Sed vitae odio massa. Pellentesque condimentum sit amet arcu in convallis.</p>
+
+        <p>Etiam dapibus nisl nibh, et commodo nisi euismod vehicula. In consectetur eleifend felis, eget iaculis lectus scelerisque vel. Mauris non nibh nec sem consequat dapibus sed at tellus. Nunc egestas ac diam sed pretium. Praesent ultrices malesuada nisi at ornare. Aliquam arcu eros, pellentesque vitae fringilla ac, rhoncus id urna. Curabitur sit amet tortor eu neque sollicitudin congue. Proin mattis, diam quis ullamcorper iaculis, metus lectus vulputate tellus, id imperdiet nibh ante vel risus. Nam ut mi libero. Suspendisse auctor neque at pulvinar vestibulum. Suspendisse potenti. Cras molestie eros at feugiat gravida.</p>
+
+        <footer class="site-footer">This is a footer</footer>
+        
+    </div>
+    
+
+    <!-- jQuery -->
+    <script src="../assets/jquery-2.1.1.js"></script>
+    
+    <!-- Pushy JS -->
+    <script>
+    
+        var pushy               = $('.pushy'), //menu css class
+            menuBtn             = $('.menu-btn'), //css classes to toggle the menu
+            pushyLeft           = 'pushy-left', //css class for left menu position
+            pushyOpenLeft       = 'pushy-open-left', //css class when menu is open (left position)
+            pushyOpenRight      = 'pushy-open-right', //css class when menu is open (right position)
+            menuSpeed           = 200, //jQuery fallback menu speed
+            menuWidth           = pushy.width() + 'px', //jQuery fallback menu width            
+            body                = $('body'),
+            submenuClass        = '.pushy-submenu',
+            submenuOpenClass    = 'pushy-submenu-open',
+            submenuClosedClass  = 'pushy-submenu-closed',
+            siteOverlay         = $('.site-overlay'); //site overlay
+
+        
+        //checks if 3d transforms are supported removing the modernizr dependency
+        var cssTransforms3d = (function csstransforms3d() {
+            var el = document.createElement('p'),
+                supported = false,
+                transforms = {
+                    'webkitTransform': '-webkit-transform',
+                    'OTransform': '-o-transform',
+                    'msTransform': '-ms-transform',
+                    'MozTransform': '-moz-transform',
+                    'transform': 'transform'
+                };
+
+            // Add it to the body to get the computed style
+            document.body.insertBefore(el, null);
+
+            for (var t in transforms) {
+                if (el.style[t] !== undefined) {
+                    el.style[t] = 'translate3d(1px,1px,1px)';
+                    supported = window.getComputedStyle(el).getPropertyValue(transforms[t]);
+                }
+            }
+
+            document.body.removeChild(el);
+
+            return (supported !== undefined && supported.length > 0 && supported !== "none");
+        })();        
+        
+        
+        function toggleSubmenu () {
+            $(submenuClass).addClass(submenuClosedClass);
+            
+            $(submenuClass).on('click', function () {
+                var selected = $(this);
+                
+                if (selected.hasClass(submenuClosedClass)) {
+                    selected.removeClass(submenuClosedClass).addClass(submenuOpenClass);
+                } else {
+                    selected.addClass(submenuClosedClass).removeClass(submenuOpenClass);
+                }
+            });
+        }
+        
+        function togglePushy() {
+            if (pushy.hasClass(pushyLeft)) {
+                body.toggleClass(pushyOpenLeft);
+            } else {
+                 body.toggleClass(pushyOpenRight);
+            }
+        };
+        
+        
+        function closePushyFallback() {
+            if (pushy.hasClass(pushyLeft)) {
+                
+                body.removeClass(pushyOpenLeft);
+                pushy.animate({
+                    left: "-" + menuWidth
+                }, menuSpeed);
+                
+            } else {
+                
+                body.removeClass(pushyOpenRight);
+                pushy.animate({
+                    right: "-" + menuWidth
+                }, menuSpeed);
+                
+            }            
+        }
+        
+        
+        function openPushyFallback() {
+            if (pushy.hasClass(pushyLeft)) {
+                
+                body.addClass(pushyOpenLeft);
+                pushy.animate({
+                    left: 0
+                }, menuSpeed);
+                
+            } else {
+                
+                body.addClass(pushyOpenRight);
+                pushy.animate({
+                    right: 0
+                }, menuSpeed);
+                
+            }            
+        }
+        
+        cssTransforms3d = false;
+        
+        var opened = false;
+        
+        if ( cssTransforms3d ) {
+            
+            pushy.css({'visibility': 'visible'});
+            
+            toggleSubmenu();
+            
+            menuBtn.on('click', function () {
+                togglePushy();
+            });
+
+            siteOverlay.on('click', function () {
+                togglePushy();
+            });            
+            
+        } else {
+            
+            pushy.css({'visibility': 'visible'});
+            $('html').addClass('no-csstransforms3d');
+            if (pushy.hasClass(pushyLeft)) {
+                pushy.css({
+                    left: "-" + menuWidth
+                });
+            } else {
+                pushy.css({
+                    right: "-" + menuWidth
+                });
+            }            
+            
+            menuBtn.on('click', function () {
+                if (opened === false) {
+                    openPushyFallback();
+                    opened = true;
+                } else {
+                    closePushyFallback();    
+                    opened = false;
+                }
+            });
+            
+
+            siteOverlay.on('click', function () {
+                if (opened) {
+                    closePushyFallback();
+                    opened = false;
+                } else {
+                    openPushyFallback();
+                    opened = true;
+                }
+            });            
+        }
+        
+        console.log( cssTransforms3d );
+    </script>
+
+</body>
+
+</html>

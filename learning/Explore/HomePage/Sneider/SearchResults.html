@@ -1,0 +1,894 @@
+<html>
+<head>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+    <link rel="stylesheet" href="css/header_footer.css">
+    <link rel="stylesheet" href="css/framework.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Important Owl stylesheet -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <!-- Default Theme -->
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <link rel="stylesheet" href="css/header_footer-tablet.css" media="(min-width: 47.5em) and (max-width: 62.5em)">
+    <link rel="stylesheet" href="css/header_footer-mobile.css" media="(max-width: 47.475em)">
+    <link rel="stylesheet" href="css/framework-tablet.css" media="(min-width: 47.5em) and (max-width: 62.5em)">
+    <link rel="stylesheet" href="css/framework-mobile.css" media="(max-width: 47.475em)">
+    <link rel="stylesheet" href="css/style-tablet.css" media="(min-width: 47.5em) and (max-width: 62.5em)">
+    <link rel="stylesheet" href="css/style-mobile.css" media="(max-width: 47.475em)">
+    
+    <script type="text/javascript">
+        var languagesPage = "languages.php";
+        var LOCALE = "IN_en"; 
+        var COUNTRY_WEBSERVICE_URL = "webservice-country.php?";
+        var PARTNER_WEBSERVICE_URL = "webservice.php";
+        var TYPE_OF_BUSINESS = "partner";
+        var NEWSLETTER_URL = "newsletter-popin.php";
+        var TOOLTIP_IMAGE = "../../common/css/img/tooltip.png";
+        var MESSAGE_INVALID_EMAIL = "The email address you entered is not valid. Please try again.";
+        var MESSAGE_INVALID_EMAIL = "The email address you entered is not valid. Please try again.";
+        var MESSAGE_FIELD_MANDATORY = "Please fill out this field.";
+        var MESSAGE_OUTDATED_BROWSER = '<span class="version">%s</span><span class="message">Your browser is out of date. It has known security flaws and may not display all features of this and other websites. Please upgrade your browser to access all the features of this website.</span>';
+    </script>
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script type="text/javascript" src ="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/selectize.min.js"></script>
+    <script type="text/javascript" src="js/owl.carousel.js"></script>    
+    <script type="text/javascript" src="js/browser-update.js"></script>
+    <script type="text/javascript" src="js/header_footer.js"></script>
+    <script type="text/javascript" src="js/init.js"></script>    
+    <script type="text/javascript" src="js/product-finder-results.js"></script>
+    <script type="text/javascript" src="js/searchresults.js"></script>
+</head>
+<body id="search-results">
+    <div id="page">
+        <div class="header-container">
+            <div id="menu-mobile"></div>
+            <div class="header-content">
+                <ul class="wrapper">
+                    <li><a class="hamburger-button" href="#" title=""><span class="icon-hamburger"></span></a></li>
+                    <li><a class="logo-header" href="#" title=""><img src="css/img/logo-schneider.png" alt=""></a></li>
+                    <li class="menu">
+                        <ul class="main-menu">
+                            <li><a href="#" title="">Products</a></li>
+                            <li><a href="#" title="">Solutions</a></li>
+                            <li><a href="#" title="">Services</a></li>
+                            <li><a href="#" title="">Support</a></li>
+                            <li><a href="#" title="">About us</a></li>
+                            <li class="mobile-country-selector"><a href="languages.php" title="" class="leaf">France</a></li>
+                            <li class="mobile-language-selector">
+                                <a href="languages.php" title="" class="leaf">English</a>
+                                <div>
+                                    <ul class="wrapper">
+                                        <li class="leaf current"><a class="leaf" href="#" title="">English</a></li>
+                                        <li><a class="leaf" href="#" title="">French</a></li>
+                                        <li><a href="#" title="" class="list-link"><span class="list-icon"></span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li id="header-login-link"><a href="#" title="">Login/Join Partner</a></li>
+                        </ul>
+                        <div style="width: 500%;">
+                            <ul>
+                                <li style="width: 20%;">
+                                    <div class="wrapper">
+                                        <a href="#" title="" class="back-button">Back</a>
+                                        <ul>
+                                            <li>
+                                                <a href="#" title="">Integrated Facility Management Services</a>
+                                                <div>
+                                                    <a href="#" title="" class="back-button">Back</a>
+                                                    <div>
+                                                        <a href="#" title="" class="leaf">Integrated Facility Management
+                                                            Services
+                                                        </a>
+                                                        <ul>
+                                                            <li><a href="#" title="" class="leaf">Building services</a></li>
+                                                            <li><a href="#" title="" class="leaf">Electrical Distribution</a></li>
+                                                            <li><a href="#" title="" class="leaf">Power Management</a></li>
+                                                            <li><a href="#" title="" class="leaf">Critical Power and Cooling</a></li>
+                                                            <li><a href="#" title="" class="leaf">Industrial Automation</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#" title="">Integrated Facility Management Services</a>
+                                                <div>
+                                                    <a href="#" title="" class="back-button">Back</a>
+                                                    <div>
+                                                        <a href="#" title="" class="leaf">Integrated Facility Management
+                                                            Services
+                                                        </a>
+                                                        <ul>
+                                                            <li><a href="#" title="" class="leaf">Building services</a></li>
+                                                            <li><a href="#" title="" class="leaf">Electrical Distribution</a></li>
+                                                            <li><a href="#" title="" class="leaf">Power Management</a></li>
+                                                            <li><a href="#" title="" class="leaf">Critical Power and Cooling</a></li>
+                                                            <li><a href="#" title="" class="leaf">Industrial Automation</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li><a href="#" title="" class="list-link"><span class="list-icon"></span></a></li>
+                                        </ul>  
+                                    </div>
+                                </li>
+                                <li style="width: 20%;">
+                                    <div class="wrapper">
+                                        <a href="#" title="" class="back-button">Back</a>
+                                        <ul>
+                                            <li>
+                                                <a href="#" title="">Integrated Facility Management Services</a>
+                                                <div>
+                                                    <a href="#" title="" class="back-button">Back</a>
+                                                    <div>
+                                                        <a href="#" title="" class="leaf">Integrated Facility Management
+                                                            Services</a>
+                                                        <ul>
+                                                            <li><a href="#" title="" class="leaf">Building services</a></li>
+                                                            <li><a href="#" title="" class="leaf">Electrical Distribution</a>
+                                                            </li>
+                                                            <li><a href="#" title="" class="leaf">Power Management</a></li>
+                                                            <li><a href="#" title="" class="leaf">Critical Power and Cooling</a>
+                                                            </li>
+                                                            <li><a href="#" title="" class="leaf">Industrial Automation</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#" title="">Integrated Facility Management Services</a>
+                                                <div>
+                                                    <a href="#" title="" class="back-button">Back</a>
+                                                    <div>
+                                                        <a href="#" title="" class="leaf">Integrated Facility Management
+                                                            Services
+                                                        </a>
+                                                        <ul>
+                                                            <li><a href="#" title="" class="leaf">Building services</a></li>
+                                                            <li><a href="#" title="" class="leaf">Electrical Distribution</a></li>
+                                                            <li><a href="#" title="" class="leaf">Power Management</a></li>
+                                                            <li><a href="#" title="" class="leaf">Critical Power and Cooling</a></li>
+                                                            <li><a href="#" title="" class="leaf">Industrial Automation</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <ul class="additional-links">
+                                            <li><a href="#" class="leaf">Discontinued products</a></li>
+                                            <li><a href="#" class="leaf">All products</a></li>
+                                            <li><a href="#" title="" class="list-link"><span class="list-icon"></span></a></li>
+                                         </ul>
+                                    </div>
+                                </li>
+                                <li style="width: 20%;"></li>
+                                <li style="width: 20%;">
+                                    <div class="wrapper">
+                                        <a href="#" title="" class="back-button">Back</a>
+                                        <ul>
+                                            <li>
+                                                <a href="#" title="">Resources &amp; Tools</a>
+                                                <div>
+                                                    <a href="#" title="" class="back-button">Back</a>
+                                                    <div>
+                                                        <a href="#" title="" class="leaf">Integrated Facility Management
+                                                            Services</a>
+                                                        <ul>
+                                                            <li><a href="#" title="" class="leaf">Building services</a></li>
+                                                            <li><a href="#" title="" class="leaf">Electrical Distribution</a></li>
+                                                            <li><a href="#" title="" class="leaf">Power Management</a></li>
+                                                            <li><a href="#" title="" class="leaf">Critical Power and Cooling</a></li>
+                                                            <li><a href="#" title="" class="leaf">Industrial Automation</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#" title="">Training</a>
+                                                <div>
+                                                    <a href="#" title="" class="back-button">Back</a>
+                                                    <div>
+                                                        <a href="#" title="" class="leaf">Integrated Facility Management
+                                                            Services</a>
+                                                        <ul>
+                                                            <li><a href="#" title="" class="leaf">Building services</a>
+                                                            </li>
+                                                            <li><a href="#" title="" class="leaf">Electrical
+                                                                    Distribution</a>
+                                                            </li>
+                                                            <li><a href="#" title="" class="leaf">Power Management</a>
+                                                            </li>
+                                                            <li><a href="#" title="" class="leaf">Critical Power and
+                                                                    Cooling</a>
+                                                            </li>
+                                                            <li><a href="#" title="" class="leaf">Industrial
+                                                                    Automation</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#" title="">Contacts</a>
+                                                <div>
+                                                    <a href="#" title="" class="back-button">Back</a>
+                                                    <div>
+                                                        <a href="#" title="" class="leaf">All contacts</a>
+                                                        <ul>
+                                                            <li><a href="#" title="" class="leaf">Contact Customer
+                                                                    Care</a></li>
+                                                            <li><a href="#" title="" class="leaf">Distributor
+                                                                    Locator</a></li>
+                                                            <li><a href="#" title="" class="leaf">Sales Offices</a></li>
+                                                            <li><a href="#" title="" class="leaf">Locate a Drive
+                                                                    Technician</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#" title="">Buy &amp; Install</a>
+                                                <div>
+                                                    <a href="#" title="" class="back-button">Back</a>
+                                                    <div>
+                                                        <a href="#" title="" class="leaf">Integrated Facility Management
+                                                            Services</a>
+                                                        <ul>
+                                                            <li><a href="#" title="" class="leaf">Building services</a>
+                                                            </li>
+                                                            <li><a href="#" title="" class="leaf">Electrical
+                                                                    Distribution</a></li>
+                                                            <li><a href="#" title="" class="leaf">Power Management</a>
+                                                            </li>
+                                                            <li><a href="#" title="" class="leaf">Critical Power and
+                                                                    Cooling</a></li>
+                                                            <li><a href="#" title="" class="leaf">Industrial
+                                                                    Automation</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <ul class="additional-links">
+                                                    <li><a href="#" class="leaf">Discontinued products</a></li>
+                                                    <li><a href="#" class="leaf">All products</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#" title="" class="list-link"><span class="list-icon"></span></a></li>
+                                        </ul>
+                                    </div>
+                                        
+                                </li>
+                                <li style="width: 20%;"></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#" title="" class="search-button"><span class="icon-search-b2"></span></a></li>
+                    <li><a href="#" title="" class="list-link"><span class="list-icon"></span></a></li>
+                </ul>
+                <div class="search-layer">
+                    <div class="wrapper">
+                        <form class="search-bar">
+                            <ul>
+                                <li>
+                                    <label>What</label>
+                                    <input type="text" name="q" class="search-field" autocomplete="off">
+                                </li>
+                                <li>
+                                    <label>Where</label>
+                                    <select tabindex="-1" class="selectized" style="display: none;">
+                                        <option value="Products" selected="selected"></option></select>
+                                    <div class="selectize-control single">
+                                        <div class="selectize-input items full has-options has-items">
+                                            <div data-value="Products" class="item">Products</div>
+                                            <input type="text" autocomplete="off" tabindex="" style="width: 4px;">
+                                        </div>
+                                        <div class="selectize-dropdown single" style="display: none;">
+                                            <div class="selectize-dropdown-content"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><input type="submit" value="Search" class="submit-search"></li>
+                            </ul>
+                        </form>
+                        <ul class="search-results" style="display: none;">
+                            <li><a href="#" title="">Contactors &amp; Protection <span class="highlight">Rel</span>ays</a></li>
+                            <li><a href="#" title="">Interface, Measurement &amp; Control <span class="highlight">Rel</span>ays</a></li>
+                            <li><a href="#" title="">Protection <span class="highlight">Rel</span>ays by Application</a></li>
+                            <li><a href="#" title="">Protection <span class="highlight">Rel</span>ays by Range</a></li>
+                            <li><a href="#" title="">Local TeSys thermal overload <span class="highlight">Rel</span>ays</a></li>
+                            <li><a href="#" title="">Vamp Arc Protection <span class="highlight">Rel</span>ay System</a></li>
+                            <li><a href="#" title="">Zelio <span class="highlight">Rel</span>ay</a></li>
+                            <li><a href="#" title="">Electronic over current <span class="highlight">Rel</span>ay</a></li>
+                            <li><a href="#" title="">Feeder protection - Vamp protection <span class="highlight">Rel</span>ays</a>
+                            </li>
+                            <li><a href="#" title="">Generator protection - Vamp protection <span class="highlight">Rel</span>ays</a></li>
+                        </ul>
+                        <li><a href="#" title="" class="list-link"><span class="list-icon"></span></a></li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrap-content">
+            <div class="main">
+            <nav id="trail" class="product">
+                <ul>
+                    <li><a href="#" title="">Your Project</a></li>
+                    <li>Finder</li>
+                </ul>
+            </nav>
+            <h1>Search Results</h1>
+            <div class="product-search">
+            <form class="search-bar">
+            <ul>
+                 <li>
+                     <input type="submit" value="Search" class="submit-search mobile">
+                 </li>
+                 <li>
+                     <div class="search-control">
+                         <input type="text" name="q" class="search-field" placeholder="What product are you looking for ?" autocomplete="off">
+                         <div class="message">
+                         </div>
+                         <ul class="search-autocomplete" style="display: none; top: 63.6875px;">
+                             <li><a href="#" title="">Contactors &amp; Protection <span class="highlight">Rel</span>ays</a></li>
+                             <li><a href="#" title="">Interface, Measurement &amp; Control <span class="highlight">Rel</span>ays</a></li>
+                             <li><a href="#" title="">Protection <span class="highlight">Rel</span>ays by Application</a></li>
+                             <li><a href="#" title="">Protection <span class="highlight">Rel</span>ays by Range</a></li>
+                             <li><a href="#" title="">Local TeSys thermal overload <span class="highlight">Rel</span>ays</a></li>
+                             <li><a href="#" title="">Vamp Arc Protection <span class="highlight">Rel</span>ay System</a></li>
+                             <li><a href="#" title="">Zelio <span class="highlight">Rel</span>ay</a></li>
+                             <li><a href="#" title="">Electronic over current <span class="highlight">Rel</span>ay</a></li>
+                             <li><a href="#" title="">Feeder protection - Vamp protection <span class="highlight">Rel</span>ays</a></li>
+                             <li><a href="#" title="">Generator protection - Vamp protection <span class="highlight">Rel</span>ays</a></li>
+                         </ul>
+                     </div>
+                 </li>
+                 <li>
+                    <select>
+					   <option value="Products" selected="selected">Products</option>
+					   <option value="Solutions">Solutions</option>
+					   <option value="Services">Services</option>
+				    </select>
+                 </li>
+                 <li>
+                     <input type="submit" value="Search" class="submit-search">
+                 </li>
+             </ul>
+        </form>
+        </div>	
+            <!--<h3>Associated search :</h3>
+	        <ul>
+	        	<li><a href="#">Keyword</a></li>
+	        	<li><a href="#">Keyword</a></li>
+	        	<li><a href="#">Keyword</a></li>
+	        </ul>
+	        <form>
+	        	<h3>Search within :</h3>
+	        	<ul>
+	        		<li><input name="searchset" id="searchset" type="radio"><label for="searchset">New search</label></li>
+	        		<li><input name="searchset" id="searchset-1" type="radio"><label for="searchset-1">These results</label></li>
+	        	</ul>
+	        </form>
+	        <div id="filters">
+	        	<ul class="filter-bar">
+	        		<li>
+	        			<select id="selected-items" name="selected-items" tabindex="-1" class="selectized" style="display: none;">
+                            <option value="count" selected="selected"></option>
+                        </select>
+                        <div class="selectize-control single">
+                            <div class="selectize-input items full has-options has-items">
+                                <div data-value="count" class="item">0 item(s) selected</div>
+                                <input type="text" autocomplete="off" tabindex="" style="width: 4px;">
+                            </div>
+                            <div class="selectize-dropdown single" style="display: none;">
+                                <div class="selectize-dropdown-content"></div>
+                            </div>
+                        </div>
+	        		</li>
+	        		<li class="legend">Filter results by:</li>
+	        		<li>
+	        			<select id="results-per-page" name="results-per-page" tabindex="-1" class="selectized" style="display: none;">
+                            <option value="10" selected="selected"></option>
+                        </select>
+                        <div class="selectize-control single">
+                            <div class="selectize-input items full has-options has-items">
+                                <div data-value="10" class="item">Location</div>
+                                <input type="text" autocomplete="off" tabindex="" style="width: 4px;">
+                            </div>
+                            <div class="selectize-dropdown single" style="display: none;">
+                                <div class="selectize-dropdown-content"></div>
+                            </div>
+                        </div>
+	        		</li>
+	        		<li>
+	        			<select tabindex="-1" class="selectized" style="display: none;">
+                            <option value="10" selected="selected"></option>
+                        </select>
+                        <div class="selectize-control single">
+                            <div class="selectize-input items full has-options has-items">
+                                <div data-value="10" class="item">Date</div>
+                                <input type="text" autocomplete="off" tabindex="" style="width: 4px;">
+                            </div>
+                            <div class="selectize-dropdown single" style="display: none;">
+                                <div class="selectize-dropdown-content"></div>
+                            </div>
+                        </div>
+	        		</li>
+	        		<li>
+	        			<a href="#">Filter</a>
+	        		</li>
+	        	</ul>
+	        </div>-->
+            
+            <div class="tabbable"> 
+                <ul class="nav nav-tabs" id = "tabs">
+                    <li class="active">
+                        <a href="#tab1" class = "refinement-tabs search-thumbnail" data-url = "products.html" data-toggle="tab">Section 1</a>
+                    </li>
+                    <li>
+                        <a href="#tab2" class = "refinement-tabs search-thumbnail" data-url = "products.html" data-toggle="tab">Section 2</a> 
+                    </li>
+                    <li>
+                        <a href="#tab3" class = "refinement-tabs search-thumbnail" data-url = "products.html"  data-toggle="tab">Section 3</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                        <div id="owl-demo" class="owl-carousel owl-theme owl-content">
+                            <div>
+                                <figure class = "search-thumbnail active"  data-url = "products.html">
+                                    <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                            <div>
+                                <figure class = "search-thumbnail"  data-url = "products.html">
+                                    <img src="img/product-results/item2.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                            <div>
+                                <figure class = "search-thumbnail"  data-url = "products.html">
+                                    <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab2">
+                        <div id="owl-demo1" class="owl-carousel owl-theme owl-content">
+                            <div>
+                                <figure class = "search-thumbnail active"  data-url = "products.html">
+                                    <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                            <div>
+                                <figure class = "search-thumbnail"  data-url = "products.html">
+                                    <img src="img/product-results/item2.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                            <div>
+                                <figure class = "search-thumbnail"  data-url = "products.html">
+                                    <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                             <div>
+                                <figure class = "search-thumbnail"  data-url = "products.html">
+                                    <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                             <div>
+                                <figure class = "search-thumbnail"  data-url = "products.html">
+                                    <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                            <div>
+                                <figure class = "search-thumbnail "  data-url = "products.html">
+                                    <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                            <div>
+                                <figure class = "search-thumbnail"  data-url = "products.html">
+                                    <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                            <div>
+                                <figure class = "search-thumbnail"  data-url = "products.html">
+                                    <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab3">
+                        <div id="owl-demo3" class="owl-carousel owl-theme owl-content">
+                            <div>
+                                <figure class = "search-thumbnail active"  data-url = "products.html">
+                                    <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                             <div>
+                                <figure class = "search-thumbnail"  data-url = "products.html">
+                                    <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                            <div>
+                                <figure class = "search-thumbnail"  data-url = "products.html">
+                                    <img src="img/product-results/item2.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                            <div>
+                                <figure class = "search-thumbnail"  data-url = "products.html">
+                                    <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                            <div>
+                                <figure class = "search-thumbnail"  data-url = "products.html">
+                                    <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                             <div>
+                                <figure class = "search-thumbnail"  data-url = "products.html">
+                                    <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                    <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class = "tabular-refinement">
+                <div id="tabs">
+                    <ul>
+                        <li><a href="#tabs-1" class = "refinement-tabs search-thumbnail" data-url = "products.html" title="">Tab 1</a></li>
+                        <li><a href="#tabs-2" class = "refinement-tabs search-thumbnail" data-url = "" title="">Tab 2</a></li>
+                        <li><a href="#tabs-3" class = "refinement-tabs" data-href = "" title="">Tab 3</a></li>
+                    </ul>
+                    <div id="tabs_container">
+                        <div id="tabs-1" class = "tabs-content">
+                            <div class = "refinement-slider" >
+                                <div>
+                                    <figure class = "search-thumbnail active"  data-url = "products.html">
+                                        <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                        <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                    </figure>
+                                </div>
+                                <div>
+                                    <figure class = "search-thumbnail"  data-url = "products.html">
+                                        <img src="img/product-results/item2.png" class = "search-img" alt="The Pulpit Rock">
+                                        <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                    </figure>
+                                </div>
+                                <div>
+                                    <figure class = "search-thumbnail active"  data-url = "products.html">
+                                        <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                        <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                    </figure>
+                                </div>
+                                <div>
+                                    <figure class = "search-thumbnail"  data-url = "products.html">
+                                        <img src="img/product-results/item2.png" class = "search-img" alt="The Pulpit Rock">
+                                        <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                    </figure>
+                                </div>
+                                <div>
+                                    <figure class = "search-thumbnail active"  data-url = "products.html">
+                                        <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                        <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                    </figure>
+                                </div>
+                                <div>
+                                    <figure class = "search-thumbnail"  data-url = "products.html">
+                                        <img src="img/product-results/item2.png" class = "search-img" alt="The Pulpit Rock">
+                                        <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                    </figure>
+                                </div>
+                                <div>
+                                    <figure class = "search-thumbnail"  data-url = "products.html">
+                                        <img src="img/product-results/item1.png" class = "search-img" alt="The Pulpit Rock">
+                                        <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                    </figure>
+                                </div>
+                                <div>
+                                    <figure class = "search-thumbnail"  data-url = "products.html">
+                                        <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                        <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                    </figure>
+                                </div>
+                                <div>
+                                    <figure class = "search-thumbnail"  data-url = "products.html">
+                                        <img src="img/product-results/item2.png" class = "search-img" alt="The Pulpit Rock">
+                                        <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tabs-2" class = "tabs-content">
+                             <div class = "refinement-slider" >
+                                <div>
+                                    <figure class = "search-thumbnail active"  data-url = "products.html">
+                                        <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                        <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                    </figure>
+                                </div>
+                                <div>
+                                    <figure class = "search-thumbnail"  data-url = "products.html">
+                                        <img src="img/product-results/item2.png" class = "search-img" alt="The Pulpit Rock">
+                                        <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                    </figure>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div id="tabs-3" class = "tabs-content">
+                             <div class = "refinement-slider" >
+                                <div>
+                                    <figure class = "search-thumbnail"  data-url = "products.html">
+                                        <img src="img/product-results/item1.png" class = "search-img" alt="The Pulpit Rock">
+                                        <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                    </figure>
+                                </div>
+                                <div>
+                                    <figure class = "search-thumbnail"  data-url = "products.html">
+                                        <img src="img/product-results/item3.png" class = "search-img" alt="The Pulpit Rock">
+                                        <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                    </figure>
+                                </div>
+                                <div>
+                                    <figure class = "search-thumbnail"  data-url = "products.html">
+                                        <img src="img/product-results/item2.png" class = "search-img" alt="The Pulpit Rock">
+                                        <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+                                    </figure>
+                                </div>>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <div id="products-found">
+                <div class="columns">
+                    <ul class="products-list">
+                        <li class="product-card" data-product-id="0001">
+                            <div class="box-title">Best price</div>
+                           <div class="content">
+                                <a href="#"><img src="img/product-results/item3.png" alt=""></a>
+                                <div>
+                                    <h3> Consectetur.  </h3>
+                                    <span>Elit nulla velit voluptatum impedit et molestiae.</span>
+                                    <div class="logos">
+                                        <img src="img/product-results/dsquare.png" alt="">
+                                        <img src="img/product-results/premium.png" alt="">
+                                    </div>
+                                    <p> Amet amet debitis explicabo impedit nemo tempore. Aperiam dicta ipsa tempora officia architecto sapiente?
+                                        Maiores odit eveniet dolorum ea rem! Possimus totam ad laborum neque possimus voluptatum quae eligendi
+                                        modi.  
+                                    </p>
+                                    <hr>
+                                    <h3>1200 USD</h3>
+                                    <p> Ipsum sunt voluptatem eligendi quidem sapiente?  </p>
+                                    <hr>
+                                    <div>
+                                        <a href="#" class="details">View Details</a>
+                                        <a href="#" class="substitution">View substitution product</a>
+                                        <a href="#" class="select-link">Select</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="product-card" data-product-id="0001">
+                            <div class="box-title">Best price</div>
+                            <div class="content">
+                                <a href="#"><img src="img/product-results/item2.png" alt=""></a>
+                                <div>
+                                    <h3> Consectetur.  </h3>
+                                    <span>Elit nulla velit voluptatum impedit et molestiae.</span>
+                                    <div class="logos">
+                                        <img src="img/product-results/dsquare.png" alt="">
+                                        <img src="img/product-results/premium.png" alt="">
+                                    </div>
+                                    <p> Amet amet debitis explicabo impedit nemo tempore. Aperiam dicta ipsa tempora officia architecto sapiente? Maiores odit eveniet dolorum ea rem! Possimus totam ad laborum neque possimus voluptatum quae eligendi modi.  </p>
+                                    <hr>
+                                    <h3>1200 USD</h3>
+                                    <p> Ipsum sunt voluptatem eligendi quidem sapiente?  </p>
+                                    <hr>
+                                    <div>
+                                        <a href="#" class="details">View Details</a>
+                                        <a href="#" class="substitution">View substitution product</a>
+                                        <a href="#" class="select-link">Select</a>
+                                    </div>
+                                </div>
+                          </div>
+                        </li>
+                        <li class="product-card" data-product-id="0001">
+                          <div class="box-title">Best price</div>
+                          <div class="content">
+                                <a href="#"><img src="img/product-results/item1.png" alt=""></a>
+                                <div>
+                                    <h3> Consectetur.  </h3>
+                                    <span>Elit nulla velit voluptatum impedit et molestiae.</span>
+                                    <div class="logos">
+                                        <img src="img/product-results/dsquare.png" alt="">
+                                        <img src="img/product-results/premium.png" alt="">
+                                    </div>
+                                    <p> Amet amet debitis explicabo impedit nemo tempore. 
+                                        Aperiam dicta ipsa tempora officia architecto sapiente? Maiores odit eveniet dolorum ea rem!
+                                        Possimus totam ad laborum neque possimus voluptatum quae eligendi modi.  
+                                    </p>
+                                    <hr>
+                                    <h3>1200 USD</h3>
+                                    <p> Ipsum sunt voluptatem eligendi quidem sapiente?  </p>
+                                    <hr>
+                                    <div>
+                                        <a href="#" class="details">View Details</a>
+                                        <a href="#" class="substitution">View substitution product</a>
+                                        <a href="#" class="select-link">Select</a>
+                                    </div>
+                                </div>
+                          </div>
+                        </li>		
+                    </ul>
+                    <div class="mobile-navigation">
+                        <a href="#">&lt;</a>
+                        <span class="position">1</span>
+                        <a href="#">&gt;</a>
+                    </div>
+                    <div class="side-bar">
+                        <ul>
+                           <li>
+                               <div class="result-filter">
+                                    <div class="selection">
+                                    <h2>Your selection</h2>
+                                        <div>
+                                            <h3>Product or component type:</h3>
+                                            <ul>
+                                                <li><a href="#">Complete push buttons</a><a href="#" class="cross"></a></li>
+                                            </ul>
+                                        </div>
+                                        <a href="#">Remove all</a>
+                                    </div>			                       
+                                    <h2>Narrow by</h2>
+                                    <ul>
+                                        <li class="">
+                                            <h3>Product or Component type</h3>
+                                            <div style="display: none;">
+                                                <h4>Cap/operator or lens colour</h4>
+                                                <ul>
+                                                    <li>Black (2)</li>
+                                                    <li>Green (8)</li>
+                                                    <li>Red (9)</li>
+                                                    <li>Yellow (2)</li>
+                                                    <li>Blue (4)</li>
+                                                </ul>
+                                                <a href="#">View all</a>
+                                                <h4>Operator profile</h4>
+                                                <ul>
+                                                    <li>Flush (29)</li>
+                                                    <li>Projecting (6)</li>
+                                                </ul>
+                                                <h4>Marking</h4>
+                                                <ul>
+                                                    <li>Unmarked (11)</li>
+                                                    <li>I (1)</li>
+                                                    <li>O (1)</li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <h3>Contact type and composition</h3>
+                                            <div style="display: none;">
+                                                <ul>
+                                                    <li>1 NO (2)</li>
+                                                    <li>1 NC (8)</li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                               </div>
+                               <a href="#">Clear filter</a></li> 
+                            </li>
+                            <li class="cta-box">
+                                <div class="title">
+                                    <img src="img/product-results/configurator.png" alt="">
+                                    <h3>Product configurator</h3>
+                                </div>
+                                <hr>
+                                <p> Dolor laudantium quae ducimus tempore fugiat tenetur cumque!</p>
+                                <a href="#">Get Started</a>
+                            </li>
+                            <li class="cta-box">
+                                <div class="title">
+                                    <img src="img/product-results/mobile.png" alt="">
+                                    <h3>We got Cool Apps to Help you Choose!</h3>
+                                </div>
+                                <hr>
+                                <div class="app-wrapper">
+                                    <img src="img/product-results/22mm.png" alt="">
+                                    <div class="content">
+                                        <p> Lorem placeat provident.</p>
+                                        <a href="#">View Details</a>
+                                    </div>
+                                </div>
+                                <div class="app-wrapper">
+                                    <img src="img/product-results/22mm.png" alt="">
+                                    <div class="content">
+                                        <p> Lorem placeat provident.</p>
+                                        <a href="#">View Details</a>
+                                    </div>
+                                </div>
+                                <div class="app-wrapper">
+                                    <img src="img/product-results/22mm.png" alt="">
+                                    <div class="content">
+                                        <p> Lorem placeat provident.</p>
+                                        <a href="#">View Details</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bottom-navigation">
+                    <span class="position">1- 20 of 200</span>
+                    <ul class="page-links">
+                        <li><a href="#">&lt;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li class="selected"><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><a href="#">7</a></li>
+                        <li><a href="#">8</a></li>
+                        <li><a href="#">9</a></li>
+                        <li class="etc"><a href="#">...</a></li>
+                        <li><a href="#">20</a></li>
+                        <li><a href="#">&gt;</a></li>
+                    </ul>
+              </div>
+        </div>
+        <section id="searches">
+            <div>
+	   	      <h3>Top Searches</h3>
+               <ul>
+	   	          	<li><a href="#">*</a></li>
+	   	          	<li><a href="#">OPERATION MANUEL</a></li>
+	   	          	<li><a href="#">ALTIVAR</a></li>
+	   	          	<li><a href="#">C60N</a></li>
+	   	          	<li><a href="#">SOMOVE</a></li>
+	   	          	<li><a href="#">COMPACT NSX</a></li>
+	   	          	<li><a href="#">MCB</a></li>
+	   	          	<li><a href="#">UNITY PRO</a></li>
+	   	          	<li><a href="#">PROTECTIVE RELAY</a></li>
+	   	          	<li><a href="#">ZELIO SOFT</a></li>
+               </ul>
+            </div>
+	        <div>
+	        	   <h3>Recent Searches</h3>
+	        	   <ul>
+	                <li><a href="#">*</a></li>
+	                <li><a href="#">OPERATION MANUEL</a></li>
+	                <li><a href="#">ALTIVAR</a></li>
+	                <li><a href="#">C60N</a></li>
+	                <li><a href="#">COMPACT NSX</a></li>
+	                <li><a href="#">MCB</a></li>
+	        	   </ul>
+	        </div>
+        </section>
+    </div>
+</div>
+</div>
+</body>
+</html>
