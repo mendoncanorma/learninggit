@@ -1,0 +1,11 @@
+{
+	"outputs": [
+		{
+			"inputs": ["common.js", "headermenu.js", "homepage.js", "projects.js", "project-detail.js"],
+			"output": "../assets/js/gec.js",
+			"generateMap": true,
+			"mangle": false,
+			"isolate": false
+		}
+	]
+}
