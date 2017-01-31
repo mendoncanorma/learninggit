@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Number Formatting</title>
+
+</head>
+<body>
+   
+    $<input type="text" id="price" name="price" class="currency-format" />
+    <div id="debug"></div>
+	<script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.number.js"></script>
+    
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#price').number( true, 0, ",", "." );
+        } );
+    </script>
+    
+</body>
+</html>        
