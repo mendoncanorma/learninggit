@@ -1,0 +1,5 @@
+<section class="banner-area">                
+    <div class="container">
+        <img src="../assets/images/Banner.jpg" class="img-responsive" />
+    </div>
+</section>

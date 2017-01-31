@@ -1,0 +1,21 @@
+#contactus {
+	
+	section.contactus-area {
+		padding: 50px 0;
+		
+		h1 {
+			color: $gec-green-1;
+			margin: 0 0 40px 0;
+			text-align: center;
+
+			span {
+				color: $gec-gray-2;
+			}
+		}
+
+		img {
+			float: right;
+			margin: 0 0 20px 20px;
+		}
+	}
+}

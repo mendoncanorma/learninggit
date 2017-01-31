@@ -1,0 +1,117 @@
+/* ********** Carousel : Customer Testimonial : start ********** */
+
+#customer-testimonial-carousel {
+     .item {
+          background: transparent;
+          padding: 30px;
+          margin: 10px;
+          color: $gec-white-1;
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
+         
+          div.customer-photo {
+               img {
+                    border: 3px solid $gec-yellow-2;
+                    border-radius: 50%;
+                    display: block;
+                    height: auto;
+                    margin: 0 auto;
+                    max-width: 100%;
+               }
+          }
+          div.customer-name {
+               color: $gec-gray-2;
+               font-family: $gec-font-raleway-semi-bold;
+               font-size: 20px;
+               padding: 20px 0;
+               text-align: center;
+         }
+         div.customer-testimonial {
+               color: $gec-gray-5;
+               font-size: 16px;
+               position: relative;
+               text-align: center;
+               &:before {
+                   color: $gec-green-1;
+                   content: "\201C";
+                   font-family: $font-family-serif;
+                   font-size: 120px;
+                   position: absolute;
+                   top: -80px;
+                   left: 0;
+               }
+               &:after {
+                   color: $gec-green-1;
+                   content: "\201D";
+                   font-family: $font-family-serif;
+                   font-size: 60px;
+                   position: absolute;
+                   bottom: -70px;
+                   right: 10%;
+               }
+          }
+     }
+
+     div.owl-pagination .owl-page {
+          span {
+               border-radius: 0;
+               opacity: 1;
+          }
+          &:nth-child(5n+1) span {
+               background-color: $gec-blue-1;
+          }
+          &:nth-child(5n+2) span {
+               background-color: $gec-green-1;
+          }          
+          &:nth-child(5n+3) span {
+               background-color: $gec-yellow-2;
+          }
+          &:nth-child(5n+4) span {
+               background-color: $gec-blue-2;
+          }
+          &:nth-child(5n+5) span {
+               background-color: $gec-yellow-3;
+          } 
+     }
+}
+
+/* ********** Carousel : Customer Testimonial : end ********** */
+
+
+/* ********** Carousel : Projects : start ********** */
+#projects-carousel {
+    
+    img {
+      margin: 0 auto;
+    }
+
+    div.owl-pagination .owl-page {
+        span {
+            background-color: $gec-yellow-2;
+            border-radius: 0;
+            opacity: 1;
+        }
+
+        &.active {
+            span {
+                background-color: $gec-green-1;
+            }
+        }
+   }  
+}
+/* ********** Carousel : Projects : end ********** */
+
+.customNavigation {
+    text-align: center;
+}
+
+//use styles below to disable ugly selection
+.customNavigation a {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}

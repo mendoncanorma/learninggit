@@ -1,0 +1,74 @@
+#project-detail {
+	
+	section.project-detail-area {
+		padding: 50px 0;
+		
+		h1 {
+			color: $gec-green-1;
+			margin: 0 0 40px 0;
+			text-align: center;
+
+			span {
+				color: $gec-gray-2;
+			}
+		}
+
+		h3 {
+			color: $gec-yellow-2;
+			font-family: $gec-font-raleway-semi-bold;
+			font-size: 28px;
+			margin-top: 50px;
+		}
+
+		ul.amenities {
+			font-family: $gec-font-raleway-semi-bold;
+			font-size: 12px;		
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			li {
+				float: left;
+				width: 50%;
+
+				span {
+					display: block;
+					padding: 5px 0;
+					text-align: center;					
+				}
+
+				img {
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+}
+
+/* ********** Responsive Classes : Start ********** */
+
+@media (min-width: 992px) {
+	#project-detail {
+
+		section.project-detail-area {
+			
+			ul.amenities {
+				margin: 20px;
+				li {
+					width: 25%;
+				}
+			}
+
+			div.section-left {
+				float: left;
+			}
+
+			div.section-right {
+				float: right;
+			}			
+
+		}
+	}
+}
+
+/* ********** Responsive Classes : End ********** */

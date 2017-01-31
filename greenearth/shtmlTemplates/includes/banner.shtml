@@ -1,0 +1,12 @@
+            <section class="banner-area">                
+                <div class="video-wrap">
+                    <video autoplay muted loop>
+                        <source src="../assets/images/Houses_1-5_720p_h264_30rf_wo.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="cover-title">
+                    <h1>Right place to invest and build your dream home</h1>
+                    <a class="take-tour" href="#">Take a tour</a><br />
+                    <a class="icon-tour" href="#"><img src="../images/icoTour.png" class="img-responsive" /></a>
+                </div>
+            </section>

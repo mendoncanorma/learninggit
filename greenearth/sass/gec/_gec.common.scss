@@ -1,0 +1,153 @@
+body {
+	color: $gec-gray-1;
+	background: $gec-white-2;
+	font-family: $gec-font-raleway-regular;
+	font-size: 16px;	
+}
+
+h1 {		
+	font-family: $gec-font-raleway-bold;
+	font-size: 38px;
+}
+
+a {
+	&:link,
+	&:visited,
+	&:active, {
+		text-decoration: none;
+	}	
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+hr.seperator {
+	border-bottom: 1px solid $gec-gray-7;
+}
+
+/* banner area : start : */
+section.banner-area {
+    position: relative;
+
+    div.video-wrap {
+        height: 150px;
+        overflow: hidden;
+
+        video {
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    div.cover-title {
+        position: absolute;
+        margin: auto;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-15%) translateX(-50%);
+        width: 80%;
+
+        text-align: center;
+
+        h1 {
+            color: $gec-white-1;
+            font-family: $gec-font-raleway-bold;
+            font-size: 14px;
+            margin: 0 0 3%;
+
+            animation-name: moveright;
+            animation-duration: 1s;
+            animation-timing-function: ease-in;
+            animation-delay: 1s;
+            animation-fill-mode: both;
+        }
+
+        a.take-tour {
+            background-color: rgba(0,0,0,0.5);
+            border: 1px solid $gec-yellow-2;
+            color: $gec-yellow-2;
+            display: inline-block;
+            font-size: 12px;
+            padding: 1% 4%;
+            margin: 0 0 3%;	
+
+            animation-name: moveleft;
+            animation-duration: 1s;
+            animation-timing-function: ease-in;
+            animation-delay: 1.5s;
+            animation-fill-mode: both;				
+        }
+
+        a.icon-tour {
+            display: inline-block;
+            height: 5%;
+            width: 5%;
+
+            animation-name: moveup;
+            animation-duration: 1s;
+            animation-timing-function: ease-in;
+            animation-delay: 2.5s;
+            animation-fill-mode: both;	
+
+            img {
+                margin: auto;
+            }
+        }
+    }
+}
+
+/* banner area : end : */
+
+/* ********** Responsive Classes : Start ********** */
+@media (min-width: 768px) {
+    section.banner-area {
+        div.video-wrap {
+            height: 400px;
+            overflow: hidden;
+        }
+
+        div.cover-title {
+            h1 {
+                font-size: 20px;
+            }
+            a.take-tour {
+                font-size: 14px;
+            }
+        }
+
+    }	
+}
+@media (min-width: 992px) {
+    section.banner-area {
+        div.video-wrap {
+            height: 400px;
+            overflow: hidden;
+        }
+
+        div.cover-title {
+            h1 {
+                font-size: 30px;
+            }
+            a.take-tour {
+                font-size: 16px;
+            }				
+        }
+
+    }	
+}
+@media (min-width: 1200px) {
+    section.banner-area {
+        div.video-wrap {
+            height: 600px;
+            overflow: hidden;
+        }
+
+        div.cover-title {
+            h1 {
+                font-size: 50px;
+            }
+        }
+    }	
+}
+/* ********** Responsive Classes : End ********** */

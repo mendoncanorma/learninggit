@@ -1,0 +1,51 @@
+/*!
+ * Green Earth Construction
+ * Copyright Green Earth Construction
+ */
+
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+// GEC variables and mixins
+@import "gec/gec.variables";
+@import "gec/gec.mixins";
+
+
+//font
+@import "gec/gec.fonts";
+
+//font icons
+@import "gec/social";
+
+// common
+@import "gec/gec.common";
+
+//forms 
+@import "gec/gec.forms";
+
+//header
+@import "gec/gec.header";
+
+//footer
+@import "gec/gec.footer";
+
+// common sections 
+@import "gec/gec.headernav";
+@import "gec/gec.ourprojects";
+@import "gec/gec.testimonial";
+@import "gec/gec.sidenav";
+
+// homepage
+@import "gec/gec.homepage";
+@import "gec/gec.about";
+@import "gec/gec.projects";
+@import "gec/gec.projectlist";
+@import "gec/gec.projectdetail";
+@import "gec/gec.contactus";
+
+
+// owl carousel
+@import "gec/owl.carousels";
+@import "gec/owl.theme";
+@import "gec/gec.owl.custom"
