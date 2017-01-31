@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Custom Pagination</title>
+
+    <!-- Bootstrap -->
+    <link href="simplePagination.css" rel="stylesheet">
+    
+        
+</head>
+<body>
+    
+	<div class="custom-pagination"></div>
+	<!--<div class="custom-pagination"></div>-->
+	
+    <script src="jquery.min.js"></script>
+	<script src="jquery.simplePagination.js"></script>
+
+	<script>
+		$(function() {
+			$(".custom-pagination").pagination({
+				items: 50,
+				itemsOnPage: 3,
+				cssStyle: 'light-theme'
+			});
+		});
+	</script>
+</body>
+</html>
