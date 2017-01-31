@@ -1,0 +1,110 @@
+/* zenni variables */
+@import "zenni-variables.less";
+
+/* zenni mixins */
+@import "zenni-mixins.less";
+
+/* utility classes */
+@import "zenni-utility.less";
+
+
+body {
+	color: @basecolor;
+	font-size: @basefont;
+}
+
+p {
+	font-size: 1em;
+}
+
+header.zenni-header {
+	color: @color-white;
+
+	h1 {
+		font-size: 3.5em;
+	}
+}
+
+section.main-content {
+	h1 {
+		font-size: 1.5em;
+	}
+}
+
+section.panel-content {
+	h1 {
+		font-size: 2em;
+	}
+}
+
+section.grid-content {
+	color: @color-white;
+	text-align: center;
+
+	h1, h2 {
+		font-size: 1.5em;
+	}
+
+	p.sub-text {
+		font-size: 15px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	div.panel-body {
+		padding: 3px;
+
+		p {
+			font-size: 15px;
+		}
+	}
+
+	div.panel-content {
+		padding: 0 3px;
+	}
+
+	.btn-default {
+		border-radius: 5px;
+		color: @color-black;
+		font-size: 18px;
+		font-weight: 400;
+		margin-bottom: 25px;
+		padding: 8px 16px;
+	}
+}
+
+section.testimonial-content {
+	h1 {
+		font-size: 1.5em;
+	}
+
+	div.testimonial {
+		background-color: @color-gray-lightest;
+		.border-radius(3px);
+		.box-shadow(inset 0 0 5px rgba(0,0,0,0.3));
+	}
+}
+
+footer.zenni-footer {
+	color: @color-white;
+}
+
+
+/* ********** Responsive Classes ********** */
+
+@media (min-width: 768px) {
+	section.grid-content {
+		p.sub-text {
+			width: 50%;
+		}
+	}
+}
+
+
+@media (min-width: 1024px) {
+	section.grid-content {
+		div.panel-content {
+			padding: 0;
+		}
+	}
+}
