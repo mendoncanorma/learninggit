@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Full Width Responsive Tiled Menu </title>
+    <meta name="description" content="Pushy is an off-canvas navigation menu for your website.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="../assets/bootstrap.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            font-family: 'Open Sans Condensed', sans-serif;
+            background: white;
+        }
+        
+        header {
+            background-color: rgba(0,0,0,0.05);
+            /*height: 38px;*/
+            line-height: 1%;
+            color: black;
+            text-align: center;
+            /*
+            position: fixed;
+            top: 0;
+            left: 20%;
+            right: 20%;
+            */
+        }
+        
+        header h3 {
+            margin: 0;
+        }
+
+        .nav-bar {
+            width: 100%;
+        }
+
+        .nav-container {
+            margin: 2.95% auto;
+        }
+
+        .nav-menu {
+            display: none;
+        }
+
+        nav.nav-bar ul {
+            list-style: none;
+        }
+
+        .nav-list {
+            margin: 0 auto;
+            width: 100%;
+            padding: 0;
+        }
+
+        .nav-list li {
+            float: left;
+            width: 12.5%;
+        }
+
+        .nav-list li a {
+            display: block;
+            color: #f9f9f9;
+            text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
+            padding: 30px;
+            font-size: 20px;
+            text-align: center;
+            text-decoration: none;
+            -webkit-transition:all 0.2s linear;
+               -moz-transition:all 0.2s linear;
+                 -o-transition:all 0.2s linear;
+                    transition:all 0.2s linear;            
+        }
+        
+        .nav-list li a:hover {
+            -webkit-filter: brightness(1.3);
+            padding-top: 80px ;            
+        }
+        
+        #tile1 {
+          background:#00ced7
+        }
+        #tile2 {
+          background:#00bbc3
+        }
+        #tile3 {
+          background:#00a8af
+        }
+        #tile4 {
+          background:#00959c
+        }
+        #tile5 {
+          background:#00889c
+        }
+        #tile6 {
+          background:#007b9c
+        }
+        #tile7 {
+          background:#006e9c
+        }
+        #tile8 {
+          background:#005c83
+        }
+        
+        
+        @media screen and (min-width: 1080px) and (max-width: 1224px) {
+            .nav-bar {
+                margin-top: 3.5%;
+            }
+            .nav-list li a {
+                padding: 20px 15px;
+                font-size: 1.3em;
+                text-align: center;
+            }
+        }
+        
+        @media screen and (min-width: 769px) and (max-width: 1079px) {
+            .nav-bar {
+                margin-top: 4.7%;
+            }
+            .nav-list li a {
+                padding: 20px 8px;
+                font-size: 1.3em;
+                text-align: center;
+            }
+        }
+                
+        @media screen and (min-width: 481px) and (max-width: 768px) {
+            .nav-container,.container {
+                margin: 8% auto;
+            }
+            .nav-list li {
+                float: left;
+                width: 50%;
+            }
+            .nav-list li a:hover{
+                padding-right: 40%;
+                padding-top: 30px ;
+            }
+        } 
+        
+        @media screen and (max-width: 480px) {
+            .nav-container {
+                background: #4f6f8f;
+            }
+            
+            .nav-menu {
+                color: #fff;
+                /*float: left;*/
+                display: block;
+                padding: 10px;
+                cursor: pointer;
+                width: 100px;
+            }
+            
+            .nav-list {
+                float: left;
+                width: 100%;
+                /* height: 0; */
+                /* display: none; */
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s linear;
+            }
+            
+            .nav-open {
+                /*height: auto;*/
+                max-height: 1000px;
+            }
+            
+            .nav-list li {
+                float: none;
+                width: 100%;
+            }
+            
+            .nav-list li a {
+                text-align: left;   
+            }
+            
+            .nav-list li a:hover {
+                padding-left: 36%;
+                padding-top: 30px;
+            }
+        }
+       
+    </style>
+
+</head>
+
+<body>
+
+    
+    <!-- Your Content -->
+    <div id="container" class="container">
+        
+        <header>
+            <h3>Full Width Responsive Tile Menu</h1>
+        </header>
+
+        <nav class="nav-bar">
+            <div class="nav-container"> 
+                <a id="nav-menu" class="nav-menu">&#9776; Menu</a>
+                <ul class="nav-list clearfix" id="nav">
+                    <li> <a href="#" id="tile1"><i class="icon ion-ios7-home-outline"></i> Home</a></li>
+                    <li> <a href="#" id="tile2"><i class="icon ion-ios7-person-outline"></i> About</a></li>
+                    <li> <a href="#" id="tile3"><i class="icon ion-ios7-briefcase-outline"></i> Portfolio</a></li>
+                    <li> <a href="#" id="tile4"><i class="ion-ios7-monitor-outline"></i> Services</a></li>
+                    <li> <a href="#" id="tile5"><i class="ion-ios7-people-outline"></i> Clients</a></li>
+                    <li> <a href="#" id="tile6"><i class="ion-bag"></i> Order</a></li>
+                    <li> <a href="#" id="tile7"><i class="ion-ios7-paper-outline"></i> Blog</a></li>
+                    <li> <a href="#" id="tile8"><i class="ion-ios7-email-outline"></i> Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pharetra neque a diam cursus pulvinar. Suspendisse faucibus mi id accumsan lobortis. Pellentesque consectetur varius turpis, nec viverra justo pellentesque sit amet. Vestibulum convallis leo non purus vehicula, non faucibus libero rhoncus. Morbi aliquam tincidunt facilisis. Aenean sodales nulla ac semper consectetur. Vivamus commodo massa convallis justo posuere vestibulum. Aenean congue non mauris ac auctor. Ut suscipit et eros nec suscipit. Nulla congue, mauris nec bibendum sagittis, urna orci tincidunt massa, in vulputate velit nulla vitae nunc. Etiam urna justo, imperdiet nec orci sollicitudin, tempus feugiat erat. Vivamus id lectus nulla. Vestibulum sagittis cursus metus vel ultricies. Suspendisse viverra interdum metus eu placerat. Quisque tristique velit nisi, scelerisque consectetur tortor vehicula ut. Donec id fermentum mi, nec venenatis felis.</p>
+
+        <p>Praesent id metus imperdiet, congue leo sed, eleifend purus. Donec congue scelerisque tempus. Maecenas eget nunc pharetra, laoreet enim sed, dictum odio. Sed non mollis purus. Aliquam aliquet, risus eget dictum commodo, neque mi dapibus ipsum, tempus iaculis elit lorem pharetra mauris. Vivamus pulvinar scelerisque lectus a congue. Sed vitae odio massa. Pellentesque condimentum sit amet arcu in convallis.</p>
+
+        <p>Etiam dapibus nisl nibh, et commodo nisi euismod vehicula. In consectetur eleifend felis, eget iaculis lectus scelerisque vel. Mauris non nibh nec sem consequat dapibus sed at tellus. Nunc egestas ac diam sed pretium. Praesent ultrices malesuada nisi at ornare. Aliquam arcu eros, pellentesque vitae fringilla ac, rhoncus id urna. Curabitur sit amet tortor eu neque sollicitudin congue. Proin mattis, diam quis ullamcorper iaculis, metus lectus vulputate tellus, id imperdiet nibh ante vel risus. Nam ut mi libero. Suspendisse auctor neque at pulvinar vestibulum. Suspendisse potenti. Cras molestie eros at feugiat gravida.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pharetra neque a diam cursus pulvinar. Suspendisse faucibus mi id accumsan lobortis. Pellentesque consectetur varius turpis, nec viverra justo pellentesque sit amet. Vestibulum convallis leo non purus vehicula, non faucibus libero rhoncus. Morbi aliquam tincidunt facilisis. Aenean sodales nulla ac semper consectetur. Vivamus commodo massa convallis justo posuere vestibulum. Aenean congue non mauris ac auctor. Ut suscipit et eros nec suscipit. Nulla congue, mauris nec bibendum sagittis, urna orci tincidunt massa, in vulputate velit nulla vitae nunc. Etiam urna justo, imperdiet nec orci sollicitudin, tempus feugiat erat. Vivamus id lectus nulla. Vestibulum sagittis cursus metus vel ultricies. Suspendisse viverra interdum metus eu placerat. Quisque tristique velit nisi, scelerisque consectetur tortor vehicula ut. Donec id fermentum mi, nec venenatis felis.</p>
+
+        <p>Praesent id metus imperdiet, congue leo sed, eleifend purus. Donec congue scelerisque tempus. Maecenas eget nunc pharetra, laoreet enim sed, dictum odio. Sed non mollis purus. Aliquam aliquet, risus eget dictum commodo, neque mi dapibus ipsum, tempus iaculis elit lorem pharetra mauris. Vivamus pulvinar scelerisque lectus a congue. Sed vitae odio massa. Pellentesque condimentum sit amet arcu in convallis.</p>
+
+        <p>Etiam dapibus nisl nibh, et commodo nisi euismod vehicula. In consectetur eleifend felis, eget iaculis lectus scelerisque vel. Mauris non nibh nec sem consequat dapibus sed at tellus. Nunc egestas ac diam sed pretium. Praesent ultrices malesuada nisi at ornare. Aliquam arcu eros, pellentesque vitae fringilla ac, rhoncus id urna. Curabitur sit amet tortor eu neque sollicitudin congue. Proin mattis, diam quis ullamcorper iaculis, metus lectus vulputate tellus, id imperdiet nibh ante vel risus. Nam ut mi libero. Suspendisse auctor neque at pulvinar vestibulum. Suspendisse potenti. Cras molestie eros at feugiat gravida.</p>
+
+        <footer class="site-footer">This is a footer</footer>
+        
+    </div>
+    
+
+    <!-- jQuery -->
+    <script src="../assets/jquery-2.1.1.js"></script>
+    
+
+    <script>
+        $(document).ready(function(){
+            $('#nav-menu').click(function(){
+                // $('ul.nav-list').addClass('nav-open').slideToggle('200');
+                $('ul.nav-list').toggleClass('nav-open');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

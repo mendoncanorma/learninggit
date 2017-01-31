@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Menu</title>
+    <meta name="description" content="Pushy is an off-canvas navigation menu for your website.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="../assets/bootstrap.css">
+
+    <style type="text/css">
+        .side-menu-wrapper { /* style menu wrapper */
+            overflow: hidden;
+            background: rgba(0,0,0,.95);
+            padding: 40px 0 0 40px;
+            position: fixed; /* Fixed position */
+            top: 0;
+            right: -290px; /* Sidebar initial position. "right" for right positioned menu */
+            height: 100%;
+            z-index: 2;
+            transition: 0.5s; /* CSS transition speed */
+            width: 250px;
+            font: 20px "Courier New", Courier, monospace;
+        }
+        .side-menu-wrapper > ul{ /* css ul list style */
+            list-style:none;
+            padding:0;
+            margin:0;
+            overflow-y: auto; /* enable scroll for menu items */
+            width:500px; /* this width will hide scroll bar */
+            height:95%;
+        }
+        .side-menu-wrapper > ul > li > a { /* links */
+            display: block;
+            border-bottom: 1px solid #131313;
+            padding: 6px 4px 6px 4px;
+            color: #989898;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .side-menu-wrapper > a.menu-close { /* close button */
+            padding: 8px 0 4px 23px;
+            color: #6B6B6B;
+            display: block;
+            margin: -30px 0 -10px -20px;
+            font-size: 35px;
+            text-decoration: none;
+        }
+
+        .side-menu-overlay { /* overlay */
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,.7);
+            overflow-y: auto;
+            overflow-x: hidden;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    
+    <!-- Your Content -->
+    <div id="container">
+        
+        <header class="site-header">This is a header</header>
+        
+        <!-- Menu Button -->
+        <a href="#" class="slide-menu-open">Open Menu</a>
+
+        <div class="side-menu-overlay" style="width: 0px; opacity: 0;"></div>
+        <div class="side-menu-wrapper">
+            <a href="#" class="menu-close">&times;</a>
+            <ul>
+                <li><a href="http://www.google.com" target="_blank" rel="nofollow">Google Search</a></li>
+                <li><a href="http://www.yahoo.com" target="_blank" rel="nofollow">Yahoo Search</a></li>
+                <li><a href="http://www.facebook.com" target="_blank" rel="nofollow">Facebook</a></li>
+                <li><a href="http://www.flickr.com" target="_blank" rel="nofollow">Flickr</a></li>
+                <li><a href="http://www.google.com" target="_blank" rel="nofollow">Google Search</a></li>
+                <li><a href="http://www.yahoo.com" target="_blank" rel="nofollow">Yahoo Search</a></li>
+                <li><a href="http://www.facebook.com" target="_blank" rel="nofollow">Facebook</a></li>
+                <li><a href="http://www.flickr.com" target="_blank" rel="nofollow">Flickr</a></li>
+                <li><a href="http://www.google.com" target="_blank" rel="nofollow">Google Search</a></li>
+                <li><a href="http://www.yahoo.com" target="_blank" rel="nofollow">Yahoo Search</a></li>
+                <li><a href="http://www.facebook.com" target="_blank" rel="nofollow">Facebook</a></li>
+                <li><a href="http://www.flickr.com" target="_blank" rel="nofollow">Flickr</a></li>
+                <li><a href="http://www.google.com" target="_blank" rel="nofollow">Google Search</a></li>
+                <li><a href="http://www.yahoo.com" target="_blank" rel="nofollow">Yahoo Search</a></li>
+                <li><a href="http://www.facebook.com" target="_blank" rel="nofollow">Facebook</a></li>
+                <li><a href="http://www.flickr.com" target="_blank" rel="nofollow">Flickr</a></li>                
+            </ul>
+        </div>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pharetra neque a diam cursus pulvinar. Suspendisse faucibus mi id accumsan lobortis. Pellentesque consectetur varius turpis, nec viverra justo pellentesque sit amet. Vestibulum convallis leo non purus vehicula, non faucibus libero rhoncus. Morbi aliquam tincidunt facilisis. Aenean sodales nulla ac semper consectetur. Vivamus commodo massa convallis justo posuere vestibulum. Aenean congue non mauris ac auctor. Ut suscipit et eros nec suscipit. Nulla congue, mauris nec bibendum sagittis, urna orci tincidunt massa, in vulputate velit nulla vitae nunc. Etiam urna justo, imperdiet nec orci sollicitudin, tempus feugiat erat. Vivamus id lectus nulla. Vestibulum sagittis cursus metus vel ultricies. Suspendisse viverra interdum metus eu placerat. Quisque tristique velit nisi, scelerisque consectetur tortor vehicula ut. Donec id fermentum mi, nec venenatis felis.</p>
+
+        <p>Praesent id metus imperdiet, congue leo sed, eleifend purus. Donec congue scelerisque tempus. Maecenas eget nunc pharetra, laoreet enim sed, dictum odio. Sed non mollis purus. Aliquam aliquet, risus eget dictum commodo, neque mi dapibus ipsum, tempus iaculis elit lorem pharetra mauris. Vivamus pulvinar scelerisque lectus a congue. Sed vitae odio massa. Pellentesque condimentum sit amet arcu in convallis.</p>
+
+        <p>Etiam dapibus nisl nibh, et commodo nisi euismod vehicula. In consectetur eleifend felis, eget iaculis lectus scelerisque vel. Mauris non nibh nec sem consequat dapibus sed at tellus. Nunc egestas ac diam sed pretium. Praesent ultrices malesuada nisi at ornare. Aliquam arcu eros, pellentesque vitae fringilla ac, rhoncus id urna. Curabitur sit amet tortor eu neque sollicitudin congue. Proin mattis, diam quis ullamcorper iaculis, metus lectus vulputate tellus, id imperdiet nibh ante vel risus. Nam ut mi libero. Suspendisse auctor neque at pulvinar vestibulum. Suspendisse potenti. Cras molestie eros at feugiat gravida.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pharetra neque a diam cursus pulvinar. Suspendisse faucibus mi id accumsan lobortis. Pellentesque consectetur varius turpis, nec viverra justo pellentesque sit amet. Vestibulum convallis leo non purus vehicula, non faucibus libero rhoncus. Morbi aliquam tincidunt facilisis. Aenean sodales nulla ac semper consectetur. Vivamus commodo massa convallis justo posuere vestibulum. Aenean congue non mauris ac auctor. Ut suscipit et eros nec suscipit. Nulla congue, mauris nec bibendum sagittis, urna orci tincidunt massa, in vulputate velit nulla vitae nunc. Etiam urna justo, imperdiet nec orci sollicitudin, tempus feugiat erat. Vivamus id lectus nulla. Vestibulum sagittis cursus metus vel ultricies. Suspendisse viverra interdum metus eu placerat. Quisque tristique velit nisi, scelerisque consectetur tortor vehicula ut. Donec id fermentum mi, nec venenatis felis.</p>
+
+        <p>Praesent id metus imperdiet, congue leo sed, eleifend purus. Donec congue scelerisque tempus. Maecenas eget nunc pharetra, laoreet enim sed, dictum odio. Sed non mollis purus. Aliquam aliquet, risus eget dictum commodo, neque mi dapibus ipsum, tempus iaculis elit lorem pharetra mauris. Vivamus pulvinar scelerisque lectus a congue. Sed vitae odio massa. Pellentesque condimentum sit amet arcu in convallis.</p>
+
+        <p>Etiam dapibus nisl nibh, et commodo nisi euismod vehicula. In consectetur eleifend felis, eget iaculis lectus scelerisque vel. Mauris non nibh nec sem consequat dapibus sed at tellus. Nunc egestas ac diam sed pretium. Praesent ultrices malesuada nisi at ornare. Aliquam arcu eros, pellentesque vitae fringilla ac, rhoncus id urna. Curabitur sit amet tortor eu neque sollicitudin congue. Proin mattis, diam quis ullamcorper iaculis, metus lectus vulputate tellus, id imperdiet nibh ante vel risus. Nam ut mi libero. Suspendisse auctor neque at pulvinar vestibulum. Suspendisse potenti. Cras molestie eros at feugiat gravida.</p>
+
+        <footer class="site-footer">This is a footer</footer>
+        
+    </div>
+    
+
+    <!-- jQuery -->
+    <script src="../assets/jquery-2.1.1.js"></script>
+    
+    <!-- Pushy JS -->
+    <script>
+        var slidebar_width  = 290; //slidebar width + padding size
+        var slide_bar       = $(".side-menu-wrapper"); //slidebar
+        var slide_open_btn  = $(".slide-menu-open"); //slidebar close btn
+        var slide_close_btn = $(".menu-close"); //slidebar close btn
+        var overlay         = $(".side-menu-overlay"); //slidebar close btn
+
+        slide_open_btn.click(function(e){
+            e.preventDefault();
+            slide_bar.css( {"right": "0px"}); //change to "right" for right positioned menu
+            overlay.css({"opacity":"1", "width":"100%"});
+        });
+        slide_close_btn.click(function(e){
+            e.preventDefault();
+            slide_bar.css({"right": "-"+ slidebar_width + "px"}); //change to "right" for right positioned menu
+            overlay.css({"opacity":"0", "width":"0"});  
+        });    
+    </script>
+
+</body>
+
+</html>
