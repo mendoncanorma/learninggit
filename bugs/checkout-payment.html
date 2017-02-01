@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="http://static.pontoslivelo.com.br.s3.amazonaws.com/content/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://static.pontoslivelo.com.br.s3.amazonaws.com/content/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://static.pontoslivelo.com.br.s3.amazonaws.com/content/favicon.ico" type="image/vnd.microsoft.icon">
+    <meta name="robots" content="noindex" />
+    <title>Pagamento | Livelo</title>
+    <link href="css/payment.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link href="css/livelo.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+    <div class="ldmain">
+        <div class="ldimg"><img src="/livelo/assets/images/branco3.gif" alt="Loading" width="100" height="100" /></div>
+    </div>
+    <div class="container">
+        <input type="hidden" id="headerStatus" value="pagemento">
+        <ul class="row checkoutheaderalign finalizarHeader">
+            <li class="col-md-2">
+                <a href="http://www-sit.pontoslivelo.com.br"><img src="/livelo/assets/images/liveloLogo.png" class="liveloLogo logoHeader"></a>
+            </li>
+            <li class="col-md-3 leftAlign">
+                <p id="pageMenu">Finalizar Resgate</p>
+            </li>
+            <li class="col-md-2 menuItem shipmentli">
+                <p class="itemNum shipmentIcon">1</p><span class="shipmentText">Informações de envio</span></li>
+            <li class="col-md-3 menuItem pagementoli" id="centerAlign">
+                <p class="itemNum pagementoIcon">2</p><span class="pagementoText">Informações de pagamento</span></li>
+            <li class="col-md-2 menuItem revisoli" id="leftAlign">
+                <p class="itemNum revisoIcon">3</p><span class="revisoText">Revisão do Pedido<span></li></ul><form><input type="hidden" name="globalErrorText" id="globalErrorText" value="Por favor corrija o erro no formulário e envie novamente"/></form><div id="content-area" class="row"><div id="checkout" class="row content-area"><div class="row global-error"><div class="col-md-6"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="error-message"></span></div>
+    </div>
+    <div id="leftPanel" class="col-md-6">
+        <h1>Dados do pagamento</h1>
+        <div id="form-wrapper" class="container-fluid">
+            <h2 class="Informa??es">Dados do Cartão de Crédito</h2>
+            <p></p>
+            <hr width=100% align=left>
+            <div class="form-group">
+                <div class="panel-group">
+                    <div>
+                        <div class="panel-heading  addAddressPanel">
+                            <h4 class="panel-title"><a data-toggle="collapse" href="#paymentAddNewAddress" class="collapsed add-new-address">Adicionar nova forma de pagamento</a></h4></div>
+                        <div id="paymentAddNewAddress" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="dynamic-container">
+                                        <form id="form-chekout-newpayment" action="/livelo/secure/checkout/includes/?_DARGS=/livelo/secure/checkout/includes/addOrEditCreditCard.jsp.form-chekout-newpayment#" class="form-horizontal" method="post">
+                                            <div style="display:none">
+                                                <input name="_dyncharset" value="UTF-8" type="hidden" /> </div>
+                                            <div style="display:none">
+                                                <input name="_dynSessConf" value="-9064443638838398763" type="hidden" /> </div>
+                                            <div class="form-group">
+                                                <label for="creditCard" class="col-md-12">Tipo de cartão<span class="required">*</span></label>
+                                                <div class="col-md-12">
+                                                    <ul class="card-type">
+                                                        <li value="Elo" data-cardabbr="EC">
+                                                            <label for="rdCardtype_EC">
+                                                                <input type="radio" class="rdCardtype" id="rdCardtype_EC" name="rdCardtype" value="EC"><img src="/livelo/assets/images/Elo.png"></label>
+                                                        </li>
+                                                        <li value="Amex" data-cardabbr="AX">
+                                                            <label for="rdCardtype_AX">
+                                                                <input type="radio" id="rdCardtype_AX" class="rdCardtype" name="rdCardtype" value="AX"><img src="/livelo/assets/images/Amex.png"></label>
+                                                        </li>
+                                                        <li value="Mastercard" data-cardabbr="MC">
+                                                            <label for="rdCardtype_MC">
+                                                                <input type="radio" id="rdCardtype_MC" class="rdCardtype" name="rdCardtype" value="MC"><img src="/livelo/assets/images/mastercard.png"></label>
+                                                        </li>
+                                                        <li value="Visa" data-cardabbr="VI">
+                                                            <label for="rdCardtype_VI">
+                                                                <input type="radio" id="rdCardtype_VI" class="rdCardtype" name="rdCardtype" value="VI"><img src="/livelo/assets/images/Visa.png"></label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtCreditCardNo" class="col-md-12">Número do cartão de crédito<span class="required">*</span></label>
+                                                <div class="col-md-12">
+                                                    <input data-rule-creditValidation="true" id="txtCreditCardNo" data-msg-required="Preenchimento obrigatório" data-msg-creditValidation="Cartão Inválido" name="txtCreditCardNo" value="" class="form-control bp-sop-cardnumber" data-rule-required="true" type="text" autocomplete="off" />
+                                                    <input name="_D:txtCreditCardNo" value=" " type="hidden" />
+                                                    <input type="hidden" id="cardTypeAbbr">
+                                                    <input id="cardType" name="m:creditcardtype" value="" type="hidden" />
+                                                    <input name="_D:m:creditcardtype" value=" " type="hidden" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtCCName" class="col-md-12">Nome do cartão<span class="required">*</span></label>
+                                                <div class="col-md-12">
+                                                    <input id="txtCCName" data-msg-required="Preenchimento obrigatório" maxlength="30" name="txtCCName" value="" class="form-control bp-sop-cardholdername" data-rule-required="true" type="text" autocomplete="off" />
+                                                    <input name="_D:txtCCName" value=" " type="hidden" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label for="txtCardValidity" class="col-md-12">Validade do Cartão<span class="required">*</span></label>
+                                                        <div class="col-md-6">
+                                                            <label for="drpCardMonth" class="col-md-6"></label>
+                                                            <input name="_D:drpCardMonth" value=" " type="hidden"></input>
+                                                            <select data-rule-cardexpired="true" id="drpCardMonth" data-msg-required="Mês é obrigatório" name="drpCardMonth" class="form-control" data-rule-required="true" data-msg-cardexpired="Cartão expirado" aria-required="true">
+                                                                <option value="">Mês</option>
+                                                                <option value="1">Janeiro</option>
+                                                                <option value="2">Fevereiro</option>
+                                                                <option value="3">Março</option>
+                                                                <option value="4">Abril</option>
+                                                                <option value="5">Maio</option>
+                                                                <option value="6">Junho</option>
+                                                                <option value="7">Julho</option>
+                                                                <option value="8">Agosto</option>
+                                                                <option value="9">Setembro</option>
+                                                                <option value="10">Outubro</option>
+                                                                <option value="11">Novembro</option>
+                                                                <option value="12">Dezembro</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-6 pull-right">
+                                                            <label for="drpCardyear" class="col-md-6"></label>
+                                                            <input name="_D:/atg/commerce/order/purchase/PaymentGroupFormHandler.expiryYear" value=" " type="hidden"></input>
+                                                            <select id="drpCardyear" data-msg-required="Ano é obrigatório" name="/atg/commerce/order/purchase/PaymentGroupFormHandler.expiryYear" class="form-control" data-rule-required="true" aria-required="true">
+                                                                <option value="">Selecione o ano</option>
+                                                                <option value="2015">2015</option>
+                                                                <option value="2016">2016</option>
+                                                                <option value="2017">2017</option>
+                                                                <option value="2018">2018</option>
+                                                                <option value="2019">2019</option>
+                                                                <option value="2020">2020</option>
+                                                                <option value="2021">2021</option>
+                                                                <option value="2022">2022</option>
+                                                                <option value="2023">2023</option>
+                                                                <option value="2024">2024</option>
+                                                                <option value="2025">2025</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" class="bp-sop-cardexpirationdate" value="">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label for="txtSecureCode" class="col-md-12">Código de segurança<span class="required">*</span></label>
+                                                        <div class="col-md-6">
+                                                            <input id="txtSecureCode" data-msg-required="Preenchimento obrigatório" data-msg-securecode="Informe o código de segurança do cartão" name="txtSecureCode" value="" class="form-control bp-sop-cardcvv" data-rule-securecode="true" data-rule-required="true" type="text" autocomplete="off" />
+                                                            <input name="_D:txtSecureCode" value=" " type="hidden" />
+                                                        </div>
+                                                        <div class="col-md-6"><a class="cvv-help" href="#mdlSecurityCode" data-toggle="modal">Onde isso fica?<span class="new-window" aria-hidden="true"></span></a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <div class="checkbox">
+                                                        <input type="checkbox" id="chkSave" name="chkSave" />
+                                                        <label for="chkSave">Salvar forma de pagamento</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="accessToken" value="" />
+                                            <input type="hidden" id="environment" value="" />
+                                            <input id="saveNewCard" name="m:savenewcard" value="false" type="hidden" />
+                                            <input name="_D:m:savenewcard" value=" " type="hidden" />
+                                            <input id="paymentToken" name="m:paymenttoken" value="" type="hidden" />
+                                            <input name="_D:m:paymenttoken" value=" " type="hidden" />
+                                            <input id="noOfPayments" name="m:numberofpayments" value="1" type="hidden" />
+                                            <input name="_D:m:numberofpayments" value=" " type="hidden" />
+                                            <input name="m:applycreditcardpaymentgroupssuccessurl" value="https://www-sit.pontoslivelo.com.br/secure/checkout/revisao" type="hidden" />
+                                            <input name="_D:m:applycreditcardpaymentgroupssuccessurl" value=" " type="hidden" />
+                                            <input name="m:applycreditcardpaymentgroupserrorurl" value="https://www-sit.pontoslivelo.com.br/secure/checkout/pagamento" type="hidden" />
+                                            <input name="_D:m:applycreditcardpaymentgroupserrorurl" value=" " type="hidden" />
+                                            <input name="m:addnewcreditcard" value="true" class="col-md-12 btn btn-primary btn-continue" type="hidden" />
+                                            <input name="_D:m:addnewcreditcard" value=" " type="hidden" />
+                                            <div style="display:none">
+                                                <input name="_DARGS" value="/livelo/secure/checkout/includes/addOrEditCreditCard.jsp.form-chekout-newpayment" type="hidden" /> </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr width=100% align=left>
+            <form class="form-horizontal" id="form-chekout-payment-options" action="submit.php" method="post">
+                <div class="row">
+                    <h2>Opção de pagamento</h2>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="radio">
+                                <input type="radio" name="optpaymentOption" id="paymentOpt1" data-value="onetime" checked>
+                                <label for="paymentOpt1">Pagamento Único</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" name="optpaymentOption" id="paymentOpt2" data-value="installments">
+                                <label for="paymentOpt2">Pagamentos Parcelados</label>
+                            </div>
+                        </div>
+                        <div class="form-group installment-block">
+                            <label for="drppaywithInstallments" class="col-md-12">Opções de parcelamento<span class="required">*</span></label>
+                            <select id="drppaywithInstallments">
+                                <option value="0">Selecione</option>
+                                <option value="2" paramvalue="key">2&nbsp;XR$ 54,02&nbsp;por mês&nbsp;</option>
+                                <option value="3" paramvalue="key">3&nbsp;XR$ 36,01&nbsp;por mês&nbsp;</option>
+                                <option value="4" paramvalue="key">4&nbsp;XR$ 27,01&nbsp;por mês&nbsp;</option>
+                                <option value="5" paramvalue="key">5&nbsp;XR$ 21,61&nbsp;por mês&nbsp;</option>
+                                <option value="6" paramvalue="key">6&nbsp;XR$ 18,00&nbsp;por mês&nbsp;</option>
+                                <option value="7" paramvalue="key">7&nbsp;XR$ 15,43&nbsp;por mês&nbsp;</option>
+                                <option value="8" paramvalue="key">8&nbsp;XR$ 13,50&nbsp;por mês&nbsp;</option>
+                                <option value="9" paramvalue="key">9&nbsp;XR$ 12,00&nbsp;por mês&nbsp;</option>
+                                <option value="10" paramvalue="key">10&nbsp;XR$ 10,80&nbsp;por mês&nbsp;</option>
+                                <option value="11" paramvalue="key">11&nbsp;XR$ 9,82&nbsp;por mês&nbsp;</option>
+                                <option value="12" paramvalue="key">12&nbsp;XR$ 9,00&nbsp;por mês&nbsp;</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal fade" id="mdlSecurityCode" tabindex="-1" role="dialog" aria-labelledby="mdlSecurityCodeLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <form action="" method="post" autocomplete="off">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Onde posso encontrar isso</h4></div>
+                        <div class="modal-body">
+                            <p>Código de Segurança é obrigatório quando utilizer os cartões de crédito VISA, MasterCard, Discover, e AMEX.</p>
+                            <div class="row">
+                                <div class="col-md-4"><img src="/livelo/assets/images/Amex.png"></div>
+                                <div class="col-md-8">
+                                    <br><strong>AMEX</strong>
+                                    <p>Quatro dígitos acima e ao lado direito na frente de seu cartão de crédito</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4"><img src="/livelo/assets/images/Visa.png"></div>
+                                <div class="col-md-8">
+                                    <br><strong>Elo, Visa, MasterCard</strong>
+                                    <p>Três dígitos na parte de trás do seu cartão de crédito</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal fade" id="mdlDeletePaymentMethod" tabindex="-1" role="dialog" aria-labelledby="mdlDeleteAddressLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <form id="deleteCard" action="/livelo/secure/checkout/includes/?_DARGS=/livelo/secure/checkout/includes/creditCardInfo.jsp.deleteCard#" method="post" autocomplete="off">
+                    <div style="display:none">
+                        <input name="_dyncharset" value="UTF-8" type="hidden" /> </div>
+                    <div style="display:none">
+                        <input name="_dynSessConf" value="-9064443638838398763" type="hidden" /> </div>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="mdlDeleteAddressLabel">Excluir forma de pagamento</h4></div>
+                        <div class="modal-body">
+                            <p>Quer excluir esta forma de pagamento? Sem problemas. Deletá-la não influenciará nos pedidos já realizados ou pendentes para os quais você usou esta forma de pagamento. </p>
+                            <address></address>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            <input name="m:removecardsuccessurl" value="https://www-sit.pontoslivelo.com.br/secure/checkout/pagamento" type="hidden" />
+                            <input name="_D:m:removecardsuccessurl" value=" " type="hidden" />
+                            <input name="m:removecarderrorurl" value="https://www-sit.pontoslivelo.com.br/secure/checkout/pagamento" type="hidden" />
+                            <input name="_D:m:removecarderrorurl" value=" " type="hidden" />
+                            <input name="m:removecard" value="" class="removecardkey" type="hidden" />
+                            <input name="_D:m:removecard" value=" " type="hidden" />
+                            <input type="submit" class="btn btn-primary" value="Confirmar" />
+                        </div>
+                    </div>
+                    <div style="display:none">
+                        <input name="_DARGS" value="/livelo/secure/checkout/includes/creditCardInfo.jsp.deleteCard" type="hidden" /> </div>
+                </form>
+            </div>
+        </div>
+        <form id="form-make-primary" action="?_DARGS=/livelo/secure/checkout/pagamento.form-make-primary#" method="post">
+            <div style="display:none">
+                <input name="_dyncharset" value="UTF-8" type="hidden" /> </div>
+            <div style="display:none">
+                <input name="_dynSessConf" value="-9064443638838398763" type="hidden" /> </div>
+            <input id="addressId" name="m:addressid" value="" type="hidden" />
+            <input name="_D:m:addressid" value=" " type="hidden" />
+            <input name="m:changeprimaryaddress" value="true" type="hidden" />
+            <input name="_D:m:changeprimaryaddress" value=" " type="hidden" />
+            <div style="display:none">
+                <input name="_DARGS" value="/livelo/secure/checkout/pagamento.form-make-primary" type="hidden" /> </div>
+        </form>
+        <div class="col-md-12 checkout-continue">
+            <button type="button" class="col-md-12 btn btn-primary btn-continue">Continuar</button>
+        </div>
+    </div>
+    <div id="rightPanel" class=" col-md-6">
+        <div class="col-md-12 checkout-continue">
+            <button type="button" class="col-md-12 btn btn-primary btn-continue">Continuar</button>
+        </div>
+        <div id="checkoutSummaryWrapperItems" class="row">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="header">Resumo do Pedido</div>
+                </div>
+            </div>
+            <div class="col-md-12 point-details">
+                <div id="orderItem" class="col-md-7">Seu saldo de pontos atual</div>
+                <div id="orderItemRate" class="col-md-5 text-right"><strong>326.865</strong>&nbsp;Pontos</div>
+            </div>
+            <div id="itemQuantity" class="col-md-12"><span class="bold">1&nbsp;itens&nbsp;</span>No seu carrinho</div>
+            <div id="orderDetail" class="col-md-12">
+                <div class="col-md-8">Pontos utilizados</div>
+                <div class="col-md-4 numeral"><span class="bold">5.220</span>&nbsp;Pontos</div>
+            </div>
+            <div id="subTotal" class="col-md-12">
+                <div class="col-md-6 descr">SUBTOTAL</div>
+                <div class="shipRight col-md-6 numeral"><span class="subtotal-points bolder">5.220&nbsp;Pontos</span></div>
+            </div>
+            <div class="col-md-12 no-border" id="additionalAmount">
+                <div class="descr">Pagar com pontos</div>
+                <div class="numeral"><span class="bolder">2.088</span>&nbsp;Pontos</div>
+            </div>
+            <div class="col-md-12" id="additionalAmount">
+                <div class="descr">Pagar em dinheiro</div>
+                <div class="numeral"><span class="bolder">R$ 108,05</span></div>
+            </div>
+            <div id="orderTotal" class="col-md-12">
+                <div class="col-md-8 bold">TOTAL DO PEDIDO</div>
+                <div class=" col-md-4 text-right"><span class="subtotal-points bolder">5.220</span>&nbsp;pts</div>
+            </div>
+            <div class="col-md-12 point-details balance-details bottom">
+                <div id="wBoxSent" class="col-md-7">Saldo depois de utilizar os pontos</div>
+                <div id="wBoxRate" class="col-md-5"><strong>324.777</strong>&nbsp;pts</div>
+            </div>
+            <div class="panel-group order-summary-container " id="accordion">
+                <div class="panel-heading">
+                    <div class="panel-title default-prevented"><a data-toggle="collapse" data-target="#collapseItemTable" href="#collapseItemTable" class="collapsed">Produtos selecionados</a></div>
+                </div>
+                <div id="collapseItemTable" class="panel-collapse in">
+                    <div class="panel-body">
+                        <div id="ordered-items" class="ordered-items">
+                            <hr>
+                            <div class="item-row">
+                                <div class="col-md-3 img-container"><img src="http://imagem.casasbahia.com.br/Control/ArquivoExibir.aspx?IdArquivo=2663089" alt="Sem imagem" class="img-responsive"></div>
+                                <div class="details">
+                                    <div class="product-name">Adaptador Audiovision DVI Femea p- HDMI Macho</div>
+                                </div>
+                                <div class="qtde">
+                                    <div class="descr">Qtde&nbsp;:</div>
+                                    <div class="amt">1</div>
+                                </div>
+                                <div class="pts">
+                                    <div class="amt">5.220&nbsp;</div>
+                                    <div class="descr">Pontos</div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div id="top"></div>
+    <footer id="cstrip"><strong><a href ="#">Fale Conosco</a>&nbsp;&nbsp;| &nbsp;&nbsp;<a href="#">Política de Privacidade</a>&nbsp; | &nbsp;<a href="#">Termos e condições</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<span id="reserved">© Copyright 2015 Livelo SA. Todos os direitos reservados</span></strong>
+        <a href="#top">
+            <div id="goUp"></div>
+        </a>
+    </footer>
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-66602774-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+    <script>
+    var livelo = livelo || {};
+    livelo.urls = {
+        context: '',
+        assembler: '/services/assembler',
+        publicUrl: 'http://www-sit.pontoslivelo.com.br',
+        securePublicUrl: 'https://www-sit.pontoslivelo.com.br',
+        assetsBaseUrl: '/livelo',
+        imagesBaseUrl: '/livelo',
+        protocol: 'https',
+        oamLogoutURL: 'https://auth-sit.pontoslivelo.com.br/oam/server/logout',
+        rest: {
+            product: {
+                get: '/rest/model/atg/commerce/catalog/ProductCatalogActor/getProduct'
+            }
+        }
+    };
+    livelo.globalErroMessage = 'Por favor corrija o erro no formulário e envie novamente';
+    </script>
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-T7CZ4H" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-T7CZ4H');
+    </script>
+    <!-- End Google Tag Manager -->
+    <script src="js/payment.js"></script>
+</body>
+
+</html>

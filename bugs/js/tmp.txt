@@ -1,0 +1,5 @@
+http://code.tutsplus.com/tutorials/an-introduction-to-the-html5-history-api--cms-22160
+http://stackoverflow.com/questions/12381563/how-to-stop-browser-back-button-using-javascript
+
+00024694720
+707070
