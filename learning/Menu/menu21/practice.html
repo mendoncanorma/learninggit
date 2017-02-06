@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Swing Menu</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link href="../assets/bootstrap.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        /* Base */
+        body {background: #fff; color: #454545; font-size: 100%;}
+        a {color: #09f;}
+        a:hover {color: #007acc;}
+        button.btn {-webkit-font-smoothing: antialiased;background-color: #09f;border: none;border-radius: 0.1875em;color: white;display: inline-block;font-size: 1em;font-weight: bold;line-height: 1;padding: .75em 1em;text-decoration: none;}
+        button.btn:hover {background-color: #007acc; color: white;}
+        
+        /* Header */
+        .l-header {height: 5em; position: relative; background: #212121;}
+        .logo {float:left;}
+        .logo_title {margin: 0;}
+        .logo_link {display: inline-block; text-decoration: none; padding: 0 10px; line-height: 80px; height: 80px; color: #fff; white-space: nowrap;}
+        .logo_link:hover {text-decoration: none; color: #fff; }        
+        button.menu-btn {display: none; position: absolute; right: 10px; top: 20px;}
+        
+        @media (max-width: 768px) {
+            .logo {float: none;}
+            button.menu-btn {display: block;}
+        }
+        
+        /* Menu */
+        .menu {float: right;}
+        .menu_list {overflow: hidden; padding: 0; margin: 0; list-style: none;}
+        .menu_item {float: left; text-align: center; }
+        .menu_link {display: block; color: #fff; text-decoration: none; line-height: 5em; height: 5em; padding: 0 1.5em; white-space: nowrap; transition: all .3s ease;}
+        .menu_link:hover, .menu_link:focus {background: #09f;color: #fff;}
+        
+        @media (max-width: 768px) {
+            .menu {float: none;}   
+            .menu_item {display: block; float: none; transform: translateX(-100%); transition: all .3s ease-out;}
+            .menu_item_play {transform: translateX(0);}
+            .menu_item + .menu_item {border-top: 1px solid #008ae6;}
+            .menu_link {background: #09f;}
+            .menu_link:hover {background: #007acc;}            
+        }
+        
+        /* Menu */
+        .wrap { margin-left: auto; margin-right: auto; max-width: 1000px; } 
+        .l-main .wrap { padding: 0 10px; }
+    </style>
+    <script type="text/javascript" src="../assets/modernizr.js"></script>
+    <script type="text/javascript" src="../assets/jquery-2.1.1.js"></script>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div id="header" class="l-header">
+            <div class="wrap">
+                <header class="logo">
+                    <h1 class="logo_title">
+                        <a href="#" class="logo_link">
+                           Swing Menu
+                        </a>
+                    </h1>
+                </header>
+                <button class="btn menu-btn">Menu</button>
+                <nav class="menu">
+                    <ul class="menu_list">
+                        <li class="menu_item">
+                            <a href="#" class="menu_link">Lien A</a>
+                        </li>
+                        <li class="menu_item">
+                            <a href="#" class="menu_link">Lien B</a>
+                        </li>
+                        <li class="menu_item">
+                            <a href="#" class="menu_link">Lien C</a>
+                        </li>
+                        <li class="menu_item">
+                            <a href="#" class="menu_link">Lien D</a>
+                        </li>
+                        <li class="menu_item">
+                            <a href="#" class="menu_link">Lien E</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <main class="l-main">
+            <div class="wrap">
+                <h1>Responsive menu</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, repellat, ducimus quidem doloribus inventore sunt in officiis esse. Eos commodi cum maxime, sapiente beatae dolorum quidem, nisi ratione fugit et.</p>
+            </div>
+        </main>    
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            
+            $('.menu-btn').on('click', function() {
+
+                var elem = $(this),
+                    item = $('.menu_item'),
+                    active = 'is-active',
+                    play = 'menu_item_play';
+
+                if (  elem.hasClass(active) ) {
+                    elem.removeClass(active);
+                    $(item.get().reverse()).each(function(i) {
+                        var row = $(this);
+                            setTimeout(function() {
+                                row.removeClass(play);
+                        }, 50*i);
+                    });
+                }
+
+                else {
+                    elem.addClass(active);
+                    item.each(function(i) {
+                        var row = $(this);
+                            setTimeout(function() {
+                                row.addClass(play);
+                        }, 50*i);
+                    });
+                }
+
+            });            
+            
+        });
+    </script>
+</body>
+
+</html>

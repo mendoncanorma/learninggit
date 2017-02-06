@@ -1,0 +1,171 @@
+/* Animation Basics */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+#anim {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transition: 1s;
+}
+#anim.flash {
+    animation-name: flash;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+@keyframes flash {
+    100% {
+        opacity: 0;
+    }
+}
+#trans {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    transition: opacity 1s linear;
+}
+#trans.flash {
+    opacity: 0;
+}
+
+/* card flip example : start */
+
+.artGroup {
+    display: block;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    margin-bottom: 30px;
+    margin-right: 20px;
+    float: left;
+}
+.artwork {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.artGroup img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    top: 0;
+}
+.artGroup .detail {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: yellow;
+    top: 0;
+}
+.artGroup .detail p {
+    font-size: 12px;
+    text-align: left;
+}
+
+/*  CSS3 Flip : start */
+
+.artGroup.flip {
+    perspective: 1000px;
+}
+.artGroup.flip .artwork {
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+}
+.artGroup.flip img {
+    backface-visibility: hidden;
+}
+.artGroup.flip .detail {
+    backface-visibility: hidden;
+}
+.artGroup.flip .theFlip {
+    transform: rotateY(180deg);
+}
+.artGroup.flip .detail {
+    transform: rotateY(180deg);
+}
+
+/* card flip example : end */
+
+
+/* 3d cube : start */
+#theArtCube {
+    height: 270px;
+    width: 270px;
+    
+    position: relative;
+    margin: 0 auto 40px;
+    
+    perspective: 500px;
+}
+#cube {
+    height: 100%;
+    width: 100%;
+    
+    position: relative;
+    
+    transform-style: preserve-3d;
+    
+    transition: transform 1s;
+}
+#cube figure {
+    display: block;
+    position: absolute;
+    width: 270px;
+    height: 270px;
+    border: 2px solid black;
+}
+#cube .front {
+    transform: translateZ(136px);
+    background-color: rgba(238,130,238, 0.7);
+}
+#cube .back {
+    transform: rotateX(-180deg) translateZ(136px);
+    background-color: rgba(0,0,255, 0.7);
+}
+#cube .right {
+    transform: rotateY(90deg) translateZ(136px);
+    background-color: rgba(0,255,0, 0.7);
+}
+#cube .left {
+    transform: rotateY(-90deg) translateZ(136px);
+    background-color: rgba(255,255,0, 0.7);
+}
+#cube .top {
+    transform: rotateX(90deg) translateZ(136px);
+    background-color: rgba(255,165,0, 0.7);
+}
+#cube .bottom {
+    transform: rotateX(-90deg) translateZ(136px);
+    background-color: rgba(255,0,0, 0.7);
+}
+#cube.show-front {
+    transform: translateZ(-136px);
+}
+#cube.show-back {
+    transform: translateZ(-136px) rotateX(180deg);
+}
+#cube.show-right {
+    transform: translateZ(-136px) rotateY(-90deg);
+}
+#cube.show-left {
+    transform: translateZ(-136px) rotateY(90deg);
+}
+#cube.show-top {
+    transform: translateZ(-136px) rotateX(-90deg);
+}
+#cube.show-bottom {
+    transform: translateZ(-136px) rotateX(90deg);
+}
+/* 3d cube : end */

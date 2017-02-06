@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Bindings-if</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js"></script>
+
+   <script>
+       $(function () {
+           var myViewModel  = function() {
+			 this.showMessage = ko.observable(false);
+		   }
+		   
+		   ko.applyBindings(new myViewModel());
+       });
+   </script>
+</head>
+<body>
+    <input type="checkbox" data-bind="checked: showMessage"/>
+	<h3 data-bind="if: showMessage">Interesting feature in knockout</h3>
+	<h3 data-bind="ifnot: showMessage">Not so interesting feature in knockout</h3>
+</body>
+</html>

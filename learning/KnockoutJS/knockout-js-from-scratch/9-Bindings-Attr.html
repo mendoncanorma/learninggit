@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Bindings-Attr</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js"></script>
+
+    <script>
+        $(function () {
+            var myViewModel = function(){
+				this.source = ko.observable("Images/cat.jpg"),
+				this.info = ko.observable("Nice cat!"),
+                this.rate = ko.observable(40)
+			};
+			
+			ko.applyBindings(new myViewModel());
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <img data-bind="attr: {src: source, title: rate() > 25 ? info : '', 'data-title': info}" />
+    </div>
+</body>
+</html>

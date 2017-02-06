@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js"></script>
+
+    <style type="text/css">
+        .pub th {
+            font-family: Verdana;
+            font-size: large;
+            text-transform: uppercase;
+            background-color: #3399FF;
+            padding: 3px;
+            margin: 3px
+        }
+        
+        a {
+            font-family: Verdana;
+            font-size: x-small;
+            text-decoration: none;
+        }
+    </style>
+
+    <script>
+        $(function() {
+            //initial list of books
+            var initialPubs = [{
+                name: "Prentice hall",
+                books: [{
+                    title: "C#",
+                    author: "Johnson",
+                    price: 34.99
+                }, {
+                    title: "JavaScript",
+                    author: "Flin",
+                    price: 45.99
+                }]
+            }, {
+                name: "Wiley",
+                books: [{
+                    title: "jQuery",
+                    author: "Allen",
+                    price: 49.97
+                }, {
+                    title: "Visual Basic.NET",
+                    author: "Gates",
+                    price: 59.99
+                }]
+            }];
+            //the model
+            var PubViewModel = function(pubs) {
+                    var self = this;
+
+                    self.publishers = ko.observableArray(
+                        ko.utils.arrayMap(pubs, function(pub) {
+                            return {
+                                name: pub.name,
+                                books: ko.observableArray(pub.books)
+                            };
+                        }));
+
+                    self.addPub = function() {
+                        self.publishers.push({
+                            name: "",
+                            books: ko.observableArray()
+                        });
+                    };
+
+                    self.removePub = function(pub) {
+                        self.publishers.remove(pub);
+                    };
+
+                    self.addBook = function(pub) {
+                        pub.books.push({
+                            title: "",
+                            author: "",
+                            price: 0
+                        });
+                    };
+
+                    self.removeBook = function(book) {
+                        $.each(self.publishers(),
+                            function() {
+                                this.books.remove(book);
+                            });
+                    };
+
+                    self.save = function() {
+                        //null is the 'replacer', 2 Causes the resulting string to be pretty-printed.
+                        self.pubJSON(JSON.stringify(ko.toJS(self.publishers), null, 2));
+                    };
+
+                    self.pubJSON = ko.observable("");
+                }
+                //start with the initial list
+            ko.applyBindings(new PubViewModel(initialPubs));
+        });
+    </script>
+</head>
+
+<body>
+
+    <h2>Publishers</h2>
+    <div id='pubsList'>
+        <table class='pub'>
+            <tr>
+                <th>Name</th>
+                <th>Books</th>
+            </tr>
+            <tbody data-bind="foreach: publishers">
+                <tr>
+                    <td>
+                        <input data-bind='value: name' />
+                        <div><a href='#' data-bind='click: $root.removePub'>Delete Pub</a></div>
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Price</th>
+                            </tr>
+                            <tbody data-bind="foreach: books">
+                                <tr>
+                                    <td>
+                                        <input data-bind='value: title' />
+                                    </td>
+                                    <td>
+                                        <input data-bind='value: author' />
+                                    </td>
+                                    <td>
+                                        <input data-bind='value: price' />
+                                    </td>
+                                    <td><a href='#' data-bind='click: $root.removeBook'>Delete Book</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href='#' data-bind='click: $root.addBook'>Add Book</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>
+        <button data-bind='click: addPub'>Add Pub</button>
+        <button data-bind='click: save, enable: publishers().length > 0'>Save to JSON</button>
+    </p>
+
+    <textarea data-bind='value: pubJSON' rows='5' cols='60' disabled='disabled'> </textarea>
+
+    <!--Put the output through http://jsonformatter.curiousconcept.com/ to validate and format-->
+    <div id="debug" style="clear: both">
+        <hr />
+        <h3>Debug</h3>
+        <div data-bind="text: ko.toJSON(publishers)"></div>
+</body>
+
+</html>

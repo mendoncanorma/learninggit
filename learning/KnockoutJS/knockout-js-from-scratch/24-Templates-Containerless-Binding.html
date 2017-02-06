@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js"></script>
+	
+    <script>
+        $(function () {
+            function BookViewModel() {
+				this.publishers = [
+                    { name: 'APress', book: 'Pro JavaScript', price: 49.99 },
+                    { name: 'Prentice Hall', book: 'Knockout JS', price: 39.99 },
+                    { name: 'Wiley', book: 'jQuery UI', price: 44.59 },
+                    { name: 'Addison', book: 'jQuery', price: 55.99 }
+                ]
+			}
+			
+			ko.applyBindings(new BookViewModel());
+        });
+    </script>
+</head>
+<body>
+    <h2>Publishers</h2>
+    <!--ko template: {foreach: publishers}-->
+	<h3 data-bind="text: name"></h3>
+    <p>Book: <span data-bind="text: book"></span></p>
+    <p>Price: <span data-bind="text: price"></span></p>
+    <hr />
+	<!--/ko-->
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Responsive, Multi-Level Navigation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../assets/bootstrap.css"/>
+
+    <style type="text/css">
+        #wrapper {background: #fcf; position: fixed; left:0; top: 0; height: 100%; width: 300px; z-index: 1;}
+        label {cursor: pointer;}
+        label:focus {outline: none;}
+        .menu ul {margin: 0; padding: 0; list-style: none;}
+        .menu {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #fcc; transform: translate3d(-100%, 0, 0); transition: transform 0.35s;}
+        .menu label.menu-toggle {position: absolute; right: -60px; width: 60px; height: 60px; line-height: 0px; display: block; padding: 0; text-indent: -9999px; background: #fff url(https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png) 50% 50%/25px 25px no-repeat;}
+        
+        .menu ul li > label {background: url(https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-right-b-128.png) 95% 50%/16px 16px no-repeat;}
+        
+        .menu ul li a, 
+        .menu ul li label {display: block; text-align: center; padding: 0 20px; line-height: 60px; text-decoration: none; color: #000; }
+        
+        .menu ul li a:hover, .menu ul li label:hover {color: #666;}
+        
+        /* hide inputs */
+        .menu-checkbox {display: none;}
+        
+        /* hide navigation icon for sublabels */
+        .menu .menu label.menu-toggle {background: none;}
+        
+        /* fade in checked menu */
+        .menu-checkbox:checked + .menu {transform: translate3d(0, 0, 0);}
+        
+
+        /* for show */
+        html, body {height: 100%;}
+        body {background: url(http://37.media.tumblr.com/f6c67ec2821a91051e4175f8a102e1e2/tumblr_n6rzpcsMk41st5lhmo1_1280.jpg) 50% 50%/cover;}
+        p {margin-bottom: 15px;}
+        
+    </style>
+    
+</head>
+
+<body>
+    
+    <div class="container">
+
+        <div id="wrapper">
+            <input type="checkbox" id="menu" name="menu" class="menu-checkbox">
+
+            <div class="menu">
+                <label class="menu-toggle" for="menu"><span>Toggle</span></label>
+                <ul id="nav">
+                    <li>
+                        <label for="menu-1">Shoes</label>
+                        <input type="checkbox" id="menu-1" name="menu-1" class="menu-checkbox" />
+
+                        <div class="menu">
+                            <label class="menu-toggle" for="menu-1"><span>Toggle</span></label>
+                            <ul>
+                                <li>
+                                    <label for="menu-1-1">Womens</label>
+                                    <input type="checkbox" id="menu-1-1" name="menu-1-1" class="menu-checkbox">
+                                    <div class="menu">
+                                        <label class="menu-toggle" for="menu-1-1"><span>Toggle</span></label>
+                                        <ul>
+                                            <li><a href="#">Sandals</a></li>
+                                            <li><a href="#">Sneakers</a></li>
+                                            <li><a href="#">Wedges</a></li>
+                                            <li><a href="#">Heels</a></li>
+                                            <li><a href="#">Loafers</a></li>
+                                            <li><a href="#">Flats</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label for="menu-1-2">Mens</label>
+                                    <input type="checkbox" id="menu-1-2" name="menu-1-2" class="menu-checkbox">
+                                    <div class="menu">
+                                        <label class="menu-toggle" for="menu-1-2"><span>Toggle</span></label>
+                                        <ul>
+                                            <li><a href="#">Loafers</a></li>
+                                            <li><a href="#">Sneakers</a></li>
+                                            <li><a href="#">Formal</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="menu-2">Shirts</label>
+                        <input type="checkbox" id="menu-2" name="menu-2" class="menu-checkbox">
+
+                        <div class="menu">
+                            <label class="menu-toggle" for="menu-2"><span>Toggle</span></label>
+                            <ul>
+                                <li>
+                                    <label for="menu-2-1">Mens</label>
+                                    <input type="checkbox" id="menu-2-1" name="menu-2-1" class="menu-checkbox">
+
+                                    <div class="menu">
+                                        <label class="menu-toggle" for="menu-2-1"><span>Toggle</span></label>
+                                        <ul>
+                                            <li><a href="#">T-Shirts</a></li>
+                                            <li><a href="#">Dress Shirts</a></li>
+                                            <li><a href="#">Tank Tops</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label for="menu-2-2">Womens</label>
+                                    <input type="checkbox" id="menu-2-2" name="menu-2-2" class="menu-checkbox">
+
+                                    <div class="menu">
+                                        <label class="menu-toggle" for="menu-2-2"><span>Toggle</span></label>
+                                        <ul>
+                                            <li><a href="#">T-Shirts</a></li>
+                                            <li><a href="#">Blouses</a></li>
+                                            <li><a href="#">Dress Shirts</a></li>
+                                            <li><a href="#">Tunics</a></li>
+                                            <li><a href="#">Camisoles</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="menu-3">Pants</label>
+                        <input type="checkbox" id="menu-3" name="menu-3" class="menu-checkbox" />
+
+                        <div class="menu">
+                            <label class="menu-toggle" for="menu-3"><span>Toggle</span></label>
+                            <ul>
+                                <li>
+                                    <label for="menu-3-1">Mens</label>
+                                    <input type="checkbox" id="menu-3-1" name="menu-3-1" class="menu-checkbox" />
+
+                                    <div class="menu">
+                                        <label class="menu-toggle" for="menu-3-1"><span>Toggle</span></label>
+                                        <ul>
+                                            <li><a href="#">Trousers</a></li>
+                                            <li><a href="#">Slacks</a></li>
+                                            <li><a href="#">Jeans</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label for="menu-3-2">Womens</label>
+                                    <input type="checkbox" id="menu-3-2" name="menu-3-2" class="menu-checkbox" />
+
+                                    <div class="menu">
+                                        <label class="menu-toggle" for="menu-3-2"><span>Toggle</span></label>
+                                        <ul>
+                                            <li><a href="#">Trousers</a></li>
+                                            <li><a href="#">Slacks</a></li>
+                                            <li><a href="#">Jeans</a></li>
+                                            <li><a href="#">Leggings</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="menu-4">Skirts</label>
+                        <input type="checkbox" id="menu-4" name="menu-4" class="menu-checkbox" />
+
+                        <div class="menu">
+                            <label class="menu-toggle" for="menu-4"><span>Toggle</span></label>
+                            <ul>
+                                <li>
+                                    <label for="menu-4-1">Long</label>
+                                    <input type="checkbox" id="menu-4-1" name="menu-4-1" class="menu-checkbox" />
+
+                                    <div class="menu">
+                                        <label class="menu-toggle" for="menu-4-1"><span>Toggle</span></label>                                
+                                        <ul>
+                                            <li><a href="#">Denim</a></li>
+                                            <li><a href="#">Knits</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label for="menu-4-2">Short</label>
+                                    <input type="checkbox" id="menu-4-2" name="menu-4-2" class="menu-checkbox" />
+
+                                    <div class="menu">
+                                        <label class="menu-toggle" for="menu-4-2"><span>Toggle</span></label>                                
+                                        <ul>
+                                            <li><a href="#">Denim</a></li>
+                                            <li><a href="#">Knits</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label for="menu-4-3">Mini</label>
+                                    <input type="checkbox" id="menu-4-3" name="menu-4-3" class="menu-checkbox" />
+
+                                    <div class="menu">
+                                        <label class="menu-toggle" for="menu-4-3"><span>Toggle</span></label>                                
+                                        <ul>
+                                            <li><a href="#">Denim</a></li>
+                                            <li><a href="#">Knits</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="menu-5">Dresses</label>
+                        <input type="checkbox" id="menu-5" name="menu-5" class="menu-checkbox" />
+
+                        <div class="menu">
+                            <label class="menu-toggle" for="menu-5"><span>Toggle</span></label>
+                            <ul>
+                                <li>
+                                    <a href="#">Casual</a>
+                                </li>
+                                <li>
+                                    <label for="menu-5-1">Formal</label>
+                                    <input type="checkbox" id="menu-5-1" name="menu-5-1" class="menu-checkbox" />
+
+                                    <div class="menu">
+                                        <label class="menu-toggle" for="menu-5-1"><span>Toggle</span></label>                                                    
+                                        <ul>
+                                            <li><a href="#">Wedding</a></li>
+                                            <li><a href="#">Party</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="menu-6">Sweaters</label>
+                        <input type="checkbox" id="menu-6" name="menu-6" class="menu-checkbox" />
+
+                        <div class="menu">
+                            <label class="menu-toggle" for="menu-6"><span>Toggle</span></label>
+                            <ul>
+                                <li>
+                                    <label for="menu-6-1">Mens</label>
+                                    <input type="checkbox" id="menu-6-1" name="menu-6-1" class="menu-checkbox" />
+
+                                    <div class="menu">
+                                        <label class="menu-toggle" for="menu-6"><span>Toggle</span></label>                                
+                                        <ul>
+                                            <li><a href="#">Wool</a></li>
+                                            <li><a href="#">Knitwear</a></li>
+                                            <li><a href="#">Light Sweaters</a></li>
+                                            <li><a href="#">Cardigans</a></li>
+                                            <li><a href="#">Hoodies</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label for="menu-6-2">Womens</label>
+                                    <input type="checkbox" id="menu-6-2" name="menu-6-2" class="menu-checkbox" />
+
+                                    <div class="menu">
+                                        <label class="menu-toggle" for="menu-6-2"><span>Toggle</span></label>                                                                
+                                        <ul>
+                                            <li><a href="#">Wool</a></li>
+                                            <li><a href="#">Knitwear</a></li>
+                                            <li><a href="#">Light Sweaters</a></li>
+                                            <li><a href="#">Cardigans</a></li>
+                                            <li><a href="#">Hoodies</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="menu-7">Accessories</label>
+                        <input type="checkbox" id="menu-7" name="menu-7" class="menu-checkbox" />
+
+                        <div class="menu">
+                            <label class="menu-toggle" for="menu-7"><span>Toggle</span></label>
+                            <ul>
+                                <li>
+                                    <label for="menu-7-1">Womens</label>
+                                    <input type="checkbox" id="menu-7-1" name="menu-7-1" class="menu-checkbox" />
+
+                                    <div class="menu">
+                                        <label class="menu-toggle" for="menu-7-1"><span>Toggle</span></label>
+                                        <ul>
+                                            <li><a href="#">Belts</a></li>
+                                            <li><a href="#">Bags</a></li>
+                                            <li><a href="#">Jewelery</a></li>
+                                            <li><a href="#">Hats</a></li>
+                                            <li><a href="#">Eyewear</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label for="menu-7-2">Mens</label>
+                                    <input type="checkbox" id="menu-7-2" name="menu-7-2" class="menu-checkbox" />
+
+                                    <div class="menu">
+                                        <label class="menu-toggle" for="menu-7-2"><span>Toggle</span></label>
+                                        <ul>
+                                            <li><a href="#">Belts</a></li>
+                                            <li><a href="#">Hats</a></li>
+                                            <li><a href="#">Eyewear</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="menu-8">Outerwear</label>
+                        <input type="checkbox" id="menu-8" name="menu-8" class="menu-checkbox" />
+
+                        <div class="menu">
+                            <label class="menu-toggle" for="menu-8"><span>Toggle</span></label>
+                            <ul>
+                                <li>
+                                    <label for="menu-8-1">Womens</label>
+                                    <input type="checkbox" id="menu-8-1" name="menu-8-1" class="menu-checkbox" />
+
+                                    <div class="menu">
+                                        <label class="menu-toggle" for="menu-8-1"><span>Toggle</span></label>
+                                        <ul>
+                                            <li><a href="#">Winter</a></li>
+                                            <li><a href="#">Spring/Fall</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label for="menu-8-2">Mens</label>
+                                    <input type="checkbox" id="menu-8-2" name="menu-8-2" class="menu-checkbox" />
+
+                                    <div class="menu">
+                                        <label class="menu-toggle" for="menu-8-2"><span>Toggle</span></label>
+                                        <ul>
+                                            <li><a href="#">Winter</a></li>
+                                            <li><a href="#">Spring/Fall</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">Shipping Info</a>
+                    </li>
+<!--
+                    <li>
+                        <a href="#">Shipping Info</a>
+                    </li>
+                    <li>
+                        <a href="#">Shipping Info</a>
+                    </li>
+                    <li>
+                        <a href="#">Shipping Info</a>
+                    </li>
+                    <li>
+                        <a href="#">Shipping Info</a>
+                    </li>
+                    <li>
+                        <a href="#">Shipping Info</a>
+                    </li>
+                    <li>
+                        <a href="#">Shipping Info</a>
+                    </li>
+                    <li>
+                        <a href="#">Shipping Info</a>
+                    </li>
+                    <li>
+                        <a href="#">Shipping Info</a>
+                    </li>
+                    <li>
+                        <a href="#">Shipping Info</a>
+                    </li>
+                    <li>
+                        <a href="#">Shipping Info</a>
+                    </li>
+                    <li>
+                        <a href="#">Shipping Info</a>
+                    </li>                    
+-->
+                </ul>
+            </div>
+
+        </div>
+        
+        <div class="jumbotron">
+            <h1>Marketing stuff!</h1>
+            <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
+            <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>
+        </div>
+
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-lg-4">
+                <h2>Safari bug warning!</h2>
+                <p class="text-danger">As of v9.1.2, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+                <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script type="text/javascript" src="../assets/jquery-2.1.1.js"></script>
+
+    <script>
+
+                        
+    </script>
+
+</body>
+
+</html>

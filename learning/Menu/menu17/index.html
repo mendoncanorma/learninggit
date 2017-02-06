@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Drop-Down Navigation: Touch-Friendly and Responsive</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="Demo of Drop-Down Navigation: Touch-Friendly and Responsive" />
+	<meta name="robots" content="all">
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400">
+    <link rel="stylesheet" type="text/css" href="../assets/bootstrap.css"/>
+
+    <style type="text/css">
+        body {background: #f7efeb; padding: 20px;}
+        #nav {width: 100%; font-family: 'Open Sans', sans-serif; font-weight: 400;}
+        #nav ul {margin: 0; padding: 0; list-style: none;}
+        
+        /* Hide navigation links */
+        #nav > a {display: none;}
+        
+        #nav li {position: relative;}
+        #nav li a {display: block; color: #fff; text-decoration: none;}
+        #nav li a:active {background-color: #c00;}
+        #nav a.has-submenu:after{width: 0; height: 0; content: ''; border: 5px solid transparent; border-bottom: none; border-top-color: #efa585; display: inline-block; vertical-align: middle; position: relative; right: -5px;}
+        
+        /* first level */
+        #nav > ul {background: #e15a1f;}
+        #nav > ul > li {width: 25%; float: left;}
+        #nav > ul > li > a {font-size: 24px; line-height: 60px; text-align: center;}
+        #nav > ul > li:not(:last-child) > a {border-right: 1px solid #cc470d;}
+        #nav > ul > li:hover > a,
+        #nav > ul:not( :hover ) > li.active > a {background-color: #cc470d;}
+        
+        
+        /* second level */
+        #nav li ul {background: #cc470d; position: absolute; width: 100%; display: none;}
+        #nav li ul {top: 100%; left: 0;}
+        #nav li li ul {top: 0; left: 100%;}
+        #nav li ul a {font-size: 20px; border-top: 1px solid #e15a1f; padding: 15px;}
+        
+        /* hover */
+        #nav li:hover > ul {display: block;}
+        #nav > ul > li:hover > ul {width: auto; left: -1px; right: 0;}
+        
+
+        @media only screen and ( max-width: 768px )
+		{
+            #nav > ul > li > a {font-size: 18px;}
+            #nav {position: relative;}
+            #nav > a {width: 50px; height: 50px; text-align: left; text-indent: -9999px; background-color: #e15a1f; position: relative;}
+            #nav > a:before,
+            #nav > a:after {position: absolute; border: 2px solid #fff; top: 35%; left: 25%; right: 25%; content: ''; }
+            #nav > a:after {top: 60%;}
+            #nav:not( :target ) > a:first-of-type,
+            #nav:target > a:last-of-type {display: block;}
+            
+            /* first level */
+            #nav > ul {position: absolute; left: 0; right: 0; display: none; z-index: 1;}
+            #nav:target > ul {display: block;}
+            #nav > ul > li {width: 100%; float: none;}
+            #nav > ul > li > a {text-align: left; padding: 20px;}
+            #nav > ul > li:not( :last-child ) > a {border-right: none;border-bottom: 1px solid #cc470d;}
+            
+            /* second level */
+            #nav li ul {position: static;padding: 20px; padding-top: 0;}            
+        }
+    </style>
+    
+</head>
+
+<body>
+    
+    <div class="container">
+
+        <nav id="nav" role="navigation">
+
+            <a href="#nav" title="Show navigation">Show navigation</a>
+            <a href="#" title="Hide navigation">Hide navigation</a>
+
+            <ul class="clearfix">
+                <li>
+                    <a href="#">Shoes</a>
+                    <ul>
+                        <li>
+                            <a href="#">Womens</a>
+                            <ul>
+                                <li><a href="#">Sandals</a></li>
+                                <li><a href="#">Sneakers</a></li>
+                                <li><a href="#">Wedges</a></li>
+                                <li><a href="#">Heels</a></li>
+                                <li><a href="#">Loafers</a></li>
+                                <li><a href="#">Flats</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Mens</a>
+                            <ul>
+                                <li><a href="#">Loafers</a></li>
+                                <li><a href="#">Sneakers</a></li>
+                                <li><a href="#">Formal</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Shirts</a>
+                    <ul>
+                        <li>
+                            <a href="#">Mens</a>
+                            <ul>
+                                <li><a href="#">T-Shirts</a></li>
+                                <li><a href="#">Dress Shirts</a></li>
+                                <li><a href="#">Tank Tops</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Womens</a>
+                            <ul>
+                                <li><a href="#">T-Shirts</a></li>
+                                <li><a href="#">Blouses</a></li>
+                                <li><a href="#">Dress Shirts</a></li>
+                                <li><a href="#">Tunics</a></li>
+                                <li><a href="#">Camisoles</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Pants</a>
+                    <ul>
+                        <li>
+                            <a href="#">Mens</a>
+                            <ul>
+                                <li><a href="#">Trousers</a></li>
+                                <li><a href="#">Slacks</a></li>
+                                <li><a href="#">Jeans</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Womens</a>
+                            <ul>
+                                <li><a href="#">Trousers</a></li>
+                                <li><a href="#">Slacks</a></li>
+                                <li><a href="#">Jeans</a></li>
+                                <li><a href="#">Leggings</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+<!--
+                <li>
+                    <a href="#">Skirts</a>
+                    <ul>
+                        <li>
+                            <a href="#">Long</a>
+                            <ul>
+                                <li><a href="#">Denim</a></li>
+                                <li><a href="#">Knits</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Short</a>
+                            <ul>
+                                <li><a href="#">Denim</a></li>
+                                <li><a href="#">Knits</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Mini</a>
+                            <ul>
+                                <li><a href="#">Denim</a></li>
+                                <li><a href="#">Knits</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Dresses</a>
+                    <ul>
+                        <li>
+                            <a href="#">Casual</a>
+                        </li>
+                        <li>
+                            <a href="#">Formal</a>
+                            <ul>
+                                <li><a href="#">Wedding</a></li>
+                                <li><a href="#">Party</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Sweaters</a>
+                    <ul>
+                        <li>
+                            <a href="#">Mens</a>
+                            <ul>
+                                <li><a href="#">Wool</a></li>
+                                <li><a href="#">Knitwear</a></li>
+                                <li><a href="#">Light Sweaters</a></li>
+                                <li><a href="#">Cardigans</a></li>
+                                <li><a href="#">Hoodies</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Womens</a>
+                            <ul>
+                                <li><a href="#">Wool</a></li>
+                                <li><a href="#">Knitwear</a></li>
+                                <li><a href="#">Light Sweaters</a></li>
+                                <li><a href="#">Cardigans</a></li>
+                                <li><a href="#">Hoodies</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Accessories</a>
+                    <ul>
+                        <li>
+                            <a href="#">Womens</a>
+                            <ul>
+                                <li><a href="#">Belts</a></li>
+                                <li><a href="#">Bags</a></li>
+                                <li><a href="#">Jewelery</a></li>
+                                <li><a href="#">Hats</a></li>
+                                <li><a href="#">Eyewear</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Mens</a>
+                            <ul>
+                                <li><a href="#">Belts</a></li>
+                                <li><a href="#">Hats</a></li>
+                                <li><a href="#">Eyewear</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Outerwear</a>
+                    <ul>
+                        <li>
+                            <a href="#">Womens</a>
+                            <ul>
+                                <li><a href="#">Winter</a></li>
+                                <li><a href="#">Spring/Fall</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Mens</a>
+                            <ul>
+                                <li><a href="#">Winter</a></li>
+                                <li><a href="#">Spring/Fall</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+-->
+                <li>
+                    <a href="#">Shipping Info</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="jumbotron">
+            <h1>Marketing stuff!</h1>
+            <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
+            <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>
+        </div>
+
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-lg-4">
+                <h2>Safari bug warning!</h2>
+                <p class="text-danger">As of v9.1.2, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+                <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script type="text/javascript" src="../assets/jquery-2.1.1.js"></script>
+    <script type="text/javascript">
+    
+        /*
+            By Osvaldas Valutis, www.osvaldas.info
+            Available for use under the MIT License
+        */
+
+
+
+        ;(function( $, window, document, undefined )
+        {
+            $.fn.doubleTapToGo = function( params )
+            {
+                if( !( 'ontouchstart' in window ) &&
+                    !navigator.msMaxTouchPoints &&
+                    !navigator.userAgent.toLowerCase().match( /windows phone os 7/i ) ) return false;
+
+                this.each( function()
+                {
+                    var curItem = false;
+
+                    $( this ).on( 'click', function( e )
+                    {
+                        var item = $( this );
+                        if( item[ 0 ] != curItem[ 0 ] )
+                        {
+                            e.preventDefault();
+                            curItem = item;
+                        }
+                    });
+
+                    $( document ).on( 'click touchstart MSPointerDown', function( e )
+                    {
+                        var resetItem = true,
+                            parents	  = $( e.target ).parents();
+
+                        for( var i = 0; i < parents.length; i++ )
+                            if( parents[ i ] == curItem[ 0 ] )
+                                resetItem = false;
+
+                        if( resetItem )
+                            curItem = false;
+                    });
+                });
+                return this;
+            };
+        })( jQuery, window, document );
+
+        
+        $(document).ready(function () {
+            $('#nav li:has( > ul)').children('a').addClass('has-submenu');
+            $( '#nav li:has(ul)' ).doubleTapToGo();
+        });
+    
+    </script>
+
+</body>
+
+</html>

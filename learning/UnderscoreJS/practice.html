@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Iterating Collections with Underscore</title>
+    <script type="text/javascript" src="jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="underscore.js"></script>
+    <script type="text/javascript" src="SampleData.js"></script>
+    <script type="text/javascript">
+        /* 
+        // Example 1 
+        function getStudentInfo (element, index, list) {
+            console.log(element);
+            console.log(index);
+            console.log(list);
+            
+            $('#container').append( "<p>" + element.firstname + "  " + element.lastname + " , <b>Grade:</b>" + element.grade + "</p>");
+        }
+        
+        $(window).load(function () {
+            var $num_students = $('#numstudents');
+            $num_students.append( _.size(students) );
+            
+            _.each(students, getStudentInfo);
+        });
+        
+        // Example 2
+        function searchStudents (item) {
+            if ( item.school === "Franklin" ) {
+                return true;
+            }
+        }
+        
+        $(window).load(function () {
+            var student = _.find(students, searchStudents);
+            $('#container').append( "<p>" + student.firstname + "  " + student.lastname + " , <b>Grade:</b>" + student.grade + "</p>");
+        });
+        
+        // Example 3
+        $(window).load(function () {
+            var student = _.findWhere(students, {school: "Thoreau", grade: 11});
+            $('#container').append( "<p>" + student.firstname + "  " + student.lastname + " , <b>Grade:</b>" + student.grade + "</p>");
+        });
+        
+        // Example 4
+        function getPassingStudents(student) {
+            return ( (student.final_score + student.midterm_score) / 2 > 65 );
+        }
+        
+        $(window).load(function () {
+            var student = _.filter(students, getPassingStudents);
+            
+            _.each(student, function (element, index, list) {
+                $('#container').append( "<p>" + element.firstname + "  " + element.lastname + " , <b>Grade:</b>" + element.grade + ", <b>Total:</b>" + (element.final_score + element.midterm_score) / 2 + "</p>");
+            });
+        });
+        
+        // Example 5
+        function getPassingStudents(student) {
+            return ( ((student.final_score + student.midterm_score) / 2) > 65 );
+        }
+        
+        $(window).load(function () {
+            var student = _.where(students, {"school": "Thoreau", "grade": 10});
+            
+            _.each(student, function (element, index, list) {
+                $('#container').append( "<p>" + element.firstname + "  " + element.lastname + " , <b>Grade:</b>" + element.grade + ", <b>Total:</b>" + (element.final_score + element.midterm_score) / 2 + "</p>");
+            });
+        });
+        
+        
+        // Example 6
+        function getPassingStudents(student) {
+            return ( ((student.final_score + student.midterm_score) / 2) > 65 );
+        }
+        
+        $(window).load(function () {
+            var student = _.reject(students, getPassingStudents);
+            
+            _.each(student, function (element, index, list) {
+                $('#container').append( "<p>" + element.firstname + "  " + element.lastname + " , <b>Grade:</b>" + element.grade + ", <b>Total:</b>" + (element.final_score + element.midterm_score) / 2 + "</p>");
+            });
+        });
+        
+        
+        // Example 7
+        function checkImprovement(item) {
+            return item.final_score > item.midterm_score;
+        }
+        
+        $(window).load(function () {
+            console.log( _.every(students, checkImprovement) );
+            console.log( _.some(students, checkImprovement) );
+        });
+        
+        
+        // Example 8
+        function sortStudentsByGrade(item) {
+            return item.grade;
+        }
+        
+        $(window).load(function () {
+            var student = _.sortBy(students, sortStudentsByGrade);
+            
+            _.each(student, function (element, index, list) {
+                $('#container').append( "<p>" + element.firstname + "  " + element.lastname + " , <b>Grade:</b>" + element.grade + "</p>");
+            });            
+        });
+        
+        
+        // Example 9
+        function groupStudentsBySchool(item) {
+            return item.school;
+        }
+        
+        $(window).load(function () {
+            var grouped = _.groupBy(students, groupStudentsBySchool);
+            var $grouplist = "", $studentlist = "";
+            
+            _.each(grouped, function (element, index, list) {
+                
+                $studentlist = "";
+                
+                _.each(element, function (element_1, index_1, list_1) {
+                  
+                    $studentlist += "<li><strong>Name:</strong> " + element_1.firstname + " " + element_1.lastname + ", <strong>Grade:</strong> " + element_1.grade + "</li>";
+                    
+                });
+                
+                if ($studentlist.length > 0) {
+                    $studentlist = "<ul>" + $studentlist + "</ul>";
+                    $grouplist += "<li>Students that go to " + index + ": " + $studentlist + "</li>";
+                } 
+            });
+            
+            if ($grouplist.length > 0) {
+                $('#container').append("<ul>"+$grouplist+"</ul>");
+            }
+        });
+		*/
+
+        
+        $(window).load( function (evt) {
+            
+            $(document).querySelector('#schoolSelect').addEventListener("change", updateDisplay);
+            $(document).querySelector('#sortBy').addEventListener("change", updateDisplay);
+            $(document).querySelector('#templateSelect').addEventListener("change", updateDisplay);
+            
+            $(document).querySelector('#gr9').addEventListener("change", updateDisplay);
+            $(document).querySelector('#gr10').addEventListener("change", updateDisplay);
+            $(document).querySelector('#gr11').addEventListener("change", updateDisplay);
+            $(document).querySelector('#gr12').addEventListener("change", updateDisplay);
+            
+            
+            _.each(students, function (elem, indx) {
+                _.extend(elem, {overall_score: (elem.midterm_score + elem.midterm_score) / 2});
+            });
+            
+            updateDisplay();
+        } );
+        
+    </script>
+</head>
+
+<body>
+
+    <div>
+        <header>
+            <h1>Student Records Explorer Example</h1>
+        </header>
+        <nav>
+            <div id="row1">
+                <label for="schoolSelect">Select School</label>
+                <select id="schoolSelect">
+                    <option value="all" selected>All</option>
+                    <option value="Thoreau">Thoreau</option>
+                    <option value="Franklin">Franklin</option>
+                </select>
+                
+                <label for="gradelSelect">Select Grade Levels:</label>
+                <input type="checkbox" name="9" id="gr9" checked /><label for="gr9">Grade 9</label>
+                <input type="checkbox" name="9" id="gr10" checked /><label for="gr10">Grade 10</label>
+                <input type="checkbox" name="9" id="gr11" checked /><label for="gr11">Grade 11</label>
+                <input type="checkbox" name="9" id="gr12" checked /><label for="gr12">Grade 11</label>
+            </div>
+            
+            <div id="row2">
+                <label for="templateSelect">Display Data As:</label>
+                <select id="templateSelect">
+                    <option value="studentInfoTable" selected>Table</option>
+                    <option value="studentInfoCards">Cards</option>
+                </select>
+                
+                <label for="sortBy">Sort Student By:</label>
+                <select id="sortBy">
+                    <option value="midterm_score" selected>Midterm Score</option>
+                    <option value="final_score">Final Score</option>
+                    <option value="overall_score">Overall Score</option>
+                </select>
+                
+            </div>
+            
+        </nav>
+        
+        <div id="contents">
+        
+        </div>
+    </div>
+    
+</body>
+
+</html>

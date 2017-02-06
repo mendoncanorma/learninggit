@@ -1,0 +1,35 @@
+.dropdowns, .dropdowns ul, .dropdowns li {margin: 0; padding: 0; list-style: none;}
+.dropdowns a {text-decoration: none;}
+
+.dropdowns > ul#nav:before,
+.dropdowns > ul#nav:after {content: ""; display: table;}
+.dropdowns > ul#nav:after {clear: both;}
+
+ul#nav > li {float: left; width: 12.5%;}
+
+.toggleMenu {display: block; text-align: center;}
+
+ul#nav a {display: block; padding: 10px 15px;}
+ul#nav a.parent {background-image: url(../images/downArrow.png); background-repeat: no-repeat; background-position: 95% 50%;}
+
+ul#nav li {position: relative;}
+ul#nav ul {position: absolute; left: -9999px;} 
+
+ul#nav > li.hover > ul {left: 0;}
+ul#nav li li.hover ul {left: 100%; top: 0;}
+
+
+@media screen and (max-width: 992px) {
+    ul#nav > li {float: none; width: 100%;}
+    
+    ul#nav ul {width: 100%;}
+    
+    ul#nav ul {display: none; position: static;}
+    /*
+    ul#nav > li.hover > ul,
+    ul#nav li li.hover ul {position: static;}
+    */
+    
+    .dropdowns {position: relative;}
+    .dropdowns ul#nav {position: absolute; width: 100%; z-index: 1;}
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Setup Example</title>
+    <script src="js/jquery-2.2.2.js"></script>
+    <script src="js/knockout-3.4.0.js"></script>
+   
+     <script>
+         $(function () {
+            var myViewModel = {
+                course: 'Knockout',
+                author: 'Ayad'
+            };
+
+            ko.applyBindings(myViewModel);
+        });
+    </script>
+
+</head>
+<body>
+    <div>
+       The course <u><span data-bind="text: course"></span></u> will be taught by 
+        <b><span data-bind="text: author"></span></b>
+    </div>
+  
+</body>
+</html>

@@ -1,0 +1,668 @@
+<html>
+
+<head>
+    <title>Examples:</title>
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="knockout-min.js"></script>
+</head>
+
+<body>
+    
+    <div id="view1">
+        <div data-bind="foreach: items">
+            <p>
+                <input type="checkbox" data-bind="checkedValue: $data, checked: $parent.selectedIndexes" />
+                <label data-bind="text: $data"></label>
+            </p>
+        </div>
+        <div data-bind="foreach: selectedIndexes">
+            <p data-bind="text: $data"></p>
+        </div>
+    </div>
+    <hr />
+
+    <div id="view2">
+        <div>First name: <span data-bind="text: firstName"></span></div>
+        <div>Last name: <span data-bind="text: lastName"></span></div>
+        <div class="heading">Hello,
+            <input data-bind="textput: fullName" />
+        </div>
+    </div>
+    <hr />
+
+    <div id="view3">
+        <div class="heading">
+            <input type="checkbox" id="chkAll" data-bind="checked: selectedAllProduce" title="Select all/none" /> Produce <span data-bind="text: selectedAllProduce"></span>
+        </div>
+        <div data-bind="foreach: produce">
+            <label>
+                <input type="checkbox" data-bind="checkedValue: $data, checked: $parent.selectedProduce" />
+                <span data-bind="text: $data"></span>
+            </label>
+        </div>
+    </div>
+    <hr />
+
+    <div id="view4">
+        <div>Enter bid price:
+            <input data-bind="textInput: formattedPrice" />
+        </div>
+        <div>(Raw value: <span data-bind="text: price"></span>)</div>
+    </div>
+    <hr />
+
+    <div id="view5">
+        <div>Enter a numeric value:
+            <input data-bind="textInput: attemptedValue" />
+        </div>
+        <div class="error" data-bind="visible: !lastInputWasValid()">That's not a number!</div>
+        <div>(Accepted value: <span data-bind="text: acceptedNumericValue"></span>)</div>
+    </div>
+    <hr />
+
+    <div id="view6">
+        <div class="log" data-bind="text: computedLog"></div>
+        <!--ko if: step() == 0-->
+        <p>First name:
+            <input data-bind="textInput: firstName" />
+        </p>
+        <!--/ko-->
+        <!--ko if: step() == 1-->
+        <p>Last name:
+            <input data-bind="textInput: lastName" />
+        </p>
+        <!--/ko-->
+        <!--ko if: step() == 2-->
+        <div>Prefix:
+            <select data-bind="value: prefix, options: ['Mr.', 'Ms.','Mrs.','Dr.']"></select>
+        </div>
+        <h2>Hello, <span data-bind="text: fullName"> </span>!</h2>
+        <!--/ko-->
+        <p>
+            <button type="button" data-bind="click: next">Next</button>
+        </p>
+    </div>
+    <hr />
+
+    <div id="view7">
+        <h4>People</h4>
+        <ul data-bind="foreach: {data: people, as: 'person', afterAdd: fadeInDisplay}"><li>
+                Name at position <span data-bind="text: $index"></span>:
+                <ul data-bind="foreach: {data: hobbies, as: 'hobby'}">
+                    <li><span data-bind="text: person.name"></span> <span data-bind="text: hobby"></span></li>
+                </ul><a href="#" data-bind="click: $parent.removePerson">Remove Person</a></li></ul>
+        <button data-bind="click: addPerson">Add</button>
+    </div>
+    <hr />
+
+    <div id="view8">
+        <p><input type="text" name="txtFirstName" data-bind="value: firstName().length" /></p>
+        <p>
+            Select a country:
+            <select id="lstCountry" 
+                    data-bind="options: countries,
+                               optionsCaption: 'Choose one...',
+                               value: selectedCountry,
+                               valueAllowUnset: true"></select>
+        </p>
+    </div>
+    <hr />
+
+    <div id="view9">
+        <p>
+            Name:
+            <b data-bind="text: name, visible: !editing(), click: fnEdit"></b>
+            <input type="text" name="txtName" data-bind="value: name, visible: editing, hasFocus: editing" />
+        </p>
+        <p>Send me spam: <input type="checkbox" id="chkWantsSpam" data-bind="checked: wantsSpam" /></p>
+        ---------------------------------------------------------------------------------------------------
+        <!-- ko foreach: items -->
+            <p>
+                <input type="checkbox" data-bind="checkedValue: $data, checked: $root.chosenItems" />
+                <span data-bind="text: itemName"></span>
+            </p>
+        <!-- /ko -->
+
+        ---------------------------------------------------------------------------------------------------
+
+        <p>
+            Your country:
+            <select id="lstAvailableCountries" 
+                    multiple="true"
+                    size="3" 
+                    data-bind="options: availableCountries,
+                               optionsText: 'countryName',
+                               selectedOptions: chosenCountries,
+                               optionsCaption: optionsCaption"></select>
+        </p>
+
+        ---------------------------------------------------------------------------------------------------
+
+        <p>Name: <input id="txtEditingText" data-bind="hasFocuses: editingName" /></p>
+
+        <div data-bind="visible: editingName">You're editing the name</div>
+        
+        <button data-bind="enable: !editingName(), click:function() { editingName(true) }">Edit name</button>               
+    </div>
+    <hr />
+
+    <div id="view10">
+        <p>You've clicked <span data-bind="text: numberOfClicks">&nbsp;</span> times</p>
+        <button data-bind="click: registerClick, disable: hasClickedTooManyTimes">Click Me</button>
+        <p data-bind="visible: hasClickedTooManyTimes">
+            That's too many clicks! Please stop before you wear out your fingers.
+            <button data-bind='click: resetClicks'>Reset clicks</button>
+        </p>
+    </div>
+    <hr />
+
+    <div id="view11">
+        <form data-bind="submit: addItem">
+            New Item:
+            <input type="text" name="txtItem" id="txtItem" data-bind="value: itemToAdd, valueUpdate: 'afterkeydown'" />
+            <button type="submit" data-bind="enable: itemToAdd().length > 0">Add</button>
+            <p>Your items:</p>
+            <select multiple="multiple" width="50" data-bind="options: items"> </select>
+        </form>
+    </div>
+    <hr />
+
+    <div id="view12">
+        <form data-bind="submit: addItem">
+            Add Item: <input type="text" name="txtItemA" id="txtItemA" data-bind="value: itemToAdd, valueUpdate: 'afterkeydown'" />
+            <button type="submit" data-bind="enable: itemToAdd().length > 0">Add</button>
+        </form>
+
+        <p>Your values:</p>
+        <select multiple="multiple" height="5" data-bind="options:allItems, selectedOptions:selectedItems"> </select>
+
+        <div>
+            <button data-bind="click: removeSelected, enable: selectedItems().length > 0">Remove</button>
+            <button data-bind="click: sortItems, enable: allItems().length > 1">Sort</button>
+        </div>
+    </div>
+    <hr />
+
+    <div id="view13">
+        <input type="checkbox" data-bind="checked: showRendered" />
+        <ul data-bind="foreach: people">
+            <li>
+                <p><span data-bind="text: $data.name"></span> has <span data-bind="text: $data.children().length"></span> children: <a href="#" data-bind="click: addChild">Add Child</a></p>
+                <p data-bind="visible: $parent.showRendered">Rendered at <span data-bind="text: new Date().getTime()"></span></p>
+                <ul data-bind="foreach: $data.children">
+                    <li>
+                        <span data-bind="text: $data"></span>
+                        <p data-bind="visible: $root.showRendered">Rendered at <span data-bind="text: new Date().getTime()"></span></p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <pre data-bind="text: ko.toJSON($root, null, 2)"></pre>
+    </div>
+
+    <script type="text/javascript">
+
+        var viewModel_13 = (function ($) {
+
+            var Person = function (name, children) {
+                var self = this;
+
+                this.name = ko.observable(name);
+                this.children = ko.observableArray(children);
+                
+                this.addChild = function (data) {
+                    console.log(data);
+                    self.children.push('New Child');
+                }
+            };
+
+            var _people = ko.observableArray([
+                new Person("Annabelle", ["Arnie", "Anders", "Apple"]),
+                new Person("Bertie", ["Boutros-Boutros", "Brianna", "Barbie", "Bee-bop"]),
+                new Person("Charles", ["Cayenne", "Cleopatra"])
+            ]);
+
+            var _addChild = function (data) {
+                data.children.push('New Child');
+            };
+
+            var _showRendered = ko.observable(false);
+
+            return {
+                people: _people,
+                // addChild: _addChild,
+                showRendered: _showRendered
+            };
+
+        })(jQuery);
+        
+        ko.applyBindings(viewModel_13, $('#view13')[0]);
+
+        /* ******************************************************************************************************************** */
+
+        var viewModel_12 = (function($) {
+
+            var itemToAdd = ko.observable("");
+            
+            var allItems = ko.observableArray(["Fries", "Eggs Benedict", "Ham", "Cheese"]);
+
+            var selectedItems = ko.observableArray(["Ham"]);
+
+            var addItem = function () {
+                var _itemToAdd  = itemToAdd(),
+                    _na         = allItems.indexOf(_itemToAdd) < 0;
+
+                if ( _itemToAdd!=="" && _na) {
+                    allItems.push( _itemToAdd );
+                }
+
+                itemToAdd("");
+            };
+
+            var removeSelected = function () {
+                allItems.removeAll(selectedItems());
+                selectedItems([]);
+            };
+
+            var sortItems = function () {
+                allItems.sort();
+            };
+
+            return {
+                allItems: allItems,
+                addItem: addItem,
+                itemToAdd: itemToAdd,
+                selectedItems: selectedItems,
+                removeSelected: removeSelected,
+                sortItems: sortItems
+            };
+
+        })(jQuery);
+
+        ko.applyBindings(viewModel_12, $('#view12')[0]);
+
+        /* ******************************************************************************************************************** */
+
+        var viewModel_11 = (function($) {
+
+            var itemToAdd = ko.observable("");
+            
+            var items = ko.observableArray(["Alpha","Beta","Gamma"]);
+
+            var addItem = function () {
+                items.push(itemToAdd());
+                itemToAdd("");
+            };
+
+            return {
+                items: items,
+                addItem: addItem,
+                itemToAdd: itemToAdd
+            };
+
+        })(jQuery);
+
+        ko.applyBindings(viewModel_11, $('#view11')[0]);
+
+        /* ******************************************************************************************************************** */
+        var viewModel_10 = (function($) {
+
+            var numberOfClicks = ko.observable(0);
+
+            var registerClick = function () {
+                numberOfClicks( numberOfClicks() + 1 );
+            };
+
+            var hasClickedTooManyTimes = ko.pureComputed(function () {
+                return numberOfClicks() >= 3;
+            });
+
+            var resetClicks = function () {
+                numberOfClicks( 0 );
+            };
+
+            return {
+                numberOfClicks: numberOfClicks,
+                registerClick: registerClick,
+                hasClickedTooManyTimes: hasClickedTooManyTimes,
+                resetClicks: resetClicks
+            };
+
+        })(jQuery);
+
+        ko.applyBindings(viewModel_10, $('#view10')[0]);
+
+        /* ******************************************************************************************************************** */
+
+        ko.bindingHandlers.hasFocuses = {
+            init: function (element, valueAccessor) {
+                
+                $(element).focus(function () {
+                    var value = valueAccessor();
+                    console.log('handler for focus...');
+                    value( true );                    
+                });
+
+                $(element).blur(function () {
+                    var value = valueAccessor();
+                    console.log('handler for blur...');
+                    value( false );                    
+                });
+
+            },
+            update: function (element, valueAccessor) {
+                var value = valueAccessor();
+
+                console.log("update........");
+
+                if (ko.unwrap(value)) {
+                    console.log('trigerring focus...');
+                    element.focus();
+                } else {
+                    console.log('trigerring blur...');
+                    element.blur();
+                }
+            }
+        };
+
+
+        var viewModel_9 = (function($) {
+
+            var name = ko.observable("Norma Mendonca");
+            
+            var editing = ko.observable(false);
+            
+            var fnEdit = function () {
+                editing( true );
+            };
+
+            var wantsSpam = ko.observable(true);
+
+            var items = ko.observableArray([
+                { itemName: 'Choice 1' },
+                { itemName: 'Choice 2' }
+            ]);
+            
+            var chosenItems = ko.observableArray();
+
+            // Constructor for an object with two properties
+            var Country = function(name, population) {
+                this.countryName = name;
+                this.countryPopulation = population;
+            };
+
+            var country1 = new Country("UK", 65000000);
+            var availableCountries = ko.observableArray([
+                country1,
+                new Country("USA", 320000000),
+                new Country("Sweden", 29000000)
+            ]);
+
+            var selectedCountry = ko.observable('USA');
+
+            var chosenCountries = ko.observableArray([country1]);
+
+            var optionsCaption = ko.observable('optionsCaption');
+
+
+            var editingName = ko.observable();
+
+            return {
+                name: name,
+                editing: editing,
+                fnEdit: fnEdit,
+                wantsSpam: wantsSpam,
+                items: items,
+                chosenItems: chosenItems,
+                availableCountries: availableCountries,
+                selectedCountry: selectedCountry,
+                optionsCaption: optionsCaption,
+                chosenCountries: chosenCountries,
+
+                editingName: editingName
+            }
+
+        })(jQuery);
+        
+        ko.applyBindings(viewModel_9, $('#view9')[0]);
+
+        /* ******************************************************************************************************************** */
+
+        var viewModel_8 = (function($) {
+            
+            var countries       = ['Japan', 'Bolivia', 'New Zealand'];
+            
+            var selectedCountry = ko.observable();
+
+            var firstName       = ko.observable("Norma Mendonca");
+
+            return {
+                countries: countries,
+                selectedCountry: selectedCountry,
+                firstName: firstName
+            }
+
+        })(jQuery);
+        
+        ko.applyBindings(viewModel_8, $('#view8')[0]);
+
+        /* ******************************************************************************************************************** */
+
+        var viewModel_7 = (function($) {
+
+            var people = ko.observableArray([{
+                name: "Conrad",
+                hobbies: ['Hobby 1', 'Hobby 2', 'Hobby 3']
+            }, {
+                name: "Norma",
+                hobbies: ['Hobby 4', 'Hobby 5', 'Hobby 6']
+            }, {
+                name: "Cheryl",
+                hobbies: ['Hobby 7', 'Hobby 8', 'Hobby 9']
+            }, ]);
+
+            var removePerson = function(data) {
+                people.remove(data);
+            };
+
+            var addPerson = function() {
+                people.push({
+                    name: "Person " + Math.floor(Math.random() * 10) + 1,
+                    hobbies: ["Hobby " + Math.floor(Math.random() * 10) + 1, "Hobby " + Math.floor(Math.random() * 10) + 1, "Hobby " + Math.floor(Math.random() * 10) + 1]
+                });
+            };
+
+            var fadeInDisplay = function(element, index, data) {
+                $(element).css("display", "none");
+                $(element).fadeIn();
+            };
+
+            return {
+                people: people,
+                removePerson: removePerson,
+                addPerson: addPerson,
+                fadeInDisplay: fadeInDisplay
+            };
+
+        })(jQuery);
+
+        ko.applyBindings(viewModel_7, $('#view7')[0]);
+
+        /* ******************************************************************************************************************** */
+
+        var viewModel_6 = (function($) {
+
+            var firstName = ko.observable('John');
+            var lastName = ko.observable('Burns');
+            var prefix = ko.observable('Dr.');
+            var computedLog = ko.observable('Log.');
+            var step = ko.observable(0);
+            var next = function() {
+                step(step() === 2 ? 0 : step() + 1);
+            };
+            var fullName = ko.computed(function() {
+                var value = prefix() + " " + firstName() + " " + lastName();
+                computedLog(computedLog.peek() + value + '; ');
+                return value;
+            });
+
+
+            return {
+                firstName: firstName,
+                lastName: lastName,
+                prefix: prefix,
+                computedLog: computedLog,
+                step: step,
+                next: next,
+                fullName: fullName
+            };
+
+        })(jQuery);
+
+        viewModel_6.fullName.subscribe(function() {
+            // console.log("awake");
+        }, viewModel_6, "awake");
+
+
+        viewModel_6.fullName.subscribe(function() {
+            // console.log("asleep");
+        }, viewModel_6, "asleep");
+
+        ko.applyBindings(viewModel_6, $('#view6')[0]);
+
+        /* ******************************************************************************************************************** */
+
+        var viewModel_5 = (function($) {
+
+            var acceptedNumericValue = ko.observable(123);
+            var lastInputWasValid = ko.observable(true);
+            var attemptedValue = ko.pureComputed({
+                read: function() {
+                    return acceptedNumericValue();
+                },
+                write: function(value) {
+                    if (isNaN(value)) {
+                        lastInputWasValid(false);
+                    } else {
+                        lastInputWasValid(true);
+                        acceptedNumericValue(value);
+                    }
+                },
+                deferEvaluation: true
+            });
+
+            return {
+                acceptedNumericValue: acceptedNumericValue,
+                lastInputWasValid: lastInputWasValid,
+                attemptedValue: attemptedValue
+            };
+        })(jQuery);
+
+        ko.applyBindings(viewModel_5, $('#view5')[0]);
+
+        /* ******************************************************************************************************************** */
+
+        function viewModel_4() {
+            this.price = ko.observable(25.99) //.extend({ notify: 'always'});
+
+            this.formattedPrice = ko.pureComputed({
+                    read: function() {
+                        // return '$' + this.price().toFixed(2);
+                        return '$' + this.price().toFixed(2);
+                    },
+                    write: function(value) {
+                        // Strip out unwanted characters, parse as float, then write the 
+                        // raw data back to the underlying "price" observable
+                        value = parseFloat(value.replace(/[^\.\d]/g, ""));
+                        this.price(isNaN(value) ? 0 : value); // Write to underlying storage
+                    },
+                    owner: this
+                }) //.extend({ notify: 'always'});
+        }
+
+        ko.applyBindings(new viewModel_4(), $('#view4')[0]);
+
+        /* ******************************************************************************************************************** */
+
+        var viewModel_3 = (function($) {
+
+            var produce = ['Apple', 'Banana', 'Celery', 'Corn', 'Orange', 'Spinach'];
+
+            var selectedProduce = ko.observableArray(['Corn', 'Orange']);
+
+            // var selectedAllProduce = ko.observable(false);
+
+            var selectedAllProduce = ko.pureComputed({
+                read: function() {
+                    // console.log("Read: ", selectedProduce().length === produce.length);
+                    return selectedProduce().length === produce.length;
+                    return true;
+                },
+                write: function(value) {
+                    // console.log("Write: ", value)
+                    selectedProduce(value ? produce.slice(0) : []);
+                },
+                owner: this
+            });
+
+
+
+            return {
+                produce: produce,
+                selectedProduce: selectedProduce,
+                selectedAllProduce: selectedAllProduce
+            };
+        })(jQuery);
+
+        ko.applyBindings(viewModel_3, $('#view3')[0]);
+
+        /* ******************************************************************************************************************** */
+
+        var viewModel_2 = (function($) {
+
+            var firstName = ko.observable('Planet');
+
+            var lastName = ko.observable('Earth');
+
+            var fullName = ko.computed({
+                read: function() {
+                    return firstName() + " " + lastName();
+                },
+                write: function(value) {
+                    var lastSpacePos = value.lastIndexOf(" ");
+                    if (lastSpacePos > 0) { // Ignore values with no space character
+                        firstName(value.substring(0, lastSpacePos)); // Update "firstName"
+                        lastName(value.substring(lastSpacePos + 1)); // Update "lastName"
+                    }
+                },
+                owner: this
+            });
+
+            return {
+                firstName: firstName,
+                lastName: lastName,
+                fullName: fullName
+            };
+        })(jQuery);
+
+        ko.applyBindings(viewModel_2, $('#view2')[0]);
+
+        /* ******************************************************************************************************************** */
+
+        var viewModel_1 = (function($) {
+
+            var items = ko.observableArray(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']);
+
+            var selectedIndexes = ko.observableArray([]);
+
+            return {
+                items: items,
+                selectedIndexes: selectedIndexes
+            };
+        })(jQuery);
+
+        ko.applyBindings(viewModel_1, $('#view1')[0]);
+    </script>
+</body>
+
+</html>

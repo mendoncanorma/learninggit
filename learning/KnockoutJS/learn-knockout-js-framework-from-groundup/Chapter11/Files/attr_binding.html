@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>Example: Attr Binding </title>
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+	</head>
+	<body>
+		<a data-bind="attr: {href: url, title: details}">
+			About Us
+		</a>
+
+	<script>
+		var viewModel = {
+			url: ko.observable('about.html'),
+			details: ko.observable('Read More About Us')
+		}
+
+		ko.applyBindings(viewModel);
+	</script>
+	</body>
+</html>

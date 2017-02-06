@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Getting Started</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js"></script>
+
+    <script>
+        $(function () {
+             var myViewModel = {
+                course: 'C++',
+                rating: 10
+            };
+			
+			ko.applyBindings(myViewModel,
+				document.getElementById('withBinding'));
+        });
+    </script>
+</head>
+<body>
+    <div id="withBinding">
+       The course <b><span data-bind="text: course"></span></b> 
+	   got a rating of <b><span data-bind="text: rating"></span></b>.
+    </div>
+    <div id="noBinding">
+       The course <u><span data-bind="text: course"></span></u> is interesting!!
+    </div>
+</body>
+</html>

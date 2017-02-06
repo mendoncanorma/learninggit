@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!-- /ht Paul Irish - http://front.ie/j5OMXi -->
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>Top Drawer - A smooth dropdown menu for responsive web design | Experiment #5</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- /ht Andy Clarke - http://front.ie/lkCwyf -->
+    <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/link/to/favicon.ico">
+    <link rel="apple-touch-icon" href="/link/to/apple-touch-icon.png">
+
+    <!-- /ht Jeremy Keith - http://front.ie/mLXiaS -->
+    <link href='http://fonts.googleapis.com/css?family=Quicksand|Open+Sans:400,700,800,300' rel='stylesheet' type='text/css'>
+    
+    <link href="../assets/bootstrap.css" type="text/css" rel="stylesheet" />
+    <!--
+    <link rel="stylesheet" href="https://dl.dropbox.com/u/12091580/jordanm/css/lab.css" media="all">
+    <link rel="stylesheet" href="http://static.tumblr.com/jdwzxqr/iolmjsq4g/global.css" media="all">
+    -->
+
+    <!-- 30em + (1.618em * 2) = 33.236em / Eliminates potential of horizontal scrolling in most cases -->
+
+    <!--[if (lt IE 9) & (!IEMobile)]>
+    <link rel="stylesheet" href="css/layout.css" media="all">
+    <![endif]-->
+
+    <style type="text/css">
+        body { font-size:100%; background: #F1492F; color: #fff; font-family: 'Open Sans',"Helvetica Neue", Arial, sans-serif; margin: 0; padding: 0; }    
+        a { color: #fff; }
+
+        .top { background: #212121; color: #fff; position: absolute; left: 0; top: 0; right: 0; z-index: 2; overflow: hidden; }        
+        .drawer {transform: translate3d(0, -141px, 0); transition:transform 0.25s linear;}
+        .drawer.active { transform: translate3d(0,129px,0); }        
+        a.menu {position: absolute; z-index: 3; border: 1px solid white; text-decoration: none; top: 1.6em; right: 1.6em; color: #FFF; text-transform: uppercase; font-size: 0.65em; padding: 0.4em 0.7em; border-radius: 4px;}
+        a.menu span { font-size:1.6em; vertical-align: -0.15em; }
+        nav ul { list-style:none; } 
+        nav ul li a { display: block; text-decoration: none; background: rgba(0,0,0,0.3); color: white; padding: 1em; margin-bottom: 1px; }        
+        
+        @media all and (min-width: 30em) {
+            .drawer {transform: translate3d(0, -197px, 0);}
+            .drawer.active {transform:translate3d(0,70px,0);}
+            h1 {text-align: left;}
+            .container {padding: 2.6em;}
+        }
+    </style>
+    
+    <script src="http://static.tumblr.com/jdwzxqr/rhgmjsptj/fastclick.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.1/modernizr.min.js"></script>
+    
+
+</head>
+
+<body>
+
+
+    <header>
+        <div class="top">
+            <div class="heading">
+                <h1>Top Drawer</h1>
+            </div>
+            <a href="#" class="menu"><span>&equiv;</span> Menu</a>
+        </div>
+    </header>
+
+    <div class="drawer">
+        <nav>
+            <ul class="nav nav-tabs nav-stacked">
+                <li><a href="#">Menu Item</a></li>
+                <li><a href="#">Menu Item</a></li>
+                <li><a href="#">Menu Item</a></li>
+                <li><a href="#">Menu Item</a></li>
+                <li><a href="#">Menu Item</a></li>
+            </ul>
+        </nav>
+        <div class="container" class="cf">
+
+            <h2>responsive full screen navigation menu that slides from top using a toggle button</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>loremLorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>loremLorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>loremLorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>loremLorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, cupiditate, laboriosam quod maxime dignissimos modi officia sequi fugiat excepturi ut nam exercitationem voluptatum cumque velit quaerat alias quo debitis nesciunt.</p>
+
+        </div>
+
+        <footer>
+            <p>A <a href="http://jordanm.co.uk">lab experiment</a> by <a href="http://twitter.com/jordanmoore">Jordan Moore</a>.</p>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript">
+        window.addEventListener('load', function() {
+            new FastClick(document.body);
+        }, false);
+
+        $('.menu').click(function(e) {
+            $('.drawer').toggleClass('active');
+            e.preventDefault();
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>Example: View Model</title>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+</head>
+<body>
+	<h1>Welcome <span data-bind="text: firstName"></span> <span data-bind="text: lastName"></span></h1>
+	<label>First Name:</label> 
+	<input type="text" data-bind="value: firstName"> 
+	<label>Last Name:</label> 
+	<input type="text" data-bind="value: lastName">
+	<br><br>
+	<button>Change</button>
+<script>
+	var myViewModel = {
+		firstName:ko.observable('Mike'),
+		lastName: ko.observable('Doe')
+	}
+
+	$('button').click(function(){
+		myViewModel.firstName('George');
+		myViewModel.lastName('Williams');
+	});
+
+	myViewModel.firstName.subscribe(function(newValue){
+		alert("The users first name is now "+newValue);
+	});
+
+	myViewModel.firstName.subscribe(function(oldValue){
+		alert("The users previous name was "+oldValue);
+	},null, "beforeChange");
+
+	ko.applyBindings(myViewModel);
+</script>
+</body>
+</html>
